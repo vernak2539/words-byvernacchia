@@ -1,0 +1,24 @@
+---
+import { SITE_TITLE_SPLIT } from "../constants";
+---
+
+<h1>
+    {SITE_TITLE_SPLIT[0]}
+    <span class="text-gradient">{SITE_TITLE_SPLIT[1]}</span>
+</h1>
+
+<style>
+    h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+</style>

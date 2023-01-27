@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import SiteTitle from "../components/SiteTitle.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
 
 <Layout title={SITE_TITLE}>
     <main>
-        <h1>{SITE_TITLE}</h1>
+        <SiteTitle />
         <p class="tagline">{SITE_DESCRIPTION}</p>
 
         <section class="words">
@@ -21,13 +22,35 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
                 this. Should be fun. In the meantime, checkout some silly things
                 below that I do elsewhere.
             </p>
+
+            <p class="smaller">
+                And yes, I kept a lot of things from the Astro base. So sue me
+                (but really, don't) - I am not a lawyer
+            </p>
         </section>
 
-        <Card
-            title="byvernacchia.com"
-            body="Just some messing around"
-            href="https://byvernacchia.com"
-        />
+        <ul role="list" class="link-card-grid">
+            <Card
+                title="byvernacchia.com"
+                body="Just some messing around. Recruiters, eat your hearts out..."
+                href="https://byvernacchia.com"
+            />
+            <Card
+                title="Github"
+                body="Ohhh, you want some code?"
+                href="https://www.github.com/vernak2539"
+            />
+            <Card
+                title="500px"
+                body="Used to be into photography... maybe I will be again soon??"
+                href="https://500px.com/vernacchia"
+            />
+            <Card
+                title="Instagram"
+                body="Again, liked to post pictures... not of my actual life though"
+                href="https://instagram.com/vernak2539"
+            />
+        </ul>
     </main>
 </Layout>
 
@@ -37,30 +60,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
         padding: 1.5rem;
         max-width: 60ch;
     }
-    h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin: 0;
-    }
     .tagline {
         font-style: italic;
     }
-    /* .text-gradient {
-        background-image: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    } */
+    .smaller {
+        font-size: 0.75rem;
+    }
     .words {
         line-height: 1.6;
         margin: 1rem 0;
-        border: 1px solid rgba(var(--accent), 25%);
-        background-color: white;
-        padding: 1rem;
+        padding: 1rem 0;
         border-radius: 0.4rem;
     }
-
     .link-card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
