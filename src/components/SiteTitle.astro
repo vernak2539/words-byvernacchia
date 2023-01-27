@@ -1,10 +1,13 @@
 ---
-import { SITE_TITLE_SPLIT } from "../constants";
+export interface Props {
+    title: string[];
+}
+
+const { title } = Astro.props;
 ---
 
 <h1>
-    {SITE_TITLE_SPLIT[0]}
-    <span class="text-gradient">{SITE_TITLE_SPLIT[1]}</span>
+    {title[0]}<span class="text-gradient link"><a href="/">{title[1]}</a></span>
 </h1>
 
 <style>
@@ -20,5 +23,13 @@ import { SITE_TITLE_SPLIT } from "../constants";
         -webkit-text-fill-color: transparent;
         background-size: 400%;
         background-position: 0%;
+    }
+
+    .link {
+        border-bottom: 3px solid #000;
+    }
+
+    .link:hover {
+        border-bottom-color: #4a76d4;
     }
 </style>

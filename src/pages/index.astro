@@ -1,89 +1,71 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import SiteTitle from "../components/SiteTitle.astro";
-
-import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title={SITE_TITLE}>
-    <main>
-        <SiteTitle />
-        <p class="tagline">{SITE_DESCRIPTION}</p>
+<Layout title="home">
+    <section class="words">
+        <p>Well, you've made it here for some reason... Have fun I guess!</p>
 
-        <section class="words">
-            <p>
-                Well, you've made it here for some reason... Have fun I guess!
-            </p>
+        <p>
+            But really, I'm making this site for my explorations into FE tech
+            things. I'll make a blog post soon about why I'm doing this. Should
+            be fun. In the meantime, checkout some silly things below that I do
+            elsewhere.
+        </p>
 
-            <p>
-                But really, I'm making this site for my explorations into FE
-                tech things. I'll make a blog post soon about why I'm doing
-                this. Should be fun. In the meantime, checkout some silly things
-                below that I do elsewhere.
-            </p>
+        <p class="smaller">
+            And yes, I kept a lot of things from the Astro base. So sue me (but
+            really, don't) - I am not a lawyer
+        </p>
+    </section>
 
-            <p class="smaller">
-                And yes, I kept a lot of things from the Astro base. So sue me
-                (but really, don't) - I am not a lawyer
-            </p>
-        </section>
+    <section class="other-content">
+        <h2>The Good Stuff</h2>
+        <p class="tagline">(ramblings / blog)</p>
+        <Card
+            title="Blog"
+            body="Ramblings / blog / whatever I want it to be..."
+            href="/blog"
+        />
+    </section>
 
-        <section class="other-content">
-            <h2>The Good Stuff</h2>
-            <p class="tagline">(ramblings / blog)</p>
+    <section class="other-content">
+        <h2>Other Stuff</h2>
+        <p class="tagline">(arguably good stuff as well)</p>
+
+        <ul role="list" class="link-card-grid">
             <Card
-                title="Blog"
-                body="Ramblings / blog / whatever I want it to be..."
-                href="/blog"
+                title="byvernacchia.com"
+                body="Just some messing around. Recruiters, eat your hearts out..."
+                href="https://byvernacchia.com"
             />
-        </section>
-
-        <section class="other-content">
-            <h2>Other Stuff</h2>
-            <p class="tagline">(arguably good stuff as well)</p>
-
-            <ul role="list" class="link-card-grid">
-                <Card
-                    title="byvernacchia.com"
-                    body="Just some messing around. Recruiters, eat your hearts out..."
-                    href="https://byvernacchia.com"
-                />
-                <Card
-                    title="Github"
-                    body="Ohhh, you want some code?"
-                    href="https://www.github.com/vernak2539"
-                />
-                <Card
-                    title="500px"
-                    body="Used to be into photography... maybe I will be again soon??"
-                    href="https://500px.com/vernacchia"
-                />
-                <Card
-                    title="Instagram"
-                    body="Again, liked to post pictures... not of my actual life though"
-                    href="https://instagram.com/vernak2539"
-                />
-            </ul>
-        </section>
-    </main>
+            <Card
+                title="Github"
+                body="Ohhh, you want some code?"
+                href="https://www.github.com/vernak2539"
+            />
+            <Card
+                title="500px"
+                body="Used to be into photography... maybe I will be again soon??"
+                href="https://500px.com/vernacchia"
+            />
+            <Card
+                title="Instagram"
+                body="Again, liked to post pictures... not of my actual life though"
+                href="https://instagram.com/vernak2539"
+            />
+        </ul>
+    </section>
 </Layout>
 
 <style>
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 60ch;
-    }
     h2 {
         margin-bottom: 0;
     }
     h2 + .tagline {
         margin-top: 5px;
         font-size: 0.8rem;
-    }
-    .tagline {
-        font-style: italic;
     }
     .smaller {
         font-size: 0.75rem;
