@@ -29,28 +29,43 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
             </p>
         </section>
 
-        <ul role="list" class="link-card-grid">
+        <section class="other-content">
+            <h2>The Good Stuff</h2>
+            <p class="tagline">(ramblings / blog)</p>
             <Card
-                title="byvernacchia.com"
-                body="Just some messing around. Recruiters, eat your hearts out..."
-                href="https://byvernacchia.com"
+                title="Blog"
+                body="Ramblings / blog / whatever I want it to be..."
+                href="/blog"
             />
-            <Card
-                title="Github"
-                body="Ohhh, you want some code?"
-                href="https://www.github.com/vernak2539"
-            />
-            <Card
-                title="500px"
-                body="Used to be into photography... maybe I will be again soon??"
-                href="https://500px.com/vernacchia"
-            />
-            <Card
-                title="Instagram"
-                body="Again, liked to post pictures... not of my actual life though"
-                href="https://instagram.com/vernak2539"
-            />
-        </ul>
+        </section>
+
+        <section class="other-content">
+            <h2>Other Stuff</h2>
+            <p class="tagline">(arguably good stuff as well)</p>
+
+            <ul role="list" class="link-card-grid">
+                <Card
+                    title="byvernacchia.com"
+                    body="Just some messing around. Recruiters, eat your hearts out..."
+                    href="https://byvernacchia.com"
+                />
+                <Card
+                    title="Github"
+                    body="Ohhh, you want some code?"
+                    href="https://www.github.com/vernak2539"
+                />
+                <Card
+                    title="500px"
+                    body="Used to be into photography... maybe I will be again soon??"
+                    href="https://500px.com/vernacchia"
+                />
+                <Card
+                    title="Instagram"
+                    body="Again, liked to post pictures... not of my actual life though"
+                    href="https://instagram.com/vernak2539"
+                />
+            </ul>
+        </section>
     </main>
 </Layout>
 
@@ -59,6 +74,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
         margin: auto;
         padding: 1.5rem;
         max-width: 60ch;
+    }
+    h2 {
+        margin-bottom: 0;
+    }
+    h2 + .tagline {
+        margin-top: 5px;
+        font-size: 0.8rem;
     }
     .tagline {
         font-style: italic;
@@ -69,7 +91,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
     .words {
         line-height: 1.6;
         margin: 1rem 0;
-        padding: 1rem 0;
         border-radius: 0.4rem;
     }
     .link-card-grid {
@@ -77,5 +98,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
         grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
         gap: 1rem;
         padding: 0;
+    }
+    .other-content {
+        margin-bottom: 30px;
+    }
+    .other-content:last-child {
+        margin-bottom: 0;
     }
 </style>
