@@ -1,13 +1,6 @@
 ---
 import SiteTitle from "../components/SiteTitle.astro";
-import { SITE_DESCRIPTION, SITE_TITLES_SPLIT } from "../constants";
-
-export interface Props {
-    title: "home" | "blog";
-}
-
-const { title } = Astro.props;
-const titleSplit = SITE_TITLES_SPLIT[title];
+import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
 
 <!DOCTYPE html>
@@ -17,11 +10,11 @@ const titleSplit = SITE_TITLES_SPLIT[title];
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{titleSplit.join("")}</title>
+        <title>{SITE_TITLE}</title>
     </head>
     <body>
         <main class="main-container">
-            <SiteTitle title={titleSplit} />
+            <SiteTitle />
             <p class="site-tagline">{SITE_DESCRIPTION}</p>
             <slot />
         </main>
