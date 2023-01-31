@@ -1,6 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { sortByPubdate } from "../utils/sort-posts";
+
+const latestPost = (await getCollection("blog")).sort(sortByPubdate)[0];
+const blogPath = "/blog";
 ---
 
 <BaseLayout>
@@ -23,11 +28,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <section class="other-content">
         <h2>The Good Stuff</h2>
         <p class="tagline">(ramblings / blog)</p>
-        <Card
-            title="Blog"
-            body="Ramblings / blog / whatever I want it to be..."
-            href="/blog"
-        />
+        <ul role="list" class="link-card-grid">
+            <Card
+                title={latestPost.data.title}
+                body={latestPost.data.description}
+                href={`${blogPath}/${latestPost.slug}`}
+            />
+            <Card
+                title="All Posts"
+                body="Ramblings / blog / whatever I want it to be..."
+                href={blogPath}
+            />
+        </ul>
     </section>
 
     <section class="other-content">
