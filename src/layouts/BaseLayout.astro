@@ -1,0 +1,19 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import SiteTitle from "../components/SiteTitle.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <main class="container">
+            <SiteTitle variant="home" />
+            <p class="site-tagline">{SITE_DESCRIPTION}</p>
+            <slot />
+        </main>
+    </body>
+</html>

@@ -1,16 +1,28 @@
 ---
 import { SITE_TITLE_SPLIT } from "../constants";
+
+export interface Props {
+    variant: "home" | "blog";
+}
+
+const { variant } = Astro.props;
 ---
 
-<h1>
+<h1 class={variant}>
     {SITE_TITLE_SPLIT[0]}{" "}<span class="text-gradient link"
         ><a href="/">{SITE_TITLE_SPLIT[1]}</a></span
     >
 </h1>
 
 <style>
-    h1 {
+    h1.home {
         font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    h1.blog {
+        font-size: 1.5rem;
         font-weight: 800;
         margin: 0;
     }
