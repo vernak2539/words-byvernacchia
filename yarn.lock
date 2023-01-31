@@ -667,6 +667,11 @@ array-iterate@^2.0.0:
   resolved "https://registry.yarnpkg.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
+astro-breadcrumbs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/astro-breadcrumbs/-/astro-breadcrumbs-1.1.0.tgz#adbdf7c81a29c98399fcd9f370f9ef6dbc833c21"
+  integrity sha512-Szs2ul8xWPl0W9/VtxfBfsfRk4hMSQ3oWGE5ZopQjzyX20VpnKYvW1RaOLDu+74wLf4Y3YkeOyb7ebUgFPdTHg==
+
 astro@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.2.tgz#a465d8ba066e16bd21e3b6d2a7a1b7aa209ba2fa"

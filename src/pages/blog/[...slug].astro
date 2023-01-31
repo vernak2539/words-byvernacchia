@@ -1,5 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 
 export async function getStaticPaths() {
@@ -16,5 +17,6 @@ const { Content } = await post.render();
 ---
 
 <BlogPostLayout {...post.data}>
+    <Breadcrumbs />
     <Content />
 </BlogPostLayout>
