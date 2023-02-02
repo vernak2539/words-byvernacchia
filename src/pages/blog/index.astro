@@ -2,6 +2,7 @@
 import Layout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { sortByPubdate } from "../../utils/sort-posts";
+import { formatDate } from "../../utils/datetime-fmt";
 
 const posts = (await getCollection("blog")).sort(sortByPubdate);
 ---
@@ -12,11 +13,7 @@ const posts = (await getCollection("blog")).sort(sortByPubdate);
             posts.map((post) => (
                 <li>
                     <time datetime={post.data.pubDate.toISOString()}>
-                        {post.data.pubDate.toLocaleDateString("en-us", {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                        })}
+                        {formatDate(post.data.pubDate)}
                     </time>
                     <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
                 </li>

@@ -22,7 +22,7 @@ const { variant } = Astro.props;
     }
 
     h1.blog {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 800;
         margin: 0;
     }
@@ -37,6 +37,10 @@ const { variant } = Astro.props;
 
     .link {
         border-bottom: 3px solid #000;
+    }
+
+    .blog .link {
+        border-width: 1px;
     }
 
     .link:hover {
