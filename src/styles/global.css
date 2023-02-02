@@ -16,6 +16,22 @@ code {
         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
+a {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+}
+
+a:hover {
+    background-image: none;
+    color: rgb(var(--accent));
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    text-decoration: underline;
+}
+
 .container {
     margin: auto;
     padding: 1.5rem;

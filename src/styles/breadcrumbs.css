@@ -11,14 +11,6 @@ nav.c-breadcrumbs .c-breadcrumbs__crumbs .c-breadcrumbs__crumb {
     display: flex;
 }
 
-nav.c-breadcrumbs .c-breadcrumbs__crumbs .c-breadcrumbs__crumb a {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-}
-
 nav.c-breadcrumbs
     .c-breadcrumbs__crumbs
     .c-breadcrumbs__crumb
