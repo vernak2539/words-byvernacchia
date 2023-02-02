@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SiteTitle from "../components/SiteTitle.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
@@ -29,7 +30,8 @@ const {
                         <img width={720} height={360} src={heroImage} alt="" />
                     )
                 }
-                <h1 class="title">{blogTitle}</h1>
+                <h2 style={{ marginBottom: ".5rem" }}>{blogTitle}</h2>
+                <Breadcrumbs />
                 {pubDate && <time>{formatDate(pubDate)}</time>}
                 {
                     updatedDate && (
