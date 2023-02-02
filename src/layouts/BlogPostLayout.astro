@@ -20,6 +20,11 @@ const {
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={description} />
+        <style>
+            .content {
+                line-height: 1.4;
+            }
+        </style>
     </head>
     <body>
         <main class="container">
@@ -41,7 +46,10 @@ const {
                     )
                 }
                 <hr />
-                <slot />
+
+                <section class="content">
+                    <slot />
+                </section>
             </article>
         </main>
     </body>
