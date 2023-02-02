@@ -3,13 +3,14 @@ export interface Props {
     title: string;
     body: string;
     href: string;
+    label?: string | undefined;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, label } = Astro.props;
 ---
 
 <!-- add banner variant (for latest) like github fork me... -->
-<li class="link-card">
+<li class={`link-card${Boolean(label) ? " label-container" : ""}`}>
     <a href={href}>
         <h2>
             {title}
@@ -19,6 +20,7 @@ const { href, title, body } = Astro.props;
             {body}
         </p>
     </a>
+    {label && <div class="label">{label}</div>}
 </li>
 <style>
     .link-card {
@@ -60,5 +62,26 @@ const { href, title, body } = Astro.props;
     }
     .link-card:is(:hover, :focus-within) h2 {
         color: rgb(var(--accent));
+    }
+
+    .label-container {
+        position: relative;
+    }
+
+    .label {
+        position: absolute;
+        top: -0.67rem;
+        left: 0.75rem;
+        padding: 0.2rem 1rem;
+        /* background-color: #ee1a36; */
+        background-image: var(--accent-gradient);
+        -webkit-background-clip:border-box
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #fff;
     }
 </style>

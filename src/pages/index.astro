@@ -27,12 +27,12 @@ const blogPath = "/blog";
 
     <section class="other-content">
         <h2>The Good Stuff</h2>
-        <p class="tagline">(ramblings / blog)</p>
         <ul role="list" class="link-card-grid">
             <Card
                 title={latestPost.data.title}
                 body={latestPost.data.description}
                 href={`${blogPath}/${latestPost.slug}`}
+                label="Latest"
             />
             <Card
                 title="All Posts"
