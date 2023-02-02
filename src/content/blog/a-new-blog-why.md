@@ -1,15 +1,81 @@
 ---
 title: "A New Blog? Why?"
-description: "Lorem ipsum dolor sit amet"
+description: "Hmmm, why a new blog? I wonder..."
 pubDate: "2022-01-31"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+I've been working at [Deliveroo](https://deliveroo.co.uk/) for quite some time, just over 4 years in fact! (That's forever in tech years)
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+When I was hired, my background was pretty spcific to FE-esque (frontend) things.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+1. Know my way around a browser ✅
+2. Have set up and debugged too many webpack configs ✅
+3. Investigated various styles of testing (still like TDD for unit tests. fight me) ✅
+4. Kept up with Node.js, React, and other tech ✅
+5. Can debate endlessly about _shit_... ✅
+6. Knew Backbone.js, Angular.js, and React + could pick up most FE stacks ✅
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+Unfortunatley, I moved to a different team after about 6-8 months and they didn't need many of these skills. Instead, they needed me to get up to speed with BE technologies. So, I did. It's what my team needed.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+Over the years (yes, years) the teams I was/am responsible for improved vastly. Like, so amazing. Maybe that's another blog post, but I digress. 
+
+During that time, I let my FE knowledge slip. All the flame wars between Svelte, Solid, React Suspense (still a thing like it was a while ago?!?!), XState, Remix, etc. = 🍿. I didn't have time to have a look. Hot takes were my sources of information.
+
+I am finally at a point where I can come back and investigate new FE tech! I've been lucky enough to scheduled a half day every week to do so. My manager even supports it. Hell, it was his idea.
+
+I'm really excited to get back into the FE space, allowing myself to evaluate different options and potentially bring some back to Deliveroo.
+
+Anyways, I'll be blogging about my experiences on this site, which I built with Astro (awww yeahhhh, new and shiny).
+
+Topics I'm looking at include, but are not limited to:
+
+- chrome extensions
+- `react-aria`
+- deno
+- `react-router`
+- tanstack router
+- `react-query` (or tanstack query)
+- what's the best way to build/package/transpile things these days - it's been a while
+- best way to have consistent types between backend/frontend + request validation
+    - trpc
+- frameworks
+    - nextjs latest
+    - remix
+    - qwik
+    - astro (astrobuild) - this blog
+    - Vue
+    - Svelte
+    - Solidjs
+- edge networks
+    - deno deploy
+    - cloudflare workers
+    - deployment to these using frameworks
+- serverless
+- lambda layers
+- api gateways
+- how to do React properly starting from fresh in 2022/23". I feel like a lot of what I know/we do as a company is based on React 14-ish ideas. Are we leveraging suspense? What about the shiny new SSR capabilities?
+- E2e testing Frameworks
+- Vite
+- Vitest
+- Cloudflare
+    - R2
+    - D1
+    - Wrangler
+    - KV store
+- View transitions - Page transitions
+    - new thing for MPAs and stuff like that
+- Module federation
+- Micro front-end
+- React three journey
+- Bundlers + tree shaking based out compile mode (js common)
+- lambda layers
+- Andy osmani online book
+- Openai rainingfor what you should focus on
+- Service workers
+- Framer
+- Bun
+- Xstate
+- Vanilla extract css
+- DynamoDB data modelling (not fe, but interesting to me and my role)
+
+They are also in no order!
