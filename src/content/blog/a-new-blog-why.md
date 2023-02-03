@@ -29,7 +29,7 @@ Anyways, I'll be blogging about my experiences on this site, which I built with 
 
 Topics I'm looking at include, but are not limited to:
 
-- chrome extensions
+- [chrome extensions](my-first-chrome-extension.md)
 - `react-aria`
 - deno
 - `react-router`
