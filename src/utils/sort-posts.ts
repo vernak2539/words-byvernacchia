@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
-export const sortByPubdate = (
+export const sortByPubdateMostRecentFirst = (
     a: CollectionEntry<"blog">,
     b: CollectionEntry<"blog">
-) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
+) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf();

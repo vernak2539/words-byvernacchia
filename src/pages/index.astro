@@ -2,9 +2,11 @@
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { sortByPubdate } from "../utils/sort-posts";
+import { sortByPubdateMostRecentFirst } from "../utils/sort-posts";
 
-const latestPost = (await getCollection("blog")).sort(sortByPubdate)[0];
+const latestPost = (await getCollection("blog")).sort(
+    sortByPubdateMostRecentFirst
+)[0];
 const blogPath = "/blog";
 ---
 

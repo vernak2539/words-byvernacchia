@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { sortByPubdate } from "../../utils/sort-posts";
+import { sortByPubdateMostRecentFirst } from "../../utils/sort-posts";
 import { formatDate } from "../../utils/datetime-fmt";
 
-const posts = (await getCollection("blog")).sort(sortByPubdate);
+const posts = (await getCollection("blog")).sort(sortByPubdateMostRecentFirst);
 ---
 
 <Layout>
