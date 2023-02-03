@@ -20,7 +20,10 @@ const {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} description={description} />
+        <BaseHead
+            title={`${blogTitle} | ${SITE_TITLE}`}
+            description={description}
+        />
         <style>
             .content {
                 line-height: 1.45;
