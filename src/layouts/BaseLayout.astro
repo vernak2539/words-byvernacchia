@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import SiteTitle from "../components/SiteTitle.astro";
+import Tracking from "../components/Tracking.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
 
@@ -8,6 +9,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <Tracking />
     </head>
     <body>
         <main class="container">

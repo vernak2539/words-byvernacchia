@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SiteTitle from "../components/SiteTitle.astro";
+import Tracking from "../components/Tracking.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
 
@@ -25,6 +26,7 @@ const {
                 line-height: 1.45;
             }
         </style>
+        <Tracking />
     </head>
     <body>
         <main class="container">
