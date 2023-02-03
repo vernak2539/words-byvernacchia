@@ -77,5 +77,6 @@ Topics I'm looking at include, but are not limited to:
 - Xstate
 - Vanilla extract css
 - DynamoDB data modelling (not fe, but interesting to me and my role)
+- Different ways to do search on static sites
 
 They are also in no order!
