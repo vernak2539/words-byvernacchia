@@ -2,12 +2,21 @@
 const isProduction = import.meta.env.PROD;
 ---
 
-<!-- Pixel Code for https://app.tinyanalytics.io/ -->{
+{
     isProduction && (
-        <script
-            defer
-            src="https://app.tinyanalytics.io/pixel/kZuYDqlmnwuHIKd"
-        />
+        <>
+            <script
+                async
+                defer
+                src="https://scripts.simpleanalyticscdn.com/latest.js"
+            />
+            <noscript>
+                <img
+                    src="https://queue.simpleanalyticscdn.com/noscript.gif"
+                    alt=""
+                    referrerpolicy="no-referrer-when-downgrade"
+                />
+            </noscript>
+        </>
     )
 }
-<!-- END Pixel Code -->
