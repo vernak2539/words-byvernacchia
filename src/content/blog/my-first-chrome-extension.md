@@ -50,7 +50,7 @@ There are some bugs I'd like to fix and features I'd like to add. See below!
 ## Next steps
 
 -   Allow for usage in Sheets, Slides, and other GSuite products that have zoom features ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/3))
--   Get it to work for larger documents ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/1))
+-   ✅ Get it to work for larger documents ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/1))
 -   Add an active state to the pop up ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/2))
 -   Make it prettier 💅
 
