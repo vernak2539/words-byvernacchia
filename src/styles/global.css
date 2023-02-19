@@ -24,6 +24,13 @@ a {
     background-position: 0%;
 }
 
+blockquote {
+    border-left: 3px solid #ccc;
+    margin: 0 1.5rem;
+    padding: 0 0 0 1rem;
+    color: #666;
+}
+
 a:hover {
     background-image: none;
     color: rgb(var(--accent));
