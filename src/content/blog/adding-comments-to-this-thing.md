@@ -23,6 +23,6 @@ And there we have it. It seems to be added to the page.
 It was relatively simple as I used some info from [this blog post](https://www.jamesperkins.dev/post/supercharge-your-astro-blog). Ended up 
 using standard JS instead of Svelte.
 
-Hopefully it works when it's deployed!
+~Hopefully it works when it's deployed!~ IT WORKED! I love the lazy solution!
 
 [utter]: https://utteranc.es/
