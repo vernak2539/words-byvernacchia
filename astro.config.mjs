@@ -7,7 +7,10 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
+import react from "@astrojs/react";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://words.byvernacchia.com',
-  integrations: [sitemap(), robotsTxt()]
+  integrations: [sitemap(), robotsTxt(), react()]
 });
