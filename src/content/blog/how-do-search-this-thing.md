@@ -62,3 +62,20 @@ super custom. So likely not going to go with that.
 ## My Choice
 
 I think I'm going to be lazy and try to use Algolia because it's "easy." Hopefully those aren't famous last words.
+
+### Me trying to implement it
+
+So, I went down this path of Algolia, let's see how it went.
+
+I looked for some SDK / package to integrate into my site, something along the lines of "set it and forget it."
+
+Unfortunately, I was mistaken and there is no silver bullet like I thought. It turns out you  have to prep data, upload 
+it to their site (like I describe in the [Others](#others) section 😬), and then implement search.
+
+After a bit of digging I ended up using [this blog](https://route360.dev/post/astro-algolia/) as a source of truth. It worked
+really well, so I would suggest that you have a look!
+
+Looking back, I probably could've used the [Load from Astro + Local Search](#load-from-astro--local-search) strategy as
+well.
+
+But, now there is search on the site. Maybe I'll have a go at refining it over time.
