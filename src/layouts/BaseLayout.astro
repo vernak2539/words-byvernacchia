@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import SimpleAnalyticsFooter from "../components/SimpleAnalyticsFooter.astro";
 import SiteTitle from "../components/SiteTitle.astro";
 import Tracking from "../components/Tracking.astro";
+import Search from "../components/Search";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
 
@@ -13,6 +14,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
         <Tracking />
     </head>
     <body>
+        <Search client:load />
         <main class="container">
             <SiteTitle variant="home" />
             <p class="site-tagline">{SITE_DESCRIPTION}</p>

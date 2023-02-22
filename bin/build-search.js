@@ -22,6 +22,7 @@ const data = filenames.map((filename) => {
         return {
             objectID: path.parse(filename).name,
             title: frontmatter.title,
+            description: frontmatter.description,
             content: removeMd(content).replace(/\n/g, ""),
         };
     } catch (e) {
@@ -32,7 +33,7 @@ const data = filenames.map((filename) => {
 console.log(data);
 
 client
-    .initIndex("words_by_vernacchia")
+    .initIndex(process.env.ALGOLIA_INDEX_NAME)
     .saveObjects(JSON.parse(JSON.stringify(data)))
     .then((res) => console.log(res)) //show the result
     .catch((err) => console.log(err));
