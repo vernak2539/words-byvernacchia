@@ -12,11 +12,15 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.1",
+    "algoliasearch": "^4.14.3",
     "astro": "^2.0.2",
     "astro-breadcrumbs": "^1.1.0",
     "astro-robots-txt": "^0.4.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.3"
+    "dotenv": "^16.0.3",
+    "gray-matter": "^4.0.3",
+    "prettier": "^2.8.3",
+    "remove-markdown": "^0.5.0"
   }
 }
