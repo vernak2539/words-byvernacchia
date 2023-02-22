@@ -2,6 +2,7 @@
 title: "Adding Comments to this Thing"
 description: "Let's use utterances to add some comments to this shite... I mean site."
 pubDate: "2022-02-19"
+socialImage: "utterances.png"
 ---
 
 Hmm... so this site doesn't have comments. Let's fix that.

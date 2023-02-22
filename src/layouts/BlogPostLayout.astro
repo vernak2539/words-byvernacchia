@@ -16,6 +16,7 @@ const {
     pubDate,
     updatedDate,
     heroImage,
+    socialImage,
 } = Astro.props;
 ---
 
@@ -25,6 +26,7 @@ const {
         <BaseHead
             title={`${blogTitle} | ${SITE_TITLE}`}
             description={description}
+            socialImage={socialImage}
         />
         <style>
             .content {
