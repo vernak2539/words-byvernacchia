@@ -1,7 +1,7 @@
 ---
 title: "How do I search this thing?"
-description: "Where is everything..."
-pubDate: "2022-02-22"
+description: "Where is everything?!?c"
+pubDate: "2022-02-23"
 ---
 
 I want to add some search features to this static site. Not a huge thing, but would be a nice to have.
@@ -32,7 +32,7 @@ At first, it seems free and pretty decent. Then you see that you have to either 
 cloud, both of which costs money.
 
 It does seem to be a decent product though, but it's not easy to set up ([tutorial](https://aviyel.com/post/1006/adding-typesense-search-to-an-astro-static-generated-website))
- / I'm lazy. Likely going to forgo this one.
+/ I'm lazy. Likely going to forgo this one.
 
 ### Load from Astro + Local Search
 
@@ -41,15 +41,15 @@ Seems like you can use Astro to load all posts on the "server" and then pass it 
 It would look something like this (obviously not Astro format, but you get the gist):
 
 ```js
-import Search from '../components/Search.tsx'
+import Search from "../components/Search.tsx";
 
-const posts = await Astro.glob('../blog/*.md');
+const posts = await Astro.glob("../blog/*.md");
 const searchablePosts = posts.filter((post) => !post.frontmatter.draft); // or whatever filters
 
-return <Search client:load searchList={searchablePosts} />
+return <Search client:load searchList={searchablePosts} />;
 ```
 
-Then inside that, do some filtering/search. I've been quite partial to [Fuse.js](https://fusejs.io/) (even if my team 
+Then inside that, do some filtering/search. I've been quite partial to [Fuse.js](https://fusejs.io/) (even if my team
 didn't like it ha) and have used that many times.
 
 Definitely a viable option.
@@ -65,17 +65,55 @@ I think I'm going to be lazy and try to use Algolia because it's "easy." Hopeful
 
 ### Me trying to implement it
 
-So, I went down this path of Algolia, let's see how it went.
+My god, this was a nightmare 😬.
 
-I looked for some SDK / package to integrate into my site, something along the lines of "set it and forget it."
+I thought it would be so easy since everyone seems to use Algolia. Just add a JS snippet and you're done. It does everything
+else for you. Boy was I wrong.
 
-Unfortunately, I was mistaken and there is no silver bullet like I thought. It turns out you  have to prep data, upload 
-it to their site (like I describe in the [Others](#others) section 😬), and then implement search.
+#### Populating Search Indexes
 
-After a bit of digging I ended up using [this blog](https://route360.dev/post/astro-algolia/) as a source of truth. It worked
-really well, so I would suggest that you have a look!
+It turns out you very much do have to prep data yourself. This involves parsing and uploading it to their site. It's almost
+as if I described this in the [Others](#others) section before I choose my fate. Man, being lazy doens't pay off sometimes.
 
-Looking back, I probably could've used the [Load from Astro + Local Search](#load-from-astro--local-search) strategy as
-well.
+So, I built a node script to do it. You can see it [here](https://github.com/vernak2539/words-byvernacchia/blob/main/bin/build-search.js).
+I was lazy here and stole a lot from [this blog post](https://route360.dev/post/astro-algolia/#create-algoliajs).
 
-But, now there is search on the site. Maybe I'll have a go at refining it over time.
+This runs on my Github workflow when I build and publish my blog, so it should have up-to-date information when new
+content is released.
+
+#### Implementing the Search
+
+This was sooooooo difficult to figure out. I started at their website and the first thing you're confronted with is whether
+to use InstantSearch, React InstanceSearch, React InstanceSearch Hooks, etc.
+
+Damnnnnnn, that's a lot of choices.
+
+So, I went for React InstanceSearch Hooks. I followed the instructions, trying to figure how to display results and how to
+style it (had to install a separate NPM package for this then import it). I ran into problems 🤦‍
+
+Some of these problems were due to Astro and how I'd not added `client:load` to my React component. Even after doing that,
+there were still problems.
+
+How do I style it? How do I move it to different parts of my sight? How do I get it show up as a modal?
+
+That last part was the problem. I couldn't figure out how to do that just by using React InstantSearch Hooks. Turns out
+there's something called [Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/)
+that does exactly what I want.
+
+So, I abandoned everything I'd tried and started fresh. The Autocomplete docs had examples (only JS, not TS 😓) and some
+codesandbox examples. This was really helpful.
+
+I ended up being able to implement that in a couple of hours. I only ate up about 200 of my 10K queries haha.
+
+## The Final Outcome
+
+Now I have search on my site that updates when I publish new content (or even change content). I very much over-engineered
+it, driven by my want to be lazy. Maybe I should rethink that in the future 🤔?!?!
+
+Like I mentioned before, I used [this blog](https://route360.dev/post/astro-algolia) a lot at the start, but then moved
+to Autocomplete.
+
+If you want to check out my code, here it is:
+
+-   [Node.js Script to Build + Publish Search Indexes](https://github.com/vernak2539/words-byvernacchia/blob/main/bin/build-search.js)
+-   [Search Components (UI)](https://github.com/vernak2539/words-byvernacchia/tree/main/src/components/Search)
