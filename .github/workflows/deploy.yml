@@ -50,6 +50,7 @@ jobs:
             name: build-search-data
         env:
             ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_WRITE_API_KEY }}
+            ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
             ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
         steps:
             - name: Checkout your repository using git
