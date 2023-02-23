@@ -1,7 +1,10 @@
 import React, { createElement, Fragment, useEffect, useRef } from "react";
-import { autocomplete, AutocompleteOptions } from "@algolia/autocomplete-js";
+import * as autocompleteJs from "@algolia/autocomplete-js";
 import { createRoot, Root } from "react-dom/client";
 import type { SearchItem } from "./types";
+import type { AutocompleteOptions } from "@algolia/autocomplete-js";
+
+const { autocomplete } = autocompleteJs;
 
 const Autocomplete = (props: AutocompleteOptions<SearchItem>) => {
     const containerRef = useRef(null);

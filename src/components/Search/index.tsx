@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import algoliasearch from "algoliasearch/lite";
-import {
-    AutocompleteComponents,
-    getAlgoliaResults,
-} from "@algolia/autocomplete-js";
+import type { AutocompleteComponents } from "@algolia/autocomplete-js";
+import * as autocompleteJs from "@algolia/autocomplete-js";
 import Autocomplete from "./Autocomplete";
 import type { SearchItem } from "./types";
 
 import "@algolia/autocomplete-theme-classic";
 import "../../styles/algolia-search.css";
+
+const { getAlgoliaResults } = autocompleteJs;
 
 // testing keys
 // const appId = 'latency'
@@ -62,7 +62,6 @@ const SearchComponent = () => {
                     },
                     templates: {
                         item({ item, components }) {
-                            console.log(item);
                             return (
                                 <SearchResult
                                     hit={item}
