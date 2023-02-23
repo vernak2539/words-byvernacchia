@@ -43,3 +43,22 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v1
+
+    build-publish-search-index:
+        runs-on: ubuntu-latest
+        environment:
+            name: build-search-data
+        env:
+            ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_WRITE_API_KEY }}
+            ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
+        steps:
+            - name: Checkout your repository using git
+              uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: 'yarn'
+            - name: Install Dependencies
+              run: yarn
+            - name: Build + publish search data
+              run: node ./bin/build-search.js
