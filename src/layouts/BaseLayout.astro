@@ -14,9 +14,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
         <Tracking />
     </head>
     <body>
-        <Search client:load />
         <main class="container">
-            <SiteTitle variant="home" />
+            <div class="header-container">
+                <div>
+                    <SiteTitle variant="home" />
+                </div>
+                <div>
+                    <Search client:load />
+                </div>
+            </div>
             <p class="site-tagline">{SITE_DESCRIPTION}</p>
             <slot />
             <SimpleAnalyticsFooter />

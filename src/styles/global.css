@@ -48,3 +48,10 @@ a:hover {
 .site-tagline {
     font-style: italic;
 }
+
+/*Header Container (i.e. Title + Search)*/
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

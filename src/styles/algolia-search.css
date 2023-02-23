@@ -1,0 +1,14 @@
+a.aa-ItemLink {
+    background-image: none;
+    color: rgb(var(--accent));
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
+
+a.aa-ItemLink:hover {
+    text-decoration: none !important;
+}
+
+.aa-ItemContentDescription {
+    white-space: nowrap;
+}

@@ -11,6 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.8.2",
+    "@algolia/autocomplete-theme-classic": "^1.8.2",
     "@astrojs/react": "^2.0.2",
     "@astrojs/sitemap": "^1.0.1",
     "@types/react": "^18.0.21",
@@ -19,10 +21,8 @@
     "astro": "^2.0.2",
     "astro-breadcrumbs": "^1.1.0",
     "astro-robots-txt": "^0.4.0",
-    "instantsearch.css": "^8.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-instantsearch-hooks-web": "^6.40.1"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
