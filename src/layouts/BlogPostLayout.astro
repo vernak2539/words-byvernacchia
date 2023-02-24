@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
@@ -32,6 +33,18 @@ const {
             .content {
                 line-height: 1.45;
             }
+            .metadata-container {
+                font-size: 0.8rem;
+            }
+            .metadata-entry {
+                display: flex;
+                align-items: center;
+            }
+            .metadata-entry-icon {
+                width: 18px;
+                height: 18px;
+                margin-right: 3px;
+            }
         </style>
         <Tracking />
     </head>
@@ -46,7 +59,18 @@ const {
                 }
                 <h2 style={{ marginBottom: ".5rem" }}>{blogTitle}</h2>
                 <Breadcrumbs />
-                {pubDate && <time>{formatDate(pubDate)}</time>}
+                {
+                    pubDate && (
+                        <div class="metadata-container">
+                            <div class="metadata-entry">
+                                <div class="metadata-entry-icon">
+                                    <Icon pack="mdi" name="calendar-today" />
+                                </div>
+                                <time>{formatDate(pubDate)}</time>
+                            </div>
+                        </div>
+                    )
+                }
                 {
                     updatedDate && (
                         <div>
