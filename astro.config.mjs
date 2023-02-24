@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { SITE_URL } from './src/constants';
 
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
@@ -11,6 +12,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://words.byvernacchia.com',
+  site: SITE_URL,
   integrations: [sitemap(), robotsTxt(), react()]
 });
