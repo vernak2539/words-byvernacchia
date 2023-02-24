@@ -2,6 +2,7 @@
 title: "A New Blog? Why?"
 description: "Hmmm, why a new blog? I wonder..."
 pubDate: "2022-01-31"
+tags: ['personal', 'frameworks', 'frontend', 'javascript', 'typescript']
 ---
 
 I've been working at [Deliveroo](https://deliveroo.co.uk/) for quite some time, just over 4 years in fact! (That's forever in tech years)
