@@ -2,6 +2,7 @@
 title: "How do I search this thing?"
 description: "Where is everything?!?c"
 pubDate: "2022-02-23"
+socialImage: "detective.png"
 ---
 
 I want to add some search features to this static site. Not a huge thing, but would be a nice to have.
