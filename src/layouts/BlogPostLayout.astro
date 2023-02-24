@@ -7,7 +7,7 @@ import Tracking from "../components/Tracking.astro";
 import Comments from "../components/Comments.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
-import SimpleAnalyticsFooter from "../components/SimpleAnalyticsFooter.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const {
@@ -62,7 +62,7 @@ const {
                 </section>
             </article>
             <Comments />
-            <SimpleAnalyticsFooter />
+            <Footer />
         </main>
     </body>
 </html>

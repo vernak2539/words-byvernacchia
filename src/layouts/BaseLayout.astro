@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import SimpleAnalyticsFooter from "../components/SimpleAnalyticsFooter.astro";
+import Footer from "../components/Footer.astro";
 import SiteTitle from "../components/SiteTitle.astro";
 import Tracking from "../components/Tracking.astro";
 import Search from "../components/Search";
@@ -25,7 +25,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
             </div>
             <p class="site-tagline">{SITE_DESCRIPTION}</p>
             <slot />
-            <SimpleAnalyticsFooter />
+            <Footer />
         </main>
     </body>
 </html>

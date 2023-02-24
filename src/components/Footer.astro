@@ -1,0 +1,34 @@
+---
+import SimpleAnalyticsFooter from "../components/SimpleAnalyticsFooter.astro";
+---
+
+<footer>
+    <hr class="footer-divider" />
+    <ul class="footer-links">
+        <li class="footer-link">
+            <a href="/">Home</a>
+        </li>
+        <li class="footer-link"><a href="/tags">Tags</a></li>
+    </ul>
+    <SimpleAnalyticsFooter />
+</footer>
+
+<style>
+    .footer-divider {
+        width: 90%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 1rem auto 0;
+    }
+    .footer-links {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+    }
+
+    .footer-links .footer-link {
+        padding: 0 0.5rem;
+        font-size: 0.7rem;
+    }
+</style>
