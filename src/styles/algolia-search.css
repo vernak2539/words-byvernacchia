@@ -12,3 +12,20 @@ a.aa-ItemLink:hover {
 .aa-ItemContentDescription {
     white-space: nowrap;
 }
+
+.aa-ItemContentTitle {
+    line-height: 1.15rem;
+}
+
+.aa-Item {
+    margin: 0.3rem 0;
+    padding: 0.5rem;
+}
+
+.aa-Item:first-child {
+    margin-top: 0;
+}
+
+.aa-Item:last-child {
+    margin-bottom: 0;
+}
