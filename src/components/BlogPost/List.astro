@@ -1,0 +1,19 @@
+---
+import { sortByPubdateMostRecentFirst } from "../../utils/sort-posts";
+import { CollectionEntry } from "astro:content";
+import BlogPostListItem from "./ListItem.astro";
+export interface Props {
+    posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+const sortedPosts = posts.sort(sortByPubdateMostRecentFirst);
+---
+
+<ul>
+    {
+        sortedPosts.map((post) => {
+            return <BlogPostListItem post={post} />;
+        })
+    }
+</ul>

@@ -1,0 +1,16 @@
+---
+import { CollectionEntry } from "astro:content";
+import { formatDate } from "../../utils/datetime-fmt";
+export interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+---
+
+<li>
+    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+    <time datetime={post.data.pubDate.toISOString()}>
+        ({formatDate(post.data.pubDate)})
+    </time>
+</li>

@@ -1,23 +1,11 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import BlogPostList from "../../components/BlogPost/List.astro";
 import { getCollection } from "astro:content";
-import { sortByPubdateMostRecentFirst } from "../../utils/sort-posts";
-import { formatDate } from "../../utils/datetime-fmt";
 
-const posts = (await getCollection("blog")).sort(sortByPubdateMostRecentFirst);
+const posts = await getCollection("blog");
 ---
 
 <Layout>
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <time datetime={post.data.pubDate.toISOString()}>
-                        {formatDate(post.data.pubDate)}
-                    </time>
-                    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-                </li>
-            ))
-        }
-    </ul>
+    <BlogPostList posts={posts} />
 </Layout>
