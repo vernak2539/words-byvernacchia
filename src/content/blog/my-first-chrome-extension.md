@@ -1,7 +1,7 @@
 ---
 title: "My First Chrome Extension"
 description: 'Let''s talk about creating "Google Docs Default Zoom"...'
-tags: ['extension', 'chrome', 'plasmo', 'web-store', 'google docs', 'react']
+tags: ['chrome extension', 'plasmo', 'google docs', 'react']
 pubDate: "2022-02-03"
 ---
 

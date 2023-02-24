@@ -2,7 +2,7 @@
 title: "Adding Comments to this Thing"
 description: "Let's use utterances to add some comments to this shite... I mean site."
 pubDate: "2022-02-19"
-tags: ['github', 'utterances', 'comments', 'astro']
+tags: ['github', 'utterances', 'comments', 'astro', 'frontend']
 socialImage: "utterances.png"
 ---
 
