@@ -31,6 +31,7 @@ Topics I'm looking at include, but are not limited to:
 
 -   [chrome extensions](my-first-chrome-extension.md)
 -   [comments via utterances](adding-comments-to-this-thing.md)
+-   [Different ways to do search on static sites](how-do-search-this-thing.md)
 -   `react-aria`
 -   deno
 -   `react-router`
@@ -78,6 +79,6 @@ Topics I'm looking at include, but are not limited to:
 -   Xstate
 -   Vanilla extract css
 -   DynamoDB data modelling (not fe, but interesting to me and my role)
--   Different ways to do search on static sites
+
 
 They are also in no order!
