@@ -9,16 +9,21 @@ import Comments from "../components/Comments.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
 import Footer from "../components/Footer.astro";
+import getReadingTime from "../utils/reading-time";
 
-type Props = CollectionEntry<"blog">["data"];
+interface Props {
+    postData: CollectionEntry<"blog">["data"];
+    postContent: CollectionEntry<"blog">["body"];
+}
+
+const { postData, postContent } = Astro.props;
 const {
     title: blogTitle,
     description,
     pubDate,
     updatedDate,
-    heroImage,
     socialImage,
-} = Astro.props;
+} = postData;
 ---
 
 <!DOCTYPE html>
@@ -35,6 +40,11 @@ const {
             }
             .metadata-container {
                 font-size: 0.8rem;
+                display: flex;
+                align-items: center;
+            }
+            .metadata-entry-spacer {
+                margin: 0 0.25rem;
             }
             .metadata-entry {
                 display: flex;
@@ -52,11 +62,6 @@ const {
         <main class="container">
             <SiteTitle variant="blog" />
             <article>
-                {
-                    heroImage && (
-                        <img width={720} height={360} src={heroImage} alt="" />
-                    )
-                }
                 <h2 style={{ marginBottom: ".5rem" }}>{blogTitle}</h2>
                 <Breadcrumbs />
                 {
@@ -67,6 +72,16 @@ const {
                                     <Icon pack="mdi" name="calendar-today" />
                                 </div>
                                 <time>{formatDate(pubDate)}</time>
+                            </div>
+                            <div class="metadata-entry-spacer"> - </div>
+                            <div class="metadata-entry">
+                                <div class="metadata-entry-icon">
+                                    <Icon
+                                        pack="mdi"
+                                        name="clock-time-nine-outline"
+                                    />
+                                </div>
+                                <time>{getReadingTime(postContent)}</time>
                             </div>
                         </div>
                     )
