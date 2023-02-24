@@ -1,6 +1,6 @@
 ---
 title: "How do I search this thing?"
-description: "Where is everything?!?c"
+description: "Where is everything?!?"
 pubDate: "2022-02-23"
 socialImage: "detective.png"
 ---
