@@ -27,5 +27,16 @@ const { posts } = Astro.props;
 
 <Layout>
     <h2>Posts with "{tag}" tag...</h2>
+
     <BlogPostList posts={posts} />
+
+    <div class="all-tags-nav">
+        <a href="/tags">🔙 all tags</a>
+    </div>
 </Layout>
+
+<style>
+    .all-tags-nav {
+        font-size: 0.8rem;
+    }
+</style>
