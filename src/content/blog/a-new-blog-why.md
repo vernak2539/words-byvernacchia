@@ -15,17 +15,17 @@ When I was hired, my background was pretty spcific to FE-esque (frontend) things
 5. Can debate endlessly about _shit_... ✅
 6. Knew Backbone.js, Angular.js, and React + could pick up most FE stacks ✅
 
-Unfortunatley, I moved to a different team after about 6-8 months and they didn't need many of these skills. Instead, they needed me to get up to speed with BE technologies. So, I did. It's what my team needed.
+Unfortunately, I moved to a different team after about 6-8 months and they didn't need many of these skills. Instead, they needed me to get up to speed with BE technologies. So, I did. It's what my team needed.
 
 Over the years (yes, years) the teams I was/am responsible for improved vastly. Like, so amazing. Maybe that's another blog post, but I digress.
 
 During that time, I let my FE knowledge slip. All the flame wars between Svelte, Solid, React Suspense (still a thing like it was a while ago?!?!), XState, Remix, etc. = 🍿. I didn't have time to have a look. Hot takes were my sources of information.
 
-I am finally at a point where I can come back and investigate new FE tech! I've been lucky enough to scheduled a half day every week to do so. My manager even supports it. Hell, it was his idea.
+I am finally at a point where I can come back and investigate new FE tech! I've been lucky enough to schedule a half day every week to do so. My manager even supports it. Hell, it was his idea.
 
 I'm really excited to get back into the FE space, allowing myself to evaluate different options and potentially bring some back to Deliveroo.
 
-Anyways, I'll be blogging about my experiences on this site, which I built with Astro (awww yeahhhh, new and shiny).
+Anyway, I'll be blogging about my experiences on this site, which I built with Astro (awww yeahhhh, new and shiny).
 
 Topics I'm looking at include, but are not limited to:
 
