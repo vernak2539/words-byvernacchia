@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+---
+
+<Layout>
+    <h2>All Tags</h2>
+    <div class="tags">
+        {
+            tags.map((tag) => (
+                <p class="tag">
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                </p>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1em;
+        background-color: #f8fcfd;
+    }
+
+    .tag:hover {
+        border: solid 1px #a1a1a1;
+        background-color: #fff;
+    }
+</style>
