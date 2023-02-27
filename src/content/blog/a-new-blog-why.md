@@ -33,6 +33,9 @@ Topics I'm looking at include, but are not limited to:
 -   [chrome extensions](my-first-chrome-extension.md)
 -   [comments via utterances](adding-comments-to-this-thing.md)
 -   [Different ways to do search on static sites](how-do-search-this-thing.md)
+-   Frameworks / Meta-frameworks
+    -   Astro
+        -   [Astro thus far...](1-astro-thus-far.md)
 -   `react-aria`
 -   deno
 -   `react-router`
@@ -45,7 +48,6 @@ Topics I'm looking at include, but are not limited to:
     -   nextjs latest
     -   remix
     -   qwik
-    -   astro (astrobuild) - this blog
     -   Vue
     -   Svelte
     -   Solidjs
