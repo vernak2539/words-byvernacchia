@@ -30,12 +30,12 @@ Anyway, I'll be blogging about my experiences on this site, which I built with A
 
 Topics I'm looking at include, but are not limited to:
 
--   [chrome extensions](my-first-chrome-extension.md)
--   [comments via utterances](adding-comments-to-this-thing.md)
--   [Different ways to do search on static sites](how-do-search-this-thing.md)
+-   [chrome extensions](/blog/my-first-chrome-extension)
+-   [comments via utterances](/blog/adding-comments-to-this-thing)
+-   [Different ways to do search on static sites](/blog/how-do-search-this-thing)
 -   Frameworks / Meta-frameworks
     -   Astro
-        -   [Astro thus far...](1-astro-thus-far.md)
+        -   [Astro thus far...](/blog/1-astro-thus-far)
 -   `react-aria`
 -   deno
 -   `react-router`

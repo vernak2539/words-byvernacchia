@@ -6,7 +6,7 @@ tags: ["reflection", "astro", "frontend"]
 socialImage: "astro-logo.png"
 ---
 
-One of the purposes of this blog (see [why](a-new-blog-why.md)) was to explore new technology in the frontend space. I
+One of the purposes of this blog (see [why](/blog/a-new-blog-why)) was to explore new technology in the frontend space. I
 wanted to blog about my learnings / progress (even if it was just me rereading things for that stats 📈).
 
 So I looked at [Astro](https://astro.build/), something I'd wanted to use for a while and went all in.
@@ -17,7 +17,7 @@ Starting it up was pretty simple. I used the yarn command from their website to 
 the started template?!? Definitely copied a lot of it from somewhere haha
 
 I tried to edit the site a bit to tweak it to my needs and it was suprisingly easy. It took me a while to get used to the
-`.astro` files, which were all I used for a while (getting a feel for the framework). Only when I [added search](how-do-search-this-thing.md)
+`.astro` files, which were all I used for a while (getting a feel for the framework). Only when I [added search](/blog/how-do-search-this-thing)
 did I use something else.
 
 The DX was very good. Maybe it's just me being jaded from the early versions of Next.js (yes, I'm looking at you, the upgrade
@@ -55,7 +55,7 @@ the time to open source.
 -   Analytics via [Custom Tracking Component](https://github.com/vernak2539/words-byvernacchia/blob/main/src/components/Tracking.astro)
     -   Via [Simple Analytics](https://simpleanalytics.com) (because I care about you not being the product)
 
-I also added things like [comments](adding-comments-to-this-thing.md), and I used [astro-icon](https://github.com/natemoo-re/astro-icon#readme)
+I also added things like [comments](/blog/adding-comments-to-this-thing), and I used [astro-icon](https://github.com/natemoo-re/astro-icon#readme)
 to add some "flare" to the blog entry metadata section (you're welcome).
 
 I thought I was done, but I really wanted to add tags to the site as well (have not added them OG stuff yet). I followed
@@ -65,6 +65,17 @@ Collections), we were finished.
 Overall, I've been super surprised at how easy it was to add all of this stuff. I actually wanted to do it instead of
 slog my way through things. I've used WordPress, Drupal, Jekyll, Gatsby (early days), Ghost, and Next.js (likely missed
 some) but really like this more. I'm not sure how to explain it...
+
+### Small nitpick
+
+I didn't realise the links that I put in my Markdown files to other Markdown files via `[]()` were not being translated
+to generated paths. Turns out that is not supported yet, which I found out on a couple of issues
+
+* [Issue](https://github.com/withastro/astro/issues/5680)
+* [RFC](https://github.com/withastro/roadmap/discussions/424)
+
+Hopefully there will be a fix issued soon, but in the meantime I'll likely just put the paths there instead of using
+Markdown links (not looking to get into rehype or remark at the moment of writing this).
 
 ## Future Ideas
 
