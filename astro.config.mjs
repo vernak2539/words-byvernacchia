@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { SITE_URL } from './src/constants';
 
-console.log(SITE_URL)
-
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
 
