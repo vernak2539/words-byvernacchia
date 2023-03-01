@@ -36,7 +36,7 @@ Topics I'm looking at include, but are not limited to:
 -   Frameworks / Meta-frameworks
     -   Astro
         -   [Astro thus far...](/blog/1-astro-thus-far)
--   `react-aria`
+-   [`react-aria`](/blog/react-aria-exploration)
 -   deno
 -   `react-router`
 -   tanstack router
