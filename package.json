@@ -23,6 +23,7 @@
     "astro-breadcrumbs": "^1.1.0",
     "astro-icon": "^0.8.0",
     "astro-robots-txt": "^0.4.0",
+    "glob": "^9.2.1",
     "markdown-it": "^13.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

@@ -6,18 +6,19 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import removeMd from "remove-markdown";
+import {globSync} from 'glob'
 
 const client = algoliasearch(
     process.env.ALGOLIA_APP_ID,
     process.env.ALGOLIA_WRITE_API_KEY
 );
 
-const pathToBlog = "./src/content/blog";
+const pathToBlog = "./src/content/blog/**/**.md";
 
-const filenames = fs.readdirSync(path.join(pathToBlog));
+const filenames = globSync(path.join(pathToBlog));
 const data = filenames.map((filename) => {
     try {
-        const markdownWithMeta = fs.readFileSync(pathToBlog + "/" + filename);
+        const markdownWithMeta = fs.readFileSync(filename);
         const { data: frontmatter, content } = matter(markdownWithMeta);
         return {
             objectID: path.parse(filename).name,
