@@ -30,7 +30,9 @@ Anyway, I'll be blogging about my experiences on this site, which I built with A
 
 Topics I'm looking at include, but are not limited to:
 
--   [chrome extensions](/blog/my-first-chrome-extension)
+-   Chrome Extensions
+    -   [My First Chrome Extension (Google Docs Default Zoom)](/blog/my-first-chrome-extension)
+    -   [Google Workspace Zoom Default (more support!)](/blog/2023/03/introducing-google-workspace-zoom-default)
 -   [comments via utterances](/blog/adding-comments-to-this-thing)
 -   [Different ways to do search on static sites](/blog/how-do-search-this-thing)
 -   Frameworks / Meta-frameworks

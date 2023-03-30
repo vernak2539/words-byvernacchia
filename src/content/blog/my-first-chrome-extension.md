@@ -5,13 +5,15 @@ tags: ['chrome extension', 'plasmo', 'google docs', 'react']
 pubDate: "2022-02-03"
 ---
 
+\*\***Update:** See [Introducing Google Workspace Zoom Default](/blog/2023/03/introducing-google-workspace-zoom-default/) for an update!\*\*
+
 As much as I don't want to admit it, I'm getting old.
 
 My job requires me to review a lot of Google Docs (😔), and, unfortunately, I am having trouble reading things when they are set to the zoom level of "100%."
 
 I quickly ruled out changing the resolution settings on my monitors because I really like the space the higher resolutions afford.
 
-So, now that I accepted the fact that my eyes can't do "100%" anymore, how do I change the default zoom level in Google Docs.
+So, now that I accepted the fact that my eyes can't do "100%" any more, how do I change the default zoom level in Google Docs.
 
 After looking through all their setting and doing an extensive internet search, it turns out there is no native setting!!!
 
@@ -24,7 +26,7 @@ I don't like using the second option due to personal preference, which meant I w
 
 Enter Chrome Extesions. I needed to execute a script to do something on the page to change the zoom.
 
-But, bad news seemed to keep following me. Not only is there no way to set a default zoom level in Google Docs itself, there's no way to programatically interact with the page. No variable on the `window` object etc.
+But, bad news seemed to keep following me. Not only is there no way to set a default zoom level in Google Docs itself, there's no way to programmatically interact with the page. No variable on the `window` object etc.
 
 This meant that I now have to simulate click and interactions on the page (see [here](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/ui-helpers.ts#L6-L25)). Fun, right?!?!
 
@@ -50,10 +52,11 @@ There are some bugs I'd like to fix and features I'd like to add. See below!
 
 ## Next steps
 
--   Allow for usage in Sheets, Slides, and other GSuite products that have zoom features ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/3))
+-   ✅ Allow for usage in Sheets, Slides, and other Google Workspace applications that have zoom features ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/3))
+    -   Support for Docs + Sheets as of v0.2.0. Implementation for other applications is also easier now.
 -   ✅ Get it to work for larger documents ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/1))
 -   Add an active state to the pop up ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/2))
--   Make it prettier 💅
+-   ✅ Make it prettier 💅
 
 [webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo
 [github]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom
