@@ -11,19 +11,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.8.2",
-    "@algolia/autocomplete-theme-classic": "^1.8.2",
-    "@astrojs/react": "^2.0.2",
-    "@astrojs/rss": "^2.1.1",
-    "@astrojs/sitemap": "^1.0.1",
-    "@types/react": "^18.0.21",
+    "@algolia/autocomplete-js": "^1.8.3",
+    "@algolia/autocomplete-theme-classic": "^1.8.3",
+    "@astrojs/react": "^2.1.0",
+    "@astrojs/rss": "^2.3.1",
+    "@astrojs/sitemap": "^1.2.1",
+    "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.6",
-    "algoliasearch": "^4.14.3",
-    "astro": "^2.0.2",
+    "algoliasearch": "^4.16.0",
+    "astro": "^2.1.8",
     "astro-breadcrumbs": "^1.1.0",
     "astro-icon": "^0.8.0",
-    "astro-robots-txt": "^0.4.0",
-    "glob": "^9.2.1",
+    "astro-robots-txt": "^0.4.1",
+    "glob": "^9.3.2",
     "markdown-it": "^13.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "dotenv": "^16.0.3",
     "gray-matter": "^4.0.3",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.7",
     "remove-markdown": "^0.5.0"
   }
 }
