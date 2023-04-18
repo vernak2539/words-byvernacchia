@@ -1,14 +1,14 @@
 ---
-import { Icon } from "astro-icon";
+import Icon from "astro-icon";
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
-import SiteTitle from "../components/SiteTitle.astro";
-import Tracking from "../components/Tracking.astro";
-import Comments from "../components/Comments.astro";
+import BaseHead from "../components/Scaffolding/BaseHead.astro";
+import Breadcrumbs from "../components/Scaffolding/Breadcrumbs.astro";
+import SiteTitle from "../components/Scaffolding/SiteTitle.astro";
+import Tracking from "../components/Scaffolding/Tracking.astro";
+import Comments from "../components/Scaffolding/Comments.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
-import Footer from "../components/Footer.astro";
+import Footer from "../components/Scaffolding/Footer.astro";
 import getReadingTime from "../utils/reading-time";
 
 interface Props {
