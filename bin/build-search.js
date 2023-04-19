@@ -13,10 +13,23 @@ const client = algoliasearch(
     process.env.ALGOLIA_WRITE_API_KEY
 );
 
-const pathToBlog = "./src/content/blog/**/**.md";
+const pathToBlog = "./src/content/blog/**/**.{md,mdx}";
+const validPathRegex = /^src\/content\/blog\/\d{4}\/\d{2}\/.*$/;
+
+const getPathFromFileName = (filename) => {
+    const parts = filename.split('/');
+    const year = parts[3];
+    const month = parts[4];
+    const postName = parts[5].slice(0, -3); // Remove ".md" extension
+    return `/blog/${year}/${month}/${postName}`;
+}
 
 const filenames = globSync(path.join(pathToBlog));
 const data = filenames.map((filename) => {
+    if(!validPathRegex.test(filename)) {
+        return
+    }
+
     try {
         const markdownWithMeta = fs.readFileSync(filename);
         const { data: frontmatter, content } = matter(markdownWithMeta);
@@ -24,6 +37,8 @@ const data = filenames.map((filename) => {
             objectID: path.parse(filename).name,
             title: frontmatter.title,
             description: frontmatter.description,
+            urlPath: getPathFromFileName(filename),
+            tags: frontmatter.tags,
             content: removeMd(content).replace(/\n/g, ""),
         };
     } catch (e) {
@@ -31,7 +46,7 @@ const data = filenames.map((filename) => {
     }
 });
 
-console.log(data);
+console.log(data.filter(Boolean));
 
 client
     .initIndex(process.env.ALGOLIA_INDEX_NAME)
