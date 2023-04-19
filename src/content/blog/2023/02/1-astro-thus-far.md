@@ -1,7 +1,7 @@
 ---
 title: "Astro thus far..."
 description: "Hmmm, what do I think of Astro thus far??"
-pubDate: "2022-02-27"
+pubDate: "2023-02-27"
 tags: ["reflection", "astro", "frontend"]
 socialImage: "astro-logo.png"
 ---

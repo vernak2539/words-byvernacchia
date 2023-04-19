@@ -1,0 +1,24 @@
+---
+import { CollectionEntry } from "astro:content";
+export interface Props {
+  pubDate: CollectionEntry<"blog">['pubDate'];
+}
+
+const { pubDate } = Astro.props;
+const { slug } = Astro.params
+const urlDate = pubDate.split('-')
+urlDate.pop()
+
+const path = [...urlDate, slug].join('/')
+---
+{path}
+
+<div id="redirect" data-redirect-path={`/blog/${path}`}>
+  You are being redirected to this post's new location
+</div>
+
+<script is:inline>
+  const el = document.getElementById('redirect')
+  const redirectPath = el.getAttribute('data-redirect-path')
+  window.location.replace(redirectPath)
+</script>
