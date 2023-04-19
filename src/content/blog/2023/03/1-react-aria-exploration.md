@@ -1,7 +1,7 @@
 ---
 title: "React Aria Exploration (Pt. 1)"
 description: "Let's have a look at React Aria. I've been wanting to do this for a while..."
-pubDate: "2022-03-03"
+pubDate: "2023-03-03"
 tags: ["accessibility", "react", "frontend", "design-system", "react-aria"]
 socialImage: "react-aria-exploration.png"
 ---

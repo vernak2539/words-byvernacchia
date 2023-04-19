@@ -1,7 +1,7 @@
 ---
 title: "A New Blog? Why?"
 description: "Hmmm, why a new blog? I wonder..."
-pubDate: "2022-01-31"
+pubDate: "2023-01-31"
 tags: ['personal', 'frameworks', 'frontend', 'javascript', 'typescript']
 ---
 

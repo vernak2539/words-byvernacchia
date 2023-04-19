@@ -1,7 +1,7 @@
 ---
 title: "How do I search this thing?"
 description: "Where is everything?!?"
-pubDate: "2022-02-23"
+pubDate: "2023-02-23"
 tags: ['algolia', 'search', 'astro', 'react']
 socialImage: "detective.png"
 ---

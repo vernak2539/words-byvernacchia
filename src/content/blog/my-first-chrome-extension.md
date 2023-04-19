@@ -2,7 +2,7 @@
 title: "My First Chrome Extension"
 description: 'Let''s talk about creating "Google Docs Default Zoom"...'
 tags: ['chrome extension', 'plasmo', 'google docs', 'react']
-pubDate: "2022-02-03"
+pubDate: "2023-02-03"
 ---
 
 \*\***Update:** See [Introducing Google Workspace Zoom Default](/blog/2023/03/introducing-google-workspace-zoom-default/) for an update!\*\*

@@ -2,7 +2,7 @@
 title: "Introducing Google Workspace Zoom Default"
 description: "I've added new functionality and changed the name..."
 tags: ['chrome extension', 'plasmo', 'google docs', 'google sheets', 'google workspace', 'react']
-pubDate: "2022-03-30"
+pubDate: "2023-03-30"
 ---
 
 I previously [talked about](/blog/my-first-chrome-extension) my experience building my first Chrome Extension, 
