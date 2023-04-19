@@ -13,6 +13,7 @@
   "dependencies": {
     "@algolia/autocomplete-js": "^1.8.3",
     "@algolia/autocomplete-theme-classic": "^1.8.3",
+    "@algolia/client-search": "^4.17.0",
     "@astrojs/mdx": "^0.19.0",
     "@astrojs/react": "^2.1.0",
     "@astrojs/rss": "^2.3.1",
