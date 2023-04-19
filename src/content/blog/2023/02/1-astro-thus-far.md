@@ -71,9 +71,9 @@ some) but really like this more. I'm not sure how to explain it...
 I didn't realise the links that I put in my Markdown files to other Markdown files via `[]()` were not being translated
 to generated paths. Turns out that is not supported yet, which I found out on a couple of issues
 
-* [Issue #5682](https://github.com/withastro/astro/issues/5682)
-* [Issue #5680](https://github.com/withastro/astro/issues/5680)
-* [RFC #424](https://github.com/withastro/roadmap/discussions/424)
+-   [Issue #5682](https://github.com/withastro/astro/issues/5682)
+-   [Issue #5680](https://github.com/withastro/astro/issues/5680)
+-   [RFC #424](https://github.com/withastro/roadmap/discussions/424)
 
 Hopefully there will be a fix issued soon, but in the meantime I'll likely just put the paths there instead of using
 Markdown links (not looking to get into rehype or remark at the moment of writing this).

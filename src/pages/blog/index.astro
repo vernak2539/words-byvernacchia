@@ -4,7 +4,7 @@ import BlogPostList from "../../components/BlogPostPage/List.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog");
-const posts = allPosts.filter(post => !post.data.redirect)
+const posts = allPosts.filter((post) => !post.data.redirect);
 ---
 
 <Layout>

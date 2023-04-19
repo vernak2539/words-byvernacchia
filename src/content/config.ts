@@ -16,7 +16,7 @@ const blog = defineCollection({
             .string()
             .optional()
             .transform((str) => (str ? new Date(str) : undefined)),
-        redirect: z.boolean().optional()
+        redirect: z.boolean().optional(),
     }),
 });
 

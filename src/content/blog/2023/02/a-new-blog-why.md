@@ -2,7 +2,7 @@
 title: "A New Blog? Why?"
 description: "Hmmm, why a new blog? I wonder..."
 pubDate: "2023-01-31"
-tags: ['personal', 'frameworks', 'frontend', 'javascript', 'typescript']
+tags: ["personal", "frameworks", "frontend", "javascript", "typescript"]
 ---
 
 I've been working at [Deliveroo](https://deliveroo.co.uk/) for quite some time, just over 4 years in fact! (That's forever in tech years)
@@ -85,6 +85,5 @@ Topics I'm looking at include, but are not limited to:
 -   Xstate
 -   Vanilla extract css
 -   DynamoDB data modelling (not fe, but interesting to me and my role)
-
 
 They are also in no order!
