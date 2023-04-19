@@ -4,7 +4,7 @@ import Card from "../components/Scaffolding/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { sortByPubdateMostRecentFirst } from "../utils/sort-posts";
 
-const latestPost = (await getCollection("blog")).sort(
+const latestPost = (await getCollection("blog")).filter(post => !post.data.redirect).sort(
     sortByPubdateMostRecentFirst
 )[0];
 const blogPath = "/blog";
