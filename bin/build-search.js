@@ -44,9 +44,9 @@ const data = filenames.map((filename) => {
     } catch (e) {
         // console.log(e.message)
     }
-});
+}).filter(Boolean);
 
-console.log(data.filter(Boolean));
+console.log(data);
 
 client
     .initIndex(process.env.ALGOLIA_INDEX_NAME)

@@ -3,4 +3,6 @@ export interface SearchItem extends BaseItem {
     content: string;
     description: string;
     title: string;
+    tags: string[];
+    urlPath: string;
 }

@@ -28,7 +28,7 @@ interface SearchResultProps {
 
 const SearchResult = ({ hit, components }: SearchResultProps) => {
     return (
-        <a href={`/blog/${hit.objectID}`} className="aa-ItemLink">
+        <a href={hit.urlPath} className="aa-ItemLink">
             <div className="aa-ItemContentBody">
                 <div className="aa-ItemContentTitle">
                     <components.Highlight hit={hit} attribute="title" />
