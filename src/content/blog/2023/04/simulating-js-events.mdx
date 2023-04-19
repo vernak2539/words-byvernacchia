@@ -6,18 +6,70 @@ tags: ["javascript", "frontend", "chrome extension", "events"]
 socialImage: "simulating-js-events.jpg"
 ---
 
-import App from "../../../../components/Sandpack";
+import SandpackEnv from "../../../../components/Sandpack";
+import {
+    mouseEventsButtonOnly,
+    mouseEventsDotClick,
+} from "./simulating-js-events-code.js";
 
 I've been working on my _[Google Workspace Zoom Default][webstore]_ Chrome Extension to implement a
 [requested feature][feature-request] where users can use custom zoom values in addition to the predefined zoom values
 that Google provides in their application's zoom dropdown.
 
 I thought to myself, "I already simulate events. This should be easy." So, I started to try and figure it out. If you
-want to skip ahead, feel free to go to the ["Implementing with `chrome.debugger`"](#implementing-with-chrome-debugger) section.
+want to skip ahead, feel free to go to the ["Implementing with `chrome.debugger`"](#implementing-with-chrome-debugger)
+section.
+
+But first, let's have a look at how to "simulate events."
+
+## Mouse Events
+
+Simulating mouse events is pretty simple. Or, is it?
+
+Turns out there's many, many different ways to do it. Let's start by figuring out what events are
+dispatched when a user clicks the button. Try it out in the example below.
+
+<SandpackEnv files={mouseEventsButtonOnly.files} client:idle />
+
+As you can see, there are three events that trigger when you click once (we'll only handle a single click).
+
+These are (and executed in the following order):
+
+-   `mousedown`
+-   `mouseup`
+-   `click`
+
+Well well, there's three events that trigger. Fair enough.
+
+What is interesting though is that `click` is at the end instead of the events instead of in the middle of the down and up
+events. Something to think about 😉
+
+Let's try to replicate this now using just JS.
+
+### Using `.click()`
+
+The first option you'd probably reach for (and myself), is using the `click()` method that exists on an `HTMLElement`.
+
+Let's give it a shot and see how it works.
+
+<SandpackEnv files={mouseEventsDotClick.files} client:visible />
+
+After trying that, do you see the problem with trying to use `click()` to simulate clicks with JS?
+
+In case you didn't, the problem is that when using the `click()` method, the only event that is triggered when simulating
+the click is the "click" event. We are missing out on the "mousedown" and "mouseup" events.
+
+This may be fine for some things, but may not work for everything.
+
+### Dispatching Events
+
+Let's make this a bit more bulletproof
+
+## Keyboard Events
+
+Here is where we have problems...
 
 ## Implementing with Chrome Debugger
-
-<App client:load />
 
 [feature-request]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/15
 [webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo

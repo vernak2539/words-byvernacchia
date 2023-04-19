@@ -1,15 +1,9 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
 
-const App = () => {
+const SandpackEnv = ({ files }) => {
     return (
-        <Sandpack
-            theme="light"
-            options={{
-                showConsole: true,
-                // showConsoleButton: true,
-            }}
-        />
+        <Sandpack theme="light" options={{ showConsole: true }} files={files} />
     );
 };
 
-export default App;
+export default SandpackEnv;
