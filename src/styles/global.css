@@ -17,14 +17,6 @@ code {
     font-size: 0.9rem;
 }
 
-a {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-}
-
 blockquote {
     border-left: 3px solid #ccc;
     margin: 0 1.5rem;
@@ -32,11 +24,12 @@ blockquote {
     color: #666;
 }
 
+a {
+    color: #773FEB;
+    text-decoration: none;
+}
+
 a:hover {
-    background-image: none;
-    color: rgb(var(--accent));
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
     text-decoration: underline;
 }
 
