@@ -1,0 +1,18 @@
+.sandpackContainer {
+    --container-width: 150%;
+
+    width: var(--container-width);
+    margin-left: calc(calc(100% - var(--container-width)) / 2);
+}
+
+@media (max-width: 950px) {
+    .sandpackContainer {
+        --container-width: 100%;
+    }
+}
+
+@media (min-width: 1250px) {
+    .sandpackContainer {
+        --container-width: 170%;
+    }
+}

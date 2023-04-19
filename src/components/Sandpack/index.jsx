@@ -1,8 +1,15 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
+import Styles from "./styles.module.css";
 
 const SandpackEnv = ({ files }) => {
     return (
-        <Sandpack theme="light" options={{ showConsole: true }} files={files} />
+        <div className={Styles.sandpackContainer}>
+            <Sandpack
+                theme="light"
+                options={{ showConsole: true }}
+                files={files}
+            />
+        </div>
     );
 };
 
