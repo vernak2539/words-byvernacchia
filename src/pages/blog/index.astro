@@ -3,7 +3,8 @@ import Layout from "../../layouts/BaseLayout.astro";
 import BlogPostList from "../../components/BlogPostPage/List.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
+const allPosts = await getCollection("blog");
+const posts = allPosts.filter(post => !post.data.redirect)
 ---
 
 <Layout>
