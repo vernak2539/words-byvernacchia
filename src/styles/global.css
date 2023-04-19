@@ -69,3 +69,8 @@ a:hover {
     width: 100%;
     height: 100%;
 }
+
+.astro-code {
+    border-radius: 5px;
+    padding: 15px 18px;
+}
