@@ -1,0 +1,48 @@
+---
+import path from "path";
+import Layout from "../../../../layouts/BaseLayout.astro";
+import BlogPostList from "../../../../components/BlogPostPage/List.astro";
+import { getCollection } from "astro:content";
+import getDirsInDir from "../../../../utils/get-dirs-in-dir";
+
+export async function getStaticPaths() {
+    const yearDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const yearsInDir = getDirsInDir(yearDir);
+
+    const paths = yearsInDir.flatMap((yearDiretory) => {
+        const monthDir = path.resolve(
+            process.cwd(),
+            "./src/content/blog/",
+            yearDiretory
+        );
+        const monthsInDir = getDirsInDir(monthDir);
+
+        const fullPaths = monthsInDir.map((monthDirectory) => {
+            return {
+                params: { year: yearDiretory, month: monthDirectory },
+            };
+        });
+
+        return fullPaths;
+    });
+
+    return paths;
+}
+
+const { year, month } = Astro.params;
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+    .filter((post) => !post.data.redirect)
+    .filter((post) => {
+        const isYear = post.data.pubDate.getFullYear().toString() === year;
+        const isMonth =
+            post.data.pubDate.getMonth() === parseInt(month, 10) - 1;
+
+        return isMonth && isYear;
+    });
+---
+
+<Layout>
+    <BlogPostList posts={posts} />
+</Layout>
