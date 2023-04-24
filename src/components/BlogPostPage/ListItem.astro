@@ -8,9 +8,21 @@ export interface Props {
 const { post } = Astro.props;
 ---
 
-<li>
+<li class="blogListItem">
     <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
     <time datetime={post.data.pubDate.toISOString()}>
         ({formatDate(post.data.pubDate)})
     </time>
 </li>
+
+<style>
+    .blogListItem {
+        padding: 5px 0;
+    }
+    .blogListItem:first-child {
+        padding: 0 0 5px;
+    }
+    .blogListItem:last-child {
+        padding: 5px 0 0;
+    }
+</style>
