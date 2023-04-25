@@ -157,12 +157,58 @@ can get pretty far in making it either:
 
 ## Trusted Keyboard Events with Chrome Debugger
 
-While it's not normally possible to fully simulate keyboard events, this section explores a potential "workaround" by using
-the Chrome Debugger.
+So, if all that's not possible, how am I going to implement the functionality in _[Google Workspace Zoom Default][webstore]_
+allowing my users to input custom zoom levels?
+
+Let's explore a "workaround" by using the Chrome Debugger available to Chrome Extensions.
 
 **🚨 This only works with Chrome Extensions that have access to the [`chrome.debugger` API](https://developer.chrome.com/docs/extensions/reference/debugger/) 🚨**
 
-Workaround here
+It turns out that Chrome Extensions can request access to the `chrome.debugger` API.
+
+**Note:** As I have to ask for an elevated set of permissions to make this work, I will be releasing a separate extension containing
+this functionality. I don't want to force people into using something with which they're not comfortable.
+
+To start, this approach has the content script message the Background Service Worker (BGSW). The BGSW then attaches the
+debugger, generates the necessary commands, and detaches the debugger.
+
+It's relatively simple. It also shows a nice banner on your browser that shows what is happening (like it should).
+
+The code looks something like below. I use [Plasmo][plasmo] to implement this messaging, but it can be implemented via standard
+[Message passing][message-passing].
+
+```javascript
+// `req` is the request sent from the content script to the BGSW
+const target = { tabId: req.tabId };
+
+chrome.debugger.attach(target, "1.0");
+
+chrome.debugger.sendCommand(target, "Input.insertText", {
+    text: req.body.zoomValue, // this value is sent from the content script
+});
+
+// The two events below have to be used together. I don't know why... but they do...
+chrome.debugger.sendCommand(target, "Input.dispatchKeyEvent", {
+    type: "rawKeyDown",
+    code: "Enter",
+    key: "Enter",
+    macCharCode: 13,
+    nativeVirtualKeyCode: 13,
+    text: "\r",
+    unmodifiedText: "\r",
+    windowsVirtualKeyCode: 13,
+});
+chrome.debugger.sendCommand(target, "Input.dispatchKeyEvent", {
+    type: "char",
+    text: "\r",
+});
+
+chrome.debugger.detach(target);
+```
+
+I'll hopefully be releasing the new Chrome Extension with this functionality soon 🤞
 
 [feature-request]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/15
 [webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo
+[plasmo]: https://docs.plasmo.com/framework/messaging
+[message-passing]: https://developer.chrome.com/docs/extensions/mv3/messaging/
