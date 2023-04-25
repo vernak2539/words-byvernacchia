@@ -8,6 +8,9 @@ socialImage: "simulating-js-events.jpg"
 
 import SandpackEnv from "../../../../components/Sandpack";
 import {
+    keyboardEventsDispatchEvents,
+    keyboardEventsInputDotValue,
+    keyboardEventsInputOnly,
     mouseEventsButtonOnly,
     mouseEventsDotClick,
     mouseEventsEventsClick,
@@ -107,11 +110,59 @@ Events, which I'll demonstrate in the next section.
 
 ## Keyboard Events
 
-Here is where we have problems...
+Cool cool. Keyboard Events are going to be just as easy. You would've thought...
+
+Let's see what triggers a Keyboard Event.
+
+<SandpackEnv files={keyboardEventsInputOnly.files} client:visible />
+
+Depending on what key you hit the following events will fire(in order):
+
+1. `keydown`
+2. `keypress`
+3. `keyup`
+
+or, if hitting a key like "Shift":
+
+1. `keydown`
+2. `keyup`
+
+Now that we've gotten these events down, let's try to simulate them. Good thing that we have `KeyboardEvent`s that can
+be dispatched just like `MouseEvent`s. Let's give it a shot.
+
+<SandpackEnv files={keyboardEventsDispatchEvents.files} client:visible />
+
+Notice anything _interesting_?? In case you were too fixated on the "Console" window, have a look at the input. Unfortunately,
+while the vents did fire there is nothing in the input box.
+
+Remember how I talked about the `isTrusted` property on the `Event` (see above)? Well, this is very much what is happening
+here. The browser is being smart enough to not let scripts insert values in to input boxes. Basically, it's a security
+concern and browsers are right in doing this.
+
+So, where do we go from here? I still want to simulate these events. Maybe we can change the input's value using JS.
+Let's give it a shot.
+
+<SandpackEnv files={keyboardEventsInputDotValue.files} client:visible />
+
+Perfect. It looks like my script is typing in the box. Before you celebrate, what is happening in the "Console" window?
+
+Turns out, nothing is happening. There are no events being triggered despite us having listeners on them. So, we are not
+"simulating" events.
+
+Unfortunately, what we can do with `MouseEvent`s is not possible with `KeyboardEvents` due to browser security issues. We
+can get pretty far in making it either:
+
+1. Dispatch the correct events
+2. **OR...** emulate typing
 
 ## Trusted Keyboard Events with Chrome Debugger
 
+While it's not normally possible to fully simulate keyboard events, this section explores a potential "workaround" by using
+the Chrome Debugger.
+
 **🚨 This only works with Chrome Extensions that have access to the [`chrome.debugger` API](https://developer.chrome.com/docs/extensions/reference/debugger/) 🚨**
+
+Workaround here
 
 [feature-request]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/15
 [webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo
