@@ -105,8 +105,8 @@ This property cannot be faked, so when something won't happen due to this, you'r
 what I'll show you [below](#implementing-with-chrome-debugger), which is a hack and **only** available to Chrome
 Extensions).
 
-While this doesn't up for the most part when simulating Mouse Events, it does come up when trying to simulate Keyboard
-Events, which I'll demonstrate in the next section.
+While this isn't a problem (for the most part) when simulating Mouse Events, it does become a problem when trying to
+simulate Keyboard Events, which I'll demonstrate in the next section.
 
 ## Keyboard Events
 
@@ -133,7 +133,7 @@ be dispatched just like `MouseEvent`s. Let's give it a shot.
 <SandpackEnv files={keyboardEventsDispatchEvents.files} client:visible />
 
 Notice anything _interesting_?? In case you were too fixated on the "Console" window, have a look at the input. Unfortunately,
-while the vents did fire there is nothing in the input box.
+while the events did fire there is nothing in the input box.
 
 Remember how I talked about the `isTrusted` property on the `Event` (see above)? Well, this is very much what is happening
 here. The browser is being smart enough to not let scripts insert values in to input boxes. Basically, it's a security
