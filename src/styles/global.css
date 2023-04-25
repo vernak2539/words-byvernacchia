@@ -14,18 +14,27 @@ html {
 code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+    font-size: 1rem;
 }
 
 blockquote {
     border-left: 3px solid #ccc;
-    margin: 0 1.5rem;
+    margin: 0;
     padding: 0 0 0 1rem;
     color: #666;
 }
 
 a {
-    color: #773FEB;
+    color: #773feb;
     text-decoration: none;
 }
 
