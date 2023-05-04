@@ -3827,6 +3827,13 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+rehype-astro-relative-markdown-links@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/rehype-astro-relative-markdown-links/-/rehype-astro-relative-markdown-links-0.2.1.tgz#362111b55c8408fd91a135702fd991da4a761250"
+  integrity sha512-YVhdqVl3q8wzmghJmyL6vryE2mkru3vSaBthXMIiSxxGs5X+nTMhk5uUUkcO5jHkgtsjml+yb4kGufJ8Hmnv0w==
+  dependencies:
+    unist-util-visit "^4.1.2"
+
 rehype-parse@^8.0.0:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/rehype-parse/-/rehype-parse-8.0.4.tgz#3d17c9ff16ddfef6bbcc8e6a25a99467b482d688"
@@ -4533,7 +4540,7 @@ unist-util-visit-parents@^5.0.0, unist-util-visit-parents@^5.1.1:
     "@types/unist" "^2.0.0"
     unist-util-is "^5.0.0"
 
-unist-util-visit@^4.0.0, unist-util-visit@^4.1.0:
+unist-util-visit@^4.0.0, unist-util-visit@^4.1.0, unist-util-visit@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-4.1.2.tgz#125a42d1eb876283715a3cb5cceaa531828c72e2"
   integrity sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==

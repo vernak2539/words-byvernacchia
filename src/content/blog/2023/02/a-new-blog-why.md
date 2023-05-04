@@ -31,16 +31,16 @@ Anyway, I'll be blogging about my experiences on this site, which I built with A
 Topics I'm looking at include, but are not limited to:
 
 -   Chrome Extensions
-    -   [My First Chrome Extension (Google Docs Default Zoom)](/blog/my-first-chrome-extension)
-    -   [Google Workspace Zoom Default (more support!)](/blog/2023/03/introducing-google-workspace-zoom-default)
-    -   ["Simulating" JS Events](/blog/2023/04/simulating-js-events)
--   [comments via utterances](/blog/adding-comments-to-this-thing)
--   [Different ways to do search on static sites](/blog/how-do-search-this-thing)
+    -   [My First Chrome Extension (Google Docs Default Zoom)](./my-first-chrome-extension.md)
+    -   [Google Workspace Zoom Default (more support!)](../03/introducing-google-workspace-zoom-default.md)
+    -   ["Simulating" JS Events](../04/simulating-js-events.mdx)
+-   [comments via utterances](./adding-comments-to-this-thing.md)
+-   [Different ways to do search on static sites](./how-do-search-this-thing.md)
 -   Frameworks / Meta-frameworks
     -   Astro
-        -   [Astro thus far...](/blog/1-astro-thus-far)
+        -   [Astro thus far...](./1-astro-thus-far.md)
 -   React Aria
-    -   [Part 1](/blog/2023/03/1-react-aria-exploration#usebutton-requires-a-ref-and-props)
+    -   [Part 1](../03/1-react-aria-exploration.md#usebutton-requires-a-ref-and-props)
 -   deno
 -   `react-router`
 -   tanstack router
