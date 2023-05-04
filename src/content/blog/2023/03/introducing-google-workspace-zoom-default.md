@@ -13,7 +13,7 @@ tags:
 pubDate: "2023-03-30"
 ---
 
-I previously [talked about](/blog/my-first-chrome-extension) my experience building my first Chrome Extension,
+I previously [talked about](../02/my-first-chrome-extension.md) my experience building my first Chrome Extension,
 _Google Docs Zoom Default_.
 
 Since then, I've been hard at work enabling the functionality for more Google Workspace Applications. Thus, I'm
