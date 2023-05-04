@@ -33,6 +33,7 @@ Topics I'm looking at include, but are not limited to:
 -   Chrome Extensions
     -   [My First Chrome Extension (Google Docs Default Zoom)](/blog/my-first-chrome-extension)
     -   [Google Workspace Zoom Default (more support!)](/blog/2023/03/introducing-google-workspace-zoom-default)
+    -   ["Simulating" JS Events](/blog/2023/04/simulating-js-events)
 -   [comments via utterances](/blog/adding-comments-to-this-thing)
 -   [Different ways to do search on static sites](/blog/how-do-search-this-thing)
 -   Frameworks / Meta-frameworks
