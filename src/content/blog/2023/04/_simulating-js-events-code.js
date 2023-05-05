@@ -52,9 +52,9 @@ export const mouseEventsDotClick = {
   </head>
 
   <body>
-    <button>Click Me</button>
+    <button>DON'T Click Me, rather...</button>
     <br /><br />
-    <div id="simulate-with-dot-click" style="border: 1px solid #000; background: #ddd; padding: 2px; cursor: pointer;">Simulate click with .click()</div>
+    <div id="simulate-with-dot-click" style="border: 1px solid #000; background: #ddd; padding: 2px; cursor: pointer;">...Simulate click with .click() by clicking here</div>
     <script src="index.js"></script>
   </body>
 </html>
@@ -99,9 +99,9 @@ export const mouseEventsEventsClick = {
   </head>
 
   <body>
-    <button>Click Me</button>
+    <button>DON'T Click Me, rather...</button>
     <br /><br />
-    <div id="simulate-with-events" style="border: 1px solid #000; background: #E02800; padding: 2px; cursor: pointer;">Simulate click with .click()</div>
+    <div id="simulate-with-events" style="border: 1px solid #000; background: #E02800; padding: 2px; cursor: pointer;">...Simulate click with .click() by clicking here</div>
     <script src="index.js"></script>
   </body>
 </html>
