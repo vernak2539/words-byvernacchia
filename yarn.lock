@@ -3827,11 +3827,13 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-rehype-astro-relative-markdown-links@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/rehype-astro-relative-markdown-links/-/rehype-astro-relative-markdown-links-0.2.1.tgz#362111b55c8408fd91a135702fd991da4a761250"
-  integrity sha512-YVhdqVl3q8wzmghJmyL6vryE2mkru3vSaBthXMIiSxxGs5X+nTMhk5uUUkcO5jHkgtsjml+yb4kGufJ8Hmnv0w==
+rehype-astro-relative-markdown-links@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/rehype-astro-relative-markdown-links/-/rehype-astro-relative-markdown-links-0.3.0.tgz#84d4d158f80db3463c52fbd1c403fbf8682f41d4"
+  integrity sha512-hSTUIVMFk8OGvn/4WGktsWUToCvrynE79VQEcUfYA8X8t04pXdynqOrmY9iwB1QeN8XcpyL6Dd9229tz6pIEFw==
   dependencies:
+    debug "^4.3.4"
+    gray-matter "^4.0.3"
     unist-util-visit "^4.1.2"
 
 rehype-parse@^8.0.0:
