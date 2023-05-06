@@ -9,9 +9,9 @@ export async function getStaticPaths() {
     const dir = path.resolve(process.cwd(), "./src/content/blog/");
     const dirsInDir = getDirsInDir(dir);
 
-    return dirsInDir.map((yearDiretory) => {
+    return dirsInDir.map((yearDir) => {
         return {
-            params: { year: yearDiretory },
+            params: { year: yearDir },
         };
     });
 }
