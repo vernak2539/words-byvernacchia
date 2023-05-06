@@ -1266,6 +1266,15 @@ astro-icon@^0.8.0:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
+astro-rehype-relative-markdown-links@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/astro-rehype-relative-markdown-links/-/astro-rehype-relative-markdown-links-0.4.0.tgz#283376e0597a6d6bed970dd7b4c6f5c0c7c795f9"
+  integrity sha512-eLsm7guivr7pAaZbvp6aznRP8fFfB05ZqRttCbbRIufa1tiGuE3REwlBmTTuW0c0v/5vX8Idk6024AQhHsfCbA==
+  dependencies:
+    debug "^4.3.4"
+    gray-matter "^4.0.3"
+    unist-util-visit "^4.1.2"
+
 astro-robots-txt@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.5.0.tgz#f0a914cfd6289b3d9601bbad8f0b8fed207a262f"
@@ -3844,15 +3853,6 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
-
-rehype-astro-relative-markdown-links@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/rehype-astro-relative-markdown-links/-/rehype-astro-relative-markdown-links-0.3.0.tgz#84d4d158f80db3463c52fbd1c403fbf8682f41d4"
-  integrity sha512-hSTUIVMFk8OGvn/4WGktsWUToCvrynE79VQEcUfYA8X8t04pXdynqOrmY9iwB1QeN8XcpyL6Dd9229tz6pIEFw==
-  dependencies:
-    debug "^4.3.4"
-    gray-matter "^4.0.3"
-    unist-util-visit "^4.1.2"
 
 rehype-parse@^8.0.0:
   version "8.0.4"
