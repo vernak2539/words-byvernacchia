@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 import { SITE_URL } from './src/constants';
 import rehypeSlug from "rehype-slug";
-import rehypeAstroRelativeMarkdownLinks from "rehype-astro-relative-markdown-links";
+import astroRehypeRelativeMarkdownLinks from "rehype-astro-relative-markdown-links";
 
-const rehypePlugins = [rehypeSlug, rehypeAstroRelativeMarkdownLinks]
+const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks]
 
 import sitemap from "@astrojs/sitemap";
 
