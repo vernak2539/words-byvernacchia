@@ -5,6 +5,7 @@ import astroRehypeRelativeMarkdownLinks from "astro-rehype-relative-markdown-lin
 
 const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks]
 
+// https://astro.build/config
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
