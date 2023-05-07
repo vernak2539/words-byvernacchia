@@ -6,18 +6,18 @@ import { getCollection } from "astro:content";
 import getDirsInDir from "../../../../utils/get-dirs-in-dir";
 
 export async function getStaticPaths() {
-    const yearDir = path.resolve(process.cwd(), "./src/content/blog/");
-    const yearsInDir = getDirsInDir(yearDir);
+    const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const yearsInDir = getDirsInDir(collectionDir);
 
     const paths = yearsInDir.flatMap((yearDiretory) => {
-        const monthDir = path.resolve(
+        const yearDir = path.resolve(
             process.cwd(),
             "./src/content/blog/",
             yearDiretory
         );
-        const monthsInDir = getDirsInDir(monthDir);
+        const monthsInYearDir = getDirsInDir(yearDir);
 
-        const fullPaths = monthsInDir.map((monthDirectory) => {
+        const fullPaths = monthsInYearDir.map((monthDirectory) => {
             return {
                 params: { year: yearDiretory, month: monthDirectory },
             };

@@ -17,9 +17,10 @@ by year and month. As of now, my Content Collection's directory structure looks 
 src/content/
 └── blog
     └── 2023
+        ├── 01
+        │   └── a-new-blog-why.md
         ├── 02
         │   ├── 1-astro-thus-far.md
-        │   ├── a-new-blog-why.md
         │   ├── adding-comments-to-this-thing.md
         │   ├── how-do-search-this-thing.md
         │   └── my-first-chrome-extension.md
@@ -75,8 +76,8 @@ const getDirsInDir = (dir: string) => {
 };
 
 export async function getStaticPaths() {
-    const dir = path.resolve(process.cwd(), "./src/content/blog/");
-    const dirsInDir = getDirsInDir(dir);
+    const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const dirsInDir = getDirsInDir(collectionDir);
 
     return dirsInDir.map((yearDir) => {
         return {
@@ -119,11 +120,108 @@ const posts = await getCollection("blog", ({ data }) => {
 ---
 ```
 
-In this example, the filtering of posts by year is done by the post's frontmatter data (i.e. `pubDate`). This could be
-different for your data.
+In this example, the filtering of posts by year uses the post's frontmatter data (i.e. `pubDate`), but it will likely
+be different for you.
 
 ### Posts by Month of the Year
 
 Displaying Posts by Month of the Year is basically the same, but with some extra steps.
 
+Let's start by creating a page at `src/pages/blog/[year]/[month]/index.astro`. This time, instead of just `[year]` we've
+added `[month]`. We'll use both of these "dynamic routes" later.
+
+Just like before, we not add our `getStaticPaths()` function to the page we just created.
+
+```astro
+---
+import path from "path";
+import fs from "fs";
+
+const getDirsInDir = (dir: string) => {
+    return fs
+        .readdirSync(dir, { withFileTypes: true })
+        .filter((item) => item.isDirectory())
+        .map((item) => item.name);
+};
+
+export async function getStaticPaths() {
+    const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const yearsInDir = getDirsInDir(collectionDir);
+
+    const paths = yearsInDir.flatMap((yearDiretory) => {
+        const yearDir = path.resolve(
+            process.cwd(),
+            "./src/content/blog/",
+            yearDiretory
+        );
+        const monthsInYearDir = getDirsInDir(yearDir);
+
+        const fullPaths = monthsInYearDir.map((monthDirectory) => {
+            return {
+                params: { year: yearDiretory, month: monthDirectory },
+            };
+        });
+
+        return fullPaths;
+    });
+
+    return paths;
+}
+---
+```
+
+This looks really familiar to the function that we created to list our posts for each year. But, it's a bit different, so
+let's walk through what is going on.
+
+1. Define the absolute path to the base directory of the Content Collection
+2. Create an array containing all top-level directories in the Content Collection (i.e. years)
+3. Iterate via `flatMap` (to combine return values) through each "year" directory
+4. For each "year" directory, we:
+    1. Create the absolute path to the directory
+    2. Find all the top-level directories in the directory (i.e. months)
+    3. Create and return objects that Astro expects for it to build static paths ([docs](https://docs.astro.build/en/reference/api-reference/#params)) using year and month
+5. Return the array of objects
+
+After doing this, when running `astro build` the output will show something like this:
+
+```
+▶ src/pages/blog/[year]/[month]/index.astro
+  ├─ /blog/2023/01/index.html (+3ms)
+  ├─ /blog/2023/02/index.html (+6ms)
+  ├─ /blog/2023/03/index.html (+9ms)
+  ├─ /blog/2023/04/index.html (+12ms)
+  └─ /blog/2023/05/index.html (+15ms)
+```
+
+If I were to add some posts in January 2024, Astro would then generate a `/blog/2024/01/index.html` page.
+
+Last, but not least, let's display the posts for said year and month on the page.
+
+```astro
+---
+import { getCollection } from "astro:content";
+
+// ... prior getStaticPaths() definition
+
+const posts = await getCollection("blog", ({ data }) => {
+    const { year, month } = Astro.params;
+    const isYear = data.pubDate.getFullYear().toString() === year;
+    const isMonth = data.pubDate.getMonth() === parseInt(month, 10) - 1;
+
+    return isMonth && isYear;
+});
+---
+```
+
+(Again, using the post's frontmatter data (i.e. `pubDate`) for filtering)
+
+💡Remember, `Date.prototype.getMonth()` is zero-based (where zero indicates the first month of the year).
+
+And there we have it, pages that display posts by year and month of the year!
+
 Maybe I do have the hang of Astro!
+
+You can use my blog as an example for the full integration. Or, post a comment below, and we can have a discusion!
+
+-   [Posts by year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/index.astro)
+-   [Posts by month of the year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/%5Bmonth%5D/index.astro)
