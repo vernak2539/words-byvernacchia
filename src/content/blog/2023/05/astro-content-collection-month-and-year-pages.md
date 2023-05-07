@@ -215,7 +215,7 @@ const posts = await getCollection("blog", ({ data }) => {
 
 (Again, using the post's frontmatter data (i.e. `pubDate`) for filtering)
 
-💡Remember, `Date.prototype.getMonth()` is zero-based (where zero indicates the first month of the year).
+🤔 Remember, `Date.prototype.getMonth()` is zero-based (where zero indicates the first month of the year).
 
 And there we have it, pages that display posts by year and month of the year!
 
