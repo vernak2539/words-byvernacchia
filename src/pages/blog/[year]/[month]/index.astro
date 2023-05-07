@@ -29,18 +29,17 @@ export async function getStaticPaths() {
     return paths;
 }
 
-const { year, month } = Astro.params;
+const posts = await getCollection("blog", ({ data }) => {
+    if (data.redirect) {
+        return false;
+    }
 
-const allPosts = await getCollection("blog");
-const posts = allPosts
-    .filter((post) => !post.data.redirect)
-    .filter((post) => {
-        const isYear = post.data.pubDate.getFullYear().toString() === year;
-        const isMonth =
-            post.data.pubDate.getMonth() === parseInt(month, 10) - 1;
+    const { year, month } = Astro.params;
+    const isYear = data.pubDate.getFullYear().toString() === year;
+    const isMonth = data.pubDate.getMonth() === parseInt(month || "0", 10) - 1;
 
-        return isMonth && isYear;
-    });
+    return isMonth && isYear;
+});
 ---
 
 <Layout>

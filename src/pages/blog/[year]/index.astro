@@ -16,14 +16,15 @@ export async function getStaticPaths() {
     });
 }
 
-const { year } = Astro.params;
+const posts = await getCollection("blog", ({ data }) => {
+    if (data.redirect) {
+        return false;
+    }
 
-const allPosts = await getCollection("blog");
-const posts = allPosts
-    .filter((post) => !post.data.redirect)
-    .filter((post) => {
-        return post.data.pubDate.getFullYear().toString() === year;
-    });
+    const { year } = Astro.params;
+
+    return data.pubDate.getFullYear().toString() === year;
+});
 ---
 
 <Layout>
