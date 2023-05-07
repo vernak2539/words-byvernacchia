@@ -77,9 +77,9 @@ const getDirsInDir = (dir: string) => {
 
 export async function getStaticPaths() {
     const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
-    const dirsInDir = getDirsInDir(collectionDir);
+    const yearsInDir = getDirsInDir(collectionDir);
 
-    return dirsInDir.map((yearDir) => {
+    return yearsInDir.map((yearDir) => {
         return {
             params: { year: yearDir },
         };
