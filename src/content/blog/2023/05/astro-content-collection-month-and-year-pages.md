@@ -111,28 +111,16 @@ import { getCollection } from "astro:content";
 
 // ... prior getStaticPaths() definition
 
-const { year } = Astro.params; // dynamic route (from the "[year]" directory)
+const posts = await getCollection("blog", ({ data }) => {
+    const { year } = Astro.params; // dynamic route (from the "[year]" directory)
 
-const allPosts = await getCollection("blog");
-const posts = allPosts.filter((post) => {
-    return post.data.pubDate.getFullYear().toString() === year;
+    return data.pubDate.getFullYear().toString() === year;
 });
 ---
 ```
 
-This code will:
-
-1. Get all posts in the Content Collection
-2. Filter the posts based on the year
-
 In this example, the filtering of posts by year is done by the post's frontmatter data (i.e. `pubDate`). This could be
 different for your data.
-
-We can get the "year" (dynamic page param) from the `Astro` global variable like below.
-
-```js
-const { year } = Astro.params;
-```
 
 ### Posts by Month of the Year
 
