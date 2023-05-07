@@ -42,7 +42,7 @@ const posts = await getCollection("blog", ({ data }) => {
     return isMonth && isYear;
 });
 
-const options = { year: "numeric", month: "long" };
+const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long" };
 const today = new Date(`${year}-${month}-01`);
 const title = today.toLocaleDateString("en-US", options);
 ---

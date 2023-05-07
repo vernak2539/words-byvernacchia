@@ -26,7 +26,7 @@ const posts = await getCollection("blog", ({ data }) => {
     return data.pubDate.getFullYear().toString() === year;
 });
 
-const options = { year: "numeric" };
+const options: Intl.DateTimeFormatOptions = { year: "numeric" };
 const today = new Date(`${year}-01-01`);
 const title = today.toLocaleDateString("en-US", options);
 ---
