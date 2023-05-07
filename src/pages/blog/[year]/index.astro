@@ -16,17 +16,22 @@ export async function getStaticPaths() {
     });
 }
 
+const { year } = Astro.params;
+
 const posts = await getCollection("blog", ({ data }) => {
     if (data.redirect) {
         return false;
     }
 
-    const { year } = Astro.params;
-
     return data.pubDate.getFullYear().toString() === year;
 });
+
+const options = { year: "numeric" };
+const today = new Date(`${year}-01-01`);
+const title = today.toLocaleDateString("en-US", options);
 ---
 
 <Layout>
+    <p><strong>Posts from {title}</strong></p>
     <BlogPostList posts={posts} />
 </Layout>
