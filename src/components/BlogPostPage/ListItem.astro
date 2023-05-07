@@ -1,7 +1,8 @@
 ---
-import { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../../utils/datetime-fmt";
-export interface Props {
+
+interface Props {
     post: CollectionEntry<"blog">;
 }
 

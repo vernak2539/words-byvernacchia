@@ -1,8 +1,9 @@
 ---
 import { sortByPubdateMostRecentFirst } from "../../utils/sort-posts";
-import { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import BlogPostListItem from "./ListItem.astro";
-export interface Props {
+
+interface Props {
     posts: CollectionEntry<"blog">[];
 }
 

@@ -1,13 +1,13 @@
 ---
-import { CollectionEntry } from "astro:content";
-export interface Props {
-    pubDate: CollectionEntry<"blog">["data"]["pubDate"];
+interface Props {
+    pubDate: string;
     collection: string;
 }
 
 const { pubDate, collection } = Astro.props;
 const { slug } = Astro.params;
 const urlDate = pubDate.split("-");
+
 urlDate.pop();
 
 const path = [...urlDate, slug].join("/");

@@ -4,7 +4,9 @@ import BlogPostList from "../../components/BlogPostPage/List.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const allPosts = await getCollection("blog");
+    const allPosts = await getCollection("blog", ({ data }) => {
+        return !data.redirect;
+    });
 
     const uniqueTags = [
         ...new Set(allPosts.map((post) => post.data.tags).flat()),
@@ -23,15 +25,12 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-
-// filter out posts with "redirect"
-const displayPosts = posts.filter((posts) => !posts.data.redirect);
 ---
 
 <Layout>
     <h2>Posts with the "{tag}" tag...</h2>
 
-    <BlogPostList posts={displayPosts} />
+    <BlogPostList posts={posts} />
 
     <div class="all-tags-nav">
         <a href="/tags">🔙 all tags</a>
