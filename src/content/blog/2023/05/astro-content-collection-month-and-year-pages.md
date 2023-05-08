@@ -8,11 +8,10 @@ socialImage: "post-by-year.jpg"
 
 <small style="display:block; text-align: center;">🚨 **_I assume we're building a static site in this post_** 🚨</small>
 
-I thought I'd finally gotten familiar with [Astro](https://astro.build/) (see my [other posts](/tags/astro) about Astro),
-but I was wrong.
+I thought I'd finally gotten familiar with [Astro](https://astro.build/) (see my [other posts](/tags/astro)), but I was wrong.
 
-It all started with me having trouble finding posts I wanted to update solely based on file name/slug. I thought more
-structure could benefit me. So, I made a change.
+It all started with me having trouble finding the post I wanted to update solely based on file name/slug. I thought more
+structure could help with this, so I made a change.
 
 I switched from "the wild west" to organising my posts by year and month. As of now, my Content Collection's directory
 structure looks like this:
@@ -189,7 +188,7 @@ export async function getStaticPaths() {
 ---
 ```
 
-This looks really familiar, althought a bit different, to the function that we created to list our posts for each year.
+This looks quite familiar to the `getStaticPaths()` function we created to list our posts for each year, doesn't it?
 
 After doing this, when running `astro build` the output will show something like this:
 
@@ -204,7 +203,7 @@ After doing this, when running `astro build` the output will show something like
 
 If I were to add some posts in January 2024, Astro would then generate a `/blog/2024/01/index.html` page.
 
-Last, but not least, let's display the posts for said year and month on the page.
+Lastly, we have to display the posts for said year and month on the page.
 
 ```astro
 ---
@@ -237,3 +236,5 @@ You can use my blog as an example for the full integration. Or, post a comment b
 
 -   [Posts by year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/index.astro)
 -   [Posts by month of the year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/%5Bmonth%5D/index.astro)
+
+**Note:** If you're developing with Windows, you'll have to join your paths differently in some of the functions above (i.e. with `path.sep`).
