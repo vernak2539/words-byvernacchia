@@ -6,18 +6,18 @@ import { getCollection } from "astro:content";
 import getDirsInDir from "../../../../utils/get-dirs-in-dir";
 
 export async function getStaticPaths() {
-    const yearDir = path.resolve(process.cwd(), "./src/content/blog/");
-    const yearsInDir = getDirsInDir(yearDir);
+    const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const yearsInDir = getDirsInDir(collectionDir);
 
     const paths = yearsInDir.flatMap((yearDiretory) => {
-        const monthDir = path.resolve(
+        const yearDir = path.resolve(
             process.cwd(),
             "./src/content/blog/",
             yearDiretory
         );
-        const monthsInDir = getDirsInDir(monthDir);
+        const monthsInYearDir = getDirsInDir(yearDir);
 
-        const fullPaths = monthsInDir.map((monthDirectory) => {
+        const fullPaths = monthsInYearDir.map((monthDirectory) => {
             return {
                 params: { year: yearDiretory, month: monthDirectory },
             };
@@ -29,19 +29,25 @@ export async function getStaticPaths() {
     return paths;
 }
 
+const { year, month } = Astro.params;
+
 const posts = await getCollection("blog", ({ data }) => {
     if (data.redirect) {
         return false;
     }
 
-    const { year, month } = Astro.params;
     const isYear = data.pubDate.getFullYear().toString() === year;
     const isMonth = data.pubDate.getMonth() === parseInt(month || "0", 10) - 1;
 
     return isMonth && isYear;
 });
+
+const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long" };
+const today = new Date(`${year}-${month}-01`);
+const title = today.toLocaleDateString("en-US", options);
 ---
 
 <Layout>
+    <p><strong>Posts from {title}</strong></p>
     <BlogPostList posts={posts} />
 </Layout>

@@ -34,11 +34,12 @@ Topics I'm looking at include, but are not limited to:
     -   [My First Chrome Extension (Google Docs Default Zoom)](./my-first-chrome-extension.md)
     -   [Google Workspace Zoom Default (more support!)](../03/introducing-google-workspace-zoom-default.md)
     -   ["Simulating" JS Events](../04/simulating-js-events.mdx)
--   [comments via utterances](./adding-comments-to-this-thing.md)
+-   [Adding post comments via utterances](./adding-comments-to-this-thing.md)
 -   [Different ways to do search on static sites](./how-do-search-this-thing.md)
 -   Frameworks / Meta-frameworks
     -   Astro
         -   [Astro thus far...](./1-astro-thus-far.md)
+        -   [Astro Content Collection Month and Year Pages](../05/astro-content-collection-month-and-year-pages.md)
 -   React Aria
     -   [Part 1](../03/1-react-aria-exploration.md#usebutton-requires-a-ref-and-props)
 -   deno
@@ -55,6 +56,8 @@ Topics I'm looking at include, but are not limited to:
     -   Vue
     -   Svelte
     -   Solidjs
+    -   htmx
+    -   lit
 -   edge networks
     -   deno deploy
     -   cloudflare workers

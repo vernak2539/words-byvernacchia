@@ -6,27 +6,32 @@ import { getCollection } from "astro:content";
 import getDirsInDir from "../../../utils/get-dirs-in-dir";
 
 export async function getStaticPaths() {
-    const dir = path.resolve(process.cwd(), "./src/content/blog/");
-    const dirsInDir = getDirsInDir(dir);
+    const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+    const yearsInDir = getDirsInDir(collectionDir);
 
-    return dirsInDir.map((yearDir) => {
+    return yearsInDir.map((yearDir) => {
         return {
             params: { year: yearDir },
         };
     });
 }
 
+const { year } = Astro.params;
+
 const posts = await getCollection("blog", ({ data }) => {
     if (data.redirect) {
         return false;
     }
 
-    const { year } = Astro.params;
-
     return data.pubDate.getFullYear().toString() === year;
 });
+
+const options: Intl.DateTimeFormatOptions = { year: "numeric" };
+const today = new Date(`${year}-01-01`);
+const title = today.toLocaleDateString("en-US", options);
 ---
 
 <Layout>
+    <p><strong>Posts from {title}</strong></p>
     <BlogPostList posts={posts} />
 </Layout>
