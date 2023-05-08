@@ -1,17 +1,21 @@
 ---
 title: "Astro Content Collection Month and Year Pages"
 description: "Shall we create pages to list posts by year and month?!? Yes, of course!"
-pubDate: "2023-05-07"
+pubDate: "2023-05-08"
 tags: ["astro", "content collections"]
 socialImage: ""
 ---
 
-🚨 **For this post, I am assuming we're building a static site** 🚨
+<small style="display:block; text-align: center;">🚨 **_I assume we're building a static site in this post_** 🚨</small>
 
-I've finally gotten familiar with Astro. So I thought.
+I thought I'd finally gotten familiar with [Astro](https://astro.build/) (see my [other posts](/tags/astro) about Astro),
+but I was wrong.
 
-I wanted my posts to be a bit more organised, so I switched from no organisation / "the wild west" to organising my posts
-by year and month. As of now, my Content Collection's directory structure looks like below.
+It all started with me having trouble finding posts I wanted to update solely based on file name/slug. I thought more
+structure could benefit me. So, I made a change.
+
+I switched from "the wild west" to organising my posts by year and month. As of now, my Content Collection's directory
+structure looks like this:
 
 ```
 src/content/
@@ -33,12 +37,12 @@ src/content/
             └── astro-content-collection-month-and-year-pages.md
 ```
 
-I really liked the new version, but I quickly noticed something wasn't quite right.
+I really liked the new version as it bring more structure, but I quickly noticed something wasn't quite right.
 
 ## The Problem
 
-When I navigated to https://words.byvernacchia.com/2023 or https://words.byvernacchia.com/2023/02 I would get a big ole
-"404 Not Found." Lovely.
+When I navigated to https://words.byvernacchia.com/2023 or https://words.byvernacchia.com/2023/02, instead of seeing a
+page that has all the posts for the year, or for the month of the year, I got a big ole "404 Not Found." Lovely.
 
 I thought the "magic" of Astro would automatically create these pages for me. I was sorely mistaken 😔
 
@@ -51,7 +55,7 @@ Creating pages that display "Posts by Year" and "Posts by Month of the Year" bot
 [Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes) and
 [`getStaticPaths()`](https://docs.astro.build/en/reference/api-reference/#getstaticpaths).
 
-Let's see how we can use these together to fix our problem.
+Let's see how we can use these together to solve our problem.
 
 ### Posts by Year
 
@@ -68,6 +72,8 @@ Next, we add our `getStaticPaths()` function to the page we just created.
 import path from "path";
 import fs from "fs";
 
+// Helper function that returns an array of directory
+// names one level down from the given directory
 const getDirsInDir = (dir: string) => {
     return fs
         .readdirSync(dir, { withFileTypes: true })
@@ -76,9 +82,14 @@ const getDirsInDir = (dir: string) => {
 };
 
 export async function getStaticPaths() {
+    // Define the absolute path to the base directory of the Content Collection
     const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+
+    // Create an array containing all top-level directories in the Content Collection (i.e. years)
     const yearsInDir = getDirsInDir(collectionDir);
 
+    // Return an array of objects that Astro expects for it to build static paths
+    // See https://docs.astro.build/en/reference/api-reference/#params
     return yearsInDir.map((yearDir) => {
         return {
             params: { year: yearDir },
@@ -87,12 +98,6 @@ export async function getStaticPaths() {
 }
 ---
 ```
-
-What's going on here? Glad you asked. We:
-
-1. Define the absolute path to the base directory of the Content Collection
-2. Create an array containing all top-level directories in the Content Collection
-3. Return an array of objects that Astro expects for it to build static paths ([docs](https://docs.astro.build/en/reference/api-reference/#params))
 
 After doing this, when running `astro build` the output will show something like this:
 
@@ -113,8 +118,10 @@ import { getCollection } from "astro:content";
 // ... prior getStaticPaths() definition
 
 const posts = await getCollection("blog", ({ data }) => {
-    const { year } = Astro.params; // dynamic route (from the "[year]" directory)
+    // Dynamic route value (from the "[year]" directory)
+    const { year } = Astro.params;
 
+    // Filter posts based on "pubDate" value and "year" param
     return data.pubDate.getFullYear().toString() === year;
 });
 ---
@@ -137,6 +144,8 @@ Just like before, we not add our `getStaticPaths()` function to the page we just
 import path from "path";
 import fs from "fs";
 
+// Helper function that returns an array of directory
+// names one level down from the given directory
 const getDirsInDir = (dir: string) => {
     return fs
         .readdirSync(dir, { withFileTypes: true })
@@ -145,17 +154,26 @@ const getDirsInDir = (dir: string) => {
 };
 
 export async function getStaticPaths() {
+    // Define the absolute path to the base directory of the Content Collection
     const collectionDir = path.resolve(process.cwd(), "./src/content/blog/");
+
+    // Create an array containing all top-level directories in the Content Collection (i.e. years)
     const yearsInDir = getDirsInDir(collectionDir);
 
+    // Iterate via `flatMap` (to combine return values) through each "year" directory
     const paths = yearsInDir.flatMap((yearDiretory) => {
+        // Create the absolute path to the directory
         const yearDir = path.resolve(
             process.cwd(),
             "./src/content/blog/",
             yearDiretory
         );
+
+        // Create an array containing all the top-level directories in the directory (i.e. months)
         const monthsInYearDir = getDirsInDir(yearDir);
 
+        // Create and return objects that Astro expects for it to build static paths using year and month
+        // See https://docs.astro.build/en/reference/api-reference/#params
         const fullPaths = monthsInYearDir.map((monthDirectory) => {
             return {
                 params: { year: yearDiretory, month: monthDirectory },
@@ -165,22 +183,13 @@ export async function getStaticPaths() {
         return fullPaths;
     });
 
+    // Return the array of objects
     return paths;
 }
 ---
 ```
 
-This looks really familiar to the function that we created to list our posts for each year. But, it's a bit different, so
-let's walk through what is going on.
-
-1. Define the absolute path to the base directory of the Content Collection
-2. Create an array containing all top-level directories in the Content Collection (i.e. years)
-3. Iterate via `flatMap` (to combine return values) through each "year" directory
-4. For each "year" directory, we:
-    1. Create the absolute path to the directory
-    2. Find all the top-level directories in the directory (i.e. months)
-    3. Create and return objects that Astro expects for it to build static paths ([docs](https://docs.astro.build/en/reference/api-reference/#params)) using year and month
-5. Return the array of objects
+This looks really familiar, althought a bit different, to the function that we created to list our posts for each year.
 
 After doing this, when running `astro build` the output will show something like this:
 
@@ -204,18 +213,21 @@ import { getCollection } from "astro:content";
 // ... prior getStaticPaths() definition
 
 const posts = await getCollection("blog", ({ data }) => {
+    // Dynamic route value (from the "[year]" and "[month]" directories)
     const { year, month } = Astro.params;
+
+    // Check if post matches current year of page
     const isYear = data.pubDate.getFullYear().toString() === year;
+
+    // Check if post matches current month of page
+    // 🤔 Remember, `Date.prototype.getMonth()` is zero-based (where zero indicates the first month of the year).
     const isMonth = data.pubDate.getMonth() === parseInt(month, 10) - 1;
 
+    // Return boolean indicating if post is of year and month
     return isMonth && isYear;
 });
 ---
 ```
-
-(Again, using the post's frontmatter data (i.e. `pubDate`) for filtering)
-
-🤔 Remember, `Date.prototype.getMonth()` is zero-based (where zero indicates the first month of the year).
 
 And there we have it, pages that display posts by year and month of the year!
 
