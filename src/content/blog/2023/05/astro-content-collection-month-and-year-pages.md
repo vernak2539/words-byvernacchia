@@ -3,7 +3,7 @@ title: "Astro Content Collection Month and Year Pages"
 description: "Shall we create pages to list posts by year and month?!? Yes, of course!"
 pubDate: "2023-05-08"
 tags: ["astro", "content collections"]
-socialImage: ""
+socialImage: "post-by-year.jpg"
 ---
 
 <small style="display:block; text-align: center;">🚨 **_I assume we're building a static site in this post_** 🚨</small>
