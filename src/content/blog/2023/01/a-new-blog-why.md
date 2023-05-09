@@ -31,35 +31,38 @@ Anyway, I'll be blogging about my experiences on this site, which I built with A
 Topics I'm looking at include, but are not limited to:
 
 -   Chrome Extensions
-    -   [My First Chrome Extension (Google Docs Default Zoom)](../02/my-first-chrome-extension.md)
-    -   [Google Workspace Zoom Default (more support!)](../03/introducing-google-workspace-zoom-default.md)
-    -   ["Simulating" JS Events](../04/simulating-js-events.mdx)
--   [Adding post comments via utterances](../02/adding-comments-to-this-thing.md)
--   [Different ways to do search on static sites](../02/how-do-search-this-thing.md)
+    -   [(post) My First Chrome Extension (Google Docs Default Zoom)](../02/my-first-chrome-extension.md)
+    -   [(post) Google Workspace Zoom Default (more support!)](../03/introducing-google-workspace-zoom-default.md)
+    -   [(post) "Simulating" JS Events](../04/simulating-js-events.mdx)
+-   [(post) Adding post comments via utterances](../02/adding-comments-to-this-thing.md)
+-   [(post) Different ways to do search on static sites](../02/how-do-search-this-thing.md)
 -   Frameworks / Meta-frameworks
-    -   Astro
-        -   [Astro thus far...](../02/1-astro-thus-far.md)
-        -   [Astro Content Collection Month and Year Pages](../05/astro-content-collection-month-and-year-pages.md)
--   React Aria
-    -   [Part 1](../03/1-react-aria-exploration.md#usebutton-requires-a-ref-and-props)
--   deno
+    -   [Astro](https://astro.build/)
+        -   [(post) Astro thus far...](../02/1-astro-thus-far.md)
+        -   [(post) Astro Content Collection Month and Year Pages](../05/astro-content-collection-month-and-year-pages.md)
+    -   [Next.js](https://nextjs.org/)
+    -   [Remix](https://remix.run/)
+    -   [qwik](https://qwik.builder.io/)
+    -   [Vue.js](https://vuejs.org/)
+    -   [Svelte](https://svelte.dev/)
+    -   [SolidJS](https://www.solidjs.com/)
+    -   [htmx](https://htmx.org/)
+    -   [Lit](https://lit.dev/)
+-   [React Aria](https://react-spectrum.adobe.com/react-aria/)
+    -   [(post) Part 1](../03/1-react-aria-exploration.md#usebutton-requires-a-ref-and-props)
+-   Deno
+-   React Server Components vs SRR vs everything
 -   `react-router`
--   tanstack router
+-   TanStack router
 -   `react-query` (or tanstack query)
--   what's the best way to build/package/transpile things these days - it's been a while
--   best way to have consistent types between backend/frontend + request validation
-    -   trpc
--   frameworks
-    -   nextjs latest
-    -   remix
-    -   qwik
-    -   Vue
-    -   Svelte
-    -   Solidjs
-    -   htmx
-    -   lit
--   edge networks
-    -   deno deploy
+-   What's the best way to build/package/transpile things these days - it's been a while
+-   Best way to have consistent types between backend/frontend + request validation
+    -   [tRPC](https://trpc.io/)
+-   CSS / CSS-in-JS
+    -   [Vanilla Extract](https://github.com/vanilla-extract-css/vanilla-extract)
+    -   [Tailwind](https://tailwindcss.com/) - Will give it a try again as it's likely improved since I tried it when it first came out
+-   Edge networks
+    -   Deno deploy
     -   cloudflare workers
     -   deployment to these using frameworks
 -   serverless
@@ -82,7 +85,7 @@ Topics I'm looking at include, but are not limited to:
 -   Bundlers + tree shaking based out compile mode (js common)
 -   lambda layers
 -   Andy osmani online book
--   Openai rainingfor what you should focus on
+-   OpenAI training for what you should focus on
 -   Service workers
 -   Framer
 -   Bun
