@@ -41,9 +41,6 @@ const {
             .content {
                 line-height: 1.45;
             }
-            .metadata-row {
-                padding-bottom: 10px;
-            }
             .metadata-row:last-child {
                 padding-bottom: 0;
             }
@@ -73,50 +70,42 @@ const {
             <article>
                 <h2 style={{ marginBottom: ".5rem" }}>{blogTitle}</h2>
                 <Breadcrumbs />
-                <div class="metadata-row">
-                    {
-                        pubDate && (
-                            <div class="metadata-container">
-                                <div class="metadata-entry">
-                                    <div class="metadata-entry-icon">
-                                        <Icon
-                                            pack="mdi"
-                                            name="calendar-today"
-                                        />
-                                    </div>
-                                    <time>{formatDate(pubDate)}</time>
+                {
+                    pubDate && (
+                        <div class="metadata-container">
+                            <div class="metadata-entry">
+                                <div class="metadata-entry-icon">
+                                    <Icon pack="mdi" name="calendar-today" />
                                 </div>
-                                <div class="metadata-entry-spacer"> - </div>
-                                <div class="metadata-entry">
-                                    <div class="metadata-entry-icon">
-                                        <Icon
-                                            pack="mdi"
-                                            name="clock-time-nine-outline"
-                                        />
-                                    </div>
-                                    <time>{getReadingTime(postContent)}</time>
+                                <time>{formatDate(pubDate)}</time>
+                            </div>
+                            <div class="metadata-entry-spacer"> - </div>
+                            <div class="metadata-entry">
+                                <div class="metadata-entry-icon">
+                                    <Icon
+                                        pack="mdi"
+                                        name="clock-time-nine-outline"
+                                    />
                                 </div>
+                                <time>{getReadingTime(postContent)}</time>
                             </div>
-                        )
-                    }
-                    {
-                        updatedDate && (
-                            <div>
-                                Last updated on <time>{updatedDate}</time>
-                            </div>
-                        )
-                    }
-                </div>
-                <div class="metadata-row">
-                    <BlogPostTags tags={tags} />
-                </div>
+                        </div>
+                    )
+                }
+                {
+                    updatedDate && (
+                        <div>
+                            Last updated on <time>{updatedDate}</time>
+                        </div>
+                    )
+                }
                 <hr />
-
                 <section class="content">
                     <slot />
                     <p>Until next time...</p>
                 </section>
             </article>
+            <BlogPostTags tags={tags} />
             <Comments />
             <Footer />
         </main>
