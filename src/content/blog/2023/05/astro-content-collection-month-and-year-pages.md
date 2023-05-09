@@ -228,7 +228,10 @@ const posts = await getCollection("blog", ({ data }) => {
 ---
 ```
 
-And there we have it, pages that display posts by year and month of the year!
+## And There We Have It!
+
+My blog (or your blog) now creates pages that will display a lists of posts by year and/or month of the year! To confirm,
+you can check out https://words.byvernacchia.com/2023 or https://words.byvernacchia.com/2023/02 (now they work).
 
 Maybe I do have the hang of Astro!
 
