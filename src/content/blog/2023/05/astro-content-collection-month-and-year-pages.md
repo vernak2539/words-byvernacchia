@@ -40,7 +40,7 @@ I really liked the new version as it bring more structure, but I quickly noticed
 
 ## The Problem
 
-When I navigated to https://words.byvernacchia.com/2023 or https://words.byvernacchia.com/2023/02, instead of seeing a
+When I navigated to https://words.byvernacchia.com/blog/2023 or https://words.byvernacchia.com/blog/2023/02, instead of seeing a
 page that has all the posts for the year, or for the month of the year, I got a big ole "404 Not Found." Lovely.
 
 I thought the "magic" of Astro would automatically create these pages for me. I was sorely mistaken 😔
@@ -231,7 +231,7 @@ const posts = await getCollection("blog", ({ data }) => {
 ## And There We Have It!
 
 My blog (or your blog) now creates pages that will display a lists of posts by year and/or month of the year! To confirm,
-you can check out https://words.byvernacchia.com/2023 or https://words.byvernacchia.com/2023/02 (now they work).
+you can check out https://words.byvernacchia.com/blog/2023 or https://words.byvernacchia.com/blog/2023/02 (now they work).
 
 Maybe I do have the hang of Astro!
 
