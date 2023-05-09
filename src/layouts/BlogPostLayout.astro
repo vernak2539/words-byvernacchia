@@ -9,6 +9,7 @@ import Comments from "../components/Scaffolding/Comments.astro";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
 import Footer from "../components/Scaffolding/Footer.astro";
+import BlogPostTags from "../components/BlogPostTags/index.astro";
 import getReadingTime from "../utils/reading-time";
 
 interface Props {
@@ -40,6 +41,12 @@ const {
             .content {
                 line-height: 1.45;
             }
+            .metadata-row {
+                padding-bottom: 10px;
+            }
+            .metadata-row:last-child {
+                padding-bottom: 0;
+            }
             .metadata-container {
                 font-size: 0.8rem;
                 display: flex;
@@ -66,35 +73,43 @@ const {
             <article>
                 <h2 style={{ marginBottom: ".5rem" }}>{blogTitle}</h2>
                 <Breadcrumbs />
-                {
-                    pubDate && (
-                        <div class="metadata-container">
-                            <div class="metadata-entry">
-                                <div class="metadata-entry-icon">
-                                    <Icon pack="mdi" name="calendar-today" />
+                <div class="metadata-row">
+                    {
+                        pubDate && (
+                            <div class="metadata-container">
+                                <div class="metadata-entry">
+                                    <div class="metadata-entry-icon">
+                                        <Icon
+                                            pack="mdi"
+                                            name="calendar-today"
+                                        />
+                                    </div>
+                                    <time>{formatDate(pubDate)}</time>
                                 </div>
-                                <time>{formatDate(pubDate)}</time>
-                            </div>
-                            <div class="metadata-entry-spacer"> - </div>
-                            <div class="metadata-entry">
-                                <div class="metadata-entry-icon">
-                                    <Icon
-                                        pack="mdi"
-                                        name="clock-time-nine-outline"
-                                    />
+                                <div class="metadata-entry-spacer"> - </div>
+                                <div class="metadata-entry">
+                                    <div class="metadata-entry-icon">
+                                        <Icon
+                                            pack="mdi"
+                                            name="clock-time-nine-outline"
+                                        />
+                                    </div>
+                                    <time>{getReadingTime(postContent)}</time>
                                 </div>
-                                <time>{getReadingTime(postContent)}</time>
                             </div>
-                        </div>
-                    )
-                }
-                {
-                    updatedDate && (
-                        <div>
-                            Last updated on <time>{updatedDate}</time>
-                        </div>
-                    )
-                }
+                        )
+                    }
+                    {
+                        updatedDate && (
+                            <div>
+                                Last updated on <time>{updatedDate}</time>
+                            </div>
+                        )
+                    }
+                </div>
+                <div class="metadata-row">
+                    <BlogPostTags tags={tags} />
+                </div>
                 <hr />
 
                 <section class="content">
