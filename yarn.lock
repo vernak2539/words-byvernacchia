@@ -1266,10 +1266,10 @@ astro-icon@^0.8.0:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro-rehype-relative-markdown-links@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/astro-rehype-relative-markdown-links/-/astro-rehype-relative-markdown-links-0.4.0.tgz#283376e0597a6d6bed970dd7b4c6f5c0c7c795f9"
-  integrity sha512-eLsm7guivr7pAaZbvp6aznRP8fFfB05ZqRttCbbRIufa1tiGuE3REwlBmTTuW0c0v/5vX8Idk6024AQhHsfCbA==
+astro-rehype-relative-markdown-links@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/astro-rehype-relative-markdown-links/-/astro-rehype-relative-markdown-links-0.4.1.tgz#3084b3a1cbb3b1ae68403ba8f8371ea4a8812aca"
+  integrity sha512-UT/h5omoLTaS57hYjmGIHhY7kT+4n3u2EPsyte+292wNixHH/XqrCFZ9/5vTAYRZDyUYj+7/N5YpurbRvtOFzg==
   dependencies:
     debug "^4.3.4"
     gray-matter "^4.0.3"
@@ -1283,10 +1283,10 @@ astro-robots-txt@^0.5.0:
     valid-filename "^4.0.0"
     zod "^3.21.4"
 
-astro@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.4.1.tgz#cf29659f5f933e981c88aee4fceb7bef67e3073d"
-  integrity sha512-qNYXxjtJm0+FHr+MtHXhV/WEMkoulAoCsvtdyJrQiuk9raodPo2xNHgP1WPZUtmFlPN2ezZ2XGDUK1zmFZgRLg==
+astro@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.4.3.tgz#7a81437c816b7bfc0864ed6da575146491a34b0e"
+  integrity sha512-WU7sMkgFNQs4WZzEmpjOYZthcT8+LSmwIR0GvWzVYlb+dIMfFCQyg99LNHdhg/XZKi08ztaHmRf4ZBjJvZHsgA==
   dependencies:
     "@astrojs/compiler" "^1.4.0"
     "@astrojs/language-server" "^1.0.0"
