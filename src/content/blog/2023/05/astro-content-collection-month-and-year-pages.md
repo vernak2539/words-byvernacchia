@@ -8,7 +8,7 @@ socialImage: "post-by-year.jpg"
 
 <small style="display:block; text-align: center;">🚨 **_I assume we're building a static site in this post_** 🚨</small>
 
-I thought I'd finally gotten familiar with [Astro](https://astro.build/) (see my [other posts](/tags/astro)), but I was wrong.
+I thought I'd finally gotten familiar with [Astro](https://astro.build/) (see my [other posts](/blog/tags/astro)), but I was wrong.
 
 It all started with me having trouble finding the post I wanted to update solely based on file name/slug. I thought more
 structure could help with this, so I made a change.
