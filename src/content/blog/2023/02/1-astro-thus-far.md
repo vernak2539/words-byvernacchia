@@ -78,6 +78,9 @@ to generated paths. Turns out that is not supported yet, which I found out on a 
 Hopefully there will be a fix issued soon, but in the meantime I'll likely just put the paths there instead of using
 Markdown links (not looking to get into rehype or remark at the moment of writing this).
 
+🔥 **Update:** I actually created a [rehype](https://github.com/rehypejs/rehype) plugin to do this specifically for Astro.
+Read about it [here](../05/relative-markdown-paths-in-astro-with-rehype.md).
+
 ## Future Ideas
 
 I have an idea I want to explore in the future around displaying remote file content. Think something like embedding a

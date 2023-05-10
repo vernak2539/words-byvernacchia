@@ -18,12 +18,15 @@ code {
 }
 
 h1 code,
-h2 code,
 h3 code,
 h4 code,
 h5 code,
 h6 code {
     font-size: 1rem;
+}
+
+h2 code {
+    font-size: 1.3rem;
 }
 
 blockquote {

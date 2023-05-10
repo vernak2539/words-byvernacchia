@@ -1,9 +1,10 @@
-import { defineConfig } from 'astro/config';
-import { SITE_URL } from './src/constants';
+import { defineConfig } from "astro/config";
+import { SITE_URL } from "./src/constants";
 import rehypeSlug from "rehype-slug";
 import astroRehypeRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 
-const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks]
+const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks];
+const remarkPlugins = [];
 
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
@@ -19,11 +20,18 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE_URL,
-  markdown: {
-    rehypePlugins
-  },
-  integrations: [sitemap(), robotsTxt(), react(), mdx({
-    rehypePlugins
-  })]
+    site: SITE_URL,
+    markdown: {
+        rehypePlugins,
+        remarkPlugins,
+    },
+    integrations: [
+        sitemap(),
+        robotsTxt(),
+        react(),
+        mdx({
+            rehypePlugins,
+            remarkPlugins,
+        }),
+    ],
 });
