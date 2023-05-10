@@ -34,13 +34,13 @@ an RFC ([#424](https://github.com/withastro/roadmap/discussions/424)).
 After reviewing all the issues and discussions it didn't seem like the Astro team would be focusing on fixing this
 problem anytime soon, so I decided to try my hand at it.
 
-🚨 **Update:** They may be solving this using [Assets][astro-assets]. It's still experimental, but it's worth trying it
-out! I still learned a lot!
+🚨 **Update:** The Astro team may be solving this using [Assets][astro-assets]. It's still experimental, but it's worth
+trying it out! I still learned a lot!
 
 ## Enter rehype (and remark)
 
 [remark][remark] and [reyhpe][rehype] are part of the [@unifiedjs collective](https://unifiedjs.com/) and are used to
-transform Markdown and HTML respectively. They can even be used in combination
+transform Markdown and HTML respectively. They can even be used in combination.
 
 rehype:
 
@@ -71,8 +71,8 @@ nodes, it will:
 
 1. Check if the path is a candidate to be transformed. The following criteria have to be met:
     - The path is not empty
-    - The path has an extension of `.md` or `.mdx`
     - The path does not represent an absolute path
+    - The file has an extension of `.md` or `.mdx`
 2. Check to see if the path is a valid one (i.e. the relative file exists in relation to the current file)
 3. Determine if the relative file has a [custom slug](https://docs.astro.build/en/guides/content-collections/#defining-custom-slugs)
    defined in the frontmatter, and use it if available
@@ -110,10 +110,12 @@ is a rehype plugin. Did I make the right choice??? 🤔
 
 I think I did. Let me explain.
 
-remark is used to transform markdown files, while rehype transforms HTML. While it could've gone either way (i.e.
-transform in Markdown vs HTML), I choose to transform the link (i.e. `href`) during the transformation of the AST to HTML
-the final HTML output. Thus, rehype was the choice.
+remark is used to transform markdown files, while rehype transforms HTML. It really could've gone either way (i.e.
+transform path in Markdown or HTML), but I choose to transform the link (i.e. `href`) when converting the AST to the
+final HTML output. Thus, rehype was the choice.
 
 [github]: https://github.com/vernak2539/astro-rehype-relative-markdown-links
 [npm]: https://www.npmjs.com/package/astro-rehype-relative-markdown-links
 [astro-assets]: https://docs.astro.build/en/guides/assets/
+[remark]: https://github.com/remarkjs/remark
+[rehype]: https://github.com/rehypejs/rehype
