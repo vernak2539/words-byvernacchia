@@ -6,57 +6,114 @@ tags: ["astro", "markdown", "mdx", "rehype"]
 socialImage: "relative-markdown-paths.png"
 ---
 
-I stared using Astro and my mind was blown. It did everything I needed and even things I didn't know I needed. It eased
-me into the static site/SSG game.
+I stared using Astro and it blew my mind. It did everything I needed and even things I didn't know I needed. It upped
+my static site/SSG game very quickly.
 
 After a couple blog posts I noticed something weird. When I clicked on a link, it gave me a 404. What gives??
 
-I investigated a bit more and realised that Astro doesn't/won't modify the MD/MDX content of a Content Collection. This
-meant when I had a Markdown link this:
+I investigated further and realised that Astro doesn't modify the MD/MDX content of a Content Collection. This meant
+when I had a Markdown link that looked like this:
 
 ```markdown
 [relative link](./other-markdown.md)
 ```
 
-It would be rendered exactly the same, like this:
+It would be rendered exactly the same:
 
 ```html
 <a href="./other-markdown.md">relative link</a>
 ```
 
-After doing exactly the same thing I do to link relative Markdown pages on Github, I couldn't believe it wasn't working
-in the same way (silly me).
+I assumed that Astro would transform these paths when it built the site. Unfortunately, I made an ass out of me (not you
+though, you're perfect).
 
-Turns out I wasn't the only one. There's multiple issues ([#5682](https://github.com/withastro/astro/issues/5682)],
-[#5680](https://github.com/withastro/astro/issues/5680)]) and an RFC
-([#424](https://github.com/withastro/roadmap/discussions/424)]) that relate to this functionality "missing."
+Turns out I wasn't the only one surprised by this "missing" functionality. There's multiple issues
+([#5682](https://github.com/withastro/astro/issues/5682), [#5680](https://github.com/withastro/astro/issues/5680)) and
+an RFC ([#424](https://github.com/withastro/roadmap/discussions/424)).
 
-If I'm honest, it didn't seem like the Astro team would be focusing on fixing this problem anytime soon, so I decided to
-try my hand at it.
+After reviewing all the issues and discussions it didn't seem like the Astro team would be focusing on fixing this
+problem anytime soon, so I decided to try my hand at it.
 
-## Enter Rehype (and Remark)
+🚨 **Update:** They may be solving this using [Assets][astro-assets]. It's still experimental, but it's worth trying it
+out! I still learned a lot!
 
-[Reyhpe][rehype] and [Remark][remark] are part of the [@unifiedjs collective](https://unifiedjs.com/) and are used to
-transform Markdown.
+## Enter rehype (and remark)
 
-Reyhpe is a:
+[remark][remark] and [reyhpe][rehype] are part of the [@unifiedjs collective](https://unifiedjs.com/) and are used to
+transform Markdown and HTML respectively. They can even be used in combination
 
-> HTML processor powered by plugins part of the @unifiedjs collective
+rehype:
 
-Remark is a:
+> ...is an ecosystem of plugins that work with HTML as structured data, specifically ASTs (abstract syntax trees). ASTs make it easy for programs to deal with HTML. We call those programs plugins. Plugins inspect and change trees.
 
-> popular tool that transforms markdown with plugins. These plugins can inspect and change your markup.
-> You can use remark on the server, the client, CLIs, deno, etc.
+remark:
 
-**Note:** As I write this, I realise the plugin I created could a Remark plugin as well. I'll explore that in the _[Rehype
-vs Remark](#rehype-vs-remark)_ section below.
+> ...is a tool that transforms markdown with plugins. These plugins can inspect and change your markup.
 
-Looks
+TL;DR - rehype = HTML transforms. remark = Markdown transforms.
 
-## Rehype vs Remark
+**Note:** As I write this, I realise the plugin I created could be a Remark plugin as well. I'll explore that in the
+_[rehype vs remark](#rehype-vs-remark)_ section below.
 
-did I do the right thing???
+Anyway, these are some of the best frameworks that support modifying of Markdown and HTML via AST transforms, which is
+exactly what I needed to do.
+
+Astro also supports both rehype and remark plugins! We're in luck, so let's get started.
+
+## Enter `astro-rehype-relative-markdown-links` (my plugin)
+
+🚨 I built this for Astro exclusively. Use at your own risk outside Astro 🚨
+
+**Links:** [Github][github] • [NPM][npm]
+
+Essentially, this plugin will look through the AST created by rehype and look for the `href` nodes. Once it finds these
+nodes, it will:
+
+1. Check if the path is a candidate to be transformed. The following criteria have to be met:
+    - The path is not empty
+    - The path has an extension of `.md` or `.mdx`
+    - The path does not represent an absolute path
+2. Check to see if the path is a valid one (i.e. the relative file exists in relation to the current file)
+3. Determine if the relative file has a [custom slug](https://docs.astro.build/en/guides/content-collections/#defining-custom-slugs)
+   defined in the frontmatter, and use it if available
+4. Build and return the final path that is compatible with the final HTML generated by Astro
+
+I didn't go too in-depth, but feel free to check out [the code][github].
+
+### Usage
+
+If you want to try it out, simply install the plugin and follow the configuration steps below.
+
+```bash
+yarn add astro-rehype-relative-markdown-links
+```
+
+**`astro.config.mjs`**
+
+```js
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
+
+// ...everything else
+
+export default defineConfig({
+    // ...everything else
+    markdown: {
+        rehypePlugins: [rehypeAstroRelativeMarkdownLinks],
+    },
+});
+```
+
+## rehype vs remark
+
+Like I mentioned above, should this plugin be a rehype or remark plugin? As it stands, `astro-rehype-relative-markdown-links`
+is a rehype plugin. Did I make the right choice??? 🤔
+
+I think I did. Let me explain.
+
+remark is used to transform markdown files, while rehype transforms HTML. While it could've gone either way (i.e.
+transform in Markdown vs HTML), I choose to transform the link (i.e. `href`) during the transformation of the AST to HTML
+the final HTML output. Thus, rehype was the choice.
 
 [github]: https://github.com/vernak2539/astro-rehype-relative-markdown-links
 [npm]: https://www.npmjs.com/package/astro-rehype-relative-markdown-links
-[old npm]: https://www.npmjs.com/package/rehype-astro-relative-markdown-links
+[astro-assets]: https://docs.astro.build/en/guides/assets/
