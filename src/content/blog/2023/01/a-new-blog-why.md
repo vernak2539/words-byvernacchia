@@ -89,7 +89,12 @@ Topics I'm looking at include, but are not limited to:
 -   Service workers
 -   Framer
 -   Bun
--   Xstate
+-   State Management
+    -   Xstate
+    -   Redux / Redux Toolkit
+    -   Zustand
+    -   Jotai
+    -   MobX
 -   Vanilla extract css
 -   DynamoDB data modelling (not fe, but interesting to me and my role)
 
