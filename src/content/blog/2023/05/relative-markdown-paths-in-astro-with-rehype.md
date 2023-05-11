@@ -106,6 +106,18 @@ export default defineConfig({
 });
 ```
 
+After integrating the plugin, the following link that is inside a `src/content/blog/post.md` file:
+
+```markdown
+[relative link](./other-markdown.md)
+```
+
+Would be rendered as:
+
+```html
+<a href="/blog/other-markdown">relative link</a>
+```
+
 ## rehype vs remark
 
 Like I mentioned above, should this plugin be a rehype or remark plugin? As it stands, `astro-rehype-relative-markdown-links`
