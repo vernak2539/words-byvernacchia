@@ -1266,10 +1266,10 @@ astro-icon@^0.8.0:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro-rehype-relative-markdown-links@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/astro-rehype-relative-markdown-links/-/astro-rehype-relative-markdown-links-0.4.1.tgz#3084b3a1cbb3b1ae68403ba8f8371ea4a8812aca"
-  integrity sha512-UT/h5omoLTaS57hYjmGIHhY7kT+4n3u2EPsyte+292wNixHH/XqrCFZ9/5vTAYRZDyUYj+7/N5YpurbRvtOFzg==
+astro-rehype-relative-markdown-links@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/astro-rehype-relative-markdown-links/-/astro-rehype-relative-markdown-links-0.4.2.tgz#9e25329b2d0947ee72bf86af0cec4ea1dafce5bb"
+  integrity sha512-ADabfvHw3Rmp53eVrysrg3uB5tU6BEP3im6kPn8Ub9c4xxBIC9aoKhWgocGcr+z2xHBolM9uvvcdawokXrrgkA==
   dependencies:
     debug "^4.3.4"
     gray-matter "^4.0.3"
