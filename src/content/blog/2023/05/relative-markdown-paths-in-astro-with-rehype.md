@@ -67,8 +67,9 @@ Astro also supports both rehype and remark plugins! We're in luck, so let's get 
 
 🚨 I built this for Astro exclusively and made a couple assumptions. They are:
 
-1. You have a content collection residing at `src/content/<content_collection>`
-2. You have a page that renders the above content collection at `src/pages/<content_collection>/[...slug].astro`
+1. You are rendering a static site (i.e. not using SSR)
+2. You have a content collection residing at `src/content/<content_collection>`
+3. You have a page that renders the above content collection at `src/pages/<content_collection>/[...slug].astro`
 
 **Links:** [Github][github] • [NPM][npm]
 
