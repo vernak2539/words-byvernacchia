@@ -37,8 +37,8 @@ problem anytime soon, so I decided to try my hand at it.
 🚨 **Update:** The Astro team may be solving this using [Assets][astro-assets]. It's still experimental, but it's worth
 trying it out! I still learned a lot!
 
-🚨 **Update 2:** I tried the experimental Assets feature out, but it didn't seem to work. Maybe we'll see if it can go
-directly in Astro 🤷
+🚨 **Update 2:** I tried the experimental Assets feature out, but it didn't seem to work (I also misunderstood). Maybe
+we'll see if it can go directly in Astro 🤷
 
 ## Enter rehype (and remark)
 
@@ -65,7 +65,10 @@ Astro also supports both rehype and remark plugins! We're in luck, so let's get 
 
 ## Enter `astro-rehype-relative-markdown-links` (my plugin)
 
-🚨 I built this for Astro exclusively. Use at your own risk outside Astro 🚨
+🚨 I built this for Astro exclusively and made a couple assumptions. They are:
+
+1. You have a content collection residing at `src/content/<content_collection>`
+2. You have a page that renders the above content collection at `src/pages/<content_collection>/[...slug].astro`
 
 **Links:** [Github][github] • [NPM][npm]
 
