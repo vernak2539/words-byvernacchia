@@ -37,6 +37,9 @@ problem anytime soon, so I decided to try my hand at it.
 🚨 **Update:** The Astro team may be solving this using [Assets][astro-assets]. It's still experimental, but it's worth
 trying it out! I still learned a lot!
 
+🚨 **Update 2:** I tried the experimental Assets feature out, but it didn't seem to work. Maybe we'll see if it can go
+directly in Astro 🤷
+
 ## Enter rehype (and remark)
 
 [remark][remark] and [reyhpe][rehype] are part of the [@unifiedjs collective](https://unifiedjs.com/) and are used to
