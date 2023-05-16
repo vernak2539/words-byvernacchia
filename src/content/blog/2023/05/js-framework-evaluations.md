@@ -40,6 +40,7 @@ In addition, I'm also planning to explore "higher-level frameworks" that supplem
     -   [Remix](https://remix.run/)
 2.  [SvelteKit](https://kit.svelte.dev/)
 3.  [SolidStart](https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
+4.  [Nuxt](https://nuxtjs.org/)
 
 Alright, so I'm not about to dive into this without a game plan. I've got a project in mind to make this exploration a
 bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/)! You'll be able to check out different
