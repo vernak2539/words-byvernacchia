@@ -6,35 +6,36 @@ tags: ["javascript", "frontend", "frameworks"]
 socialImage: ".jpg"
 ---
 
-As I stated in [my original post](../01/a-new-blog-why.md), I want to evaluate new frontend "languages" and frameworks.
+As I stated in [my original post](../01/a-new-blog-why.md), I want to evaluate the frontend frameworks that have been
+created "recently."
 
-I plan to look at the following "flavours of the month":
+I plan to delve into:
 
 1.  React
 2.  [Svelte](https://svelte.dev/)
 3.  [SolidJS](https://www.solidjs.com/)
 4.  [Vue.js](https://vuejs.org/)
-5.  [qwik](https://qwik.builder.io/)
+5.  [Qwik](https://qwik.builder.io/)
 6.  [htmx](https://htmx.org/)
 7.  [Lit](https://lit.dev/)
 8.  [Astro](https://astro.build/)
+    -   _kind already started haha_
 
-In addition to these, I want to look at some of the frameworks that are provide for them:
+In addition, I'm also planning to explore "higher-level frameworks" that supplement these, such as:
 
 1.  React
     -   [Next.js](https://nextjs.org/)
     -   [Remix](https://remix.run/)
 2.  [SvelteKit](https://kit.svelte.dev/)
-3.  [SolidStart] (https://start.solidjs.com/)
-    -   May wait until this one is out of beta, or may not 🤷
+3.  [SolidStart] (https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
 
-I don't want to willy-nilly investigate these things, so let me define some requirements. I want to build a Pokédex using
-the https://pokeapi.co/ API. In addition to viewing, I want to create a page where people can submit and create their
-own Pokémon. Overall, this will include:
+Alright, so I'm not about to dive into this without a game plan. I've got a project in mind to make this exploration a
+bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/! You'll be able to check out different
+Pokémon and even whip up your own. This will allow me to:
 
--   Interactions with APIs
--   Form submissions
--   Page transitions
--   Hopefully, cool other things
+-   Play around with APIs
+-   Handle form submissions
+-   Understand pages transitions
+-   And, who knows, maybe throw in a few more bells and whistles along the way!
 
 I'll update you as I go!
