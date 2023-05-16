@@ -31,8 +31,7 @@ I plan to delve into:
 5.  [Qwik](https://qwik.builder.io/)
 6.  [htmx](https://htmx.org/)
 7.  [Lit](https://lit.dev/)
-8.  [Astro](https://astro.build/)
-    -   _kind already started haha_
+8.  [Astro](https://astro.build/) _(kind already started haha)_
 
 In addition, I'm also planning to explore "higher-level frameworks" that supplement these, such as:
 
@@ -40,7 +39,7 @@ In addition, I'm also planning to explore "higher-level frameworks" that supplem
     -   [Next.js](https://nextjs.org/)
     -   [Remix](https://remix.run/)
 2.  [SvelteKit](https://kit.svelte.dev/)
-3.  [SolidStart] (https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
+3.  [SolidStart](https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
 
 Alright, so I'm not about to dive into this without a game plan. I've got a project in mind to make this exploration a
 bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/! You'll be able to check out different
