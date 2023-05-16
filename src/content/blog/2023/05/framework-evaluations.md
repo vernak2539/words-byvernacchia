@@ -1,5 +1,5 @@
 ---
-title: "JS Framework Evaluations + Comparisons"
+title: "JS Framework Evaluations"
 description: "I'm going to use this time to define the frameworks I'll be looking at and requirements..."
 pubDate: "2023-05-18"
 tags:
