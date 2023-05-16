@@ -42,7 +42,7 @@ In addition, I'm also planning to explore "higher-level frameworks" that supplem
 3.  [SolidStart](https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
 
 Alright, so I'm not about to dive into this without a game plan. I've got a project in mind to make this exploration a
-bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/! You'll be able to check out different
+bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/)! You'll be able to check out different
 Pokémon and even whip up your own. This will allow me to:
 
 -   Play around with APIs
