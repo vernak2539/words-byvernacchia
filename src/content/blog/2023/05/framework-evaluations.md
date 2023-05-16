@@ -2,8 +2,21 @@
 title: "JS Framework Evaluations + Comparisons"
 description: "I'm going to use this time to define the frameworks I'll be looking at and requirements..."
 pubDate: "2023-05-18"
-tags: ["javascript", "frontend", "frameworks"]
-socialImage: ".jpg"
+tags:
+    [
+        "javascript",
+        "frontend",
+        "frameworks",
+        "react",
+        "vue",
+        "solidjs",
+        "lit",
+        "astro",
+        "htmx",
+        "qwik",
+        "svelte",
+    ]
+socialImage: "framework-eval.png"
 ---
 
 As I stated in [my original post](../01/a-new-blog-why.md), I want to evaluate the frontend frameworks that have been
