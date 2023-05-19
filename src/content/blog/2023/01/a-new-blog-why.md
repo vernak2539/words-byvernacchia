@@ -96,6 +96,7 @@ Topics I'm looking at include, but are not limited to:
     -   Jotai
     -   MobX
 -   Vanilla extract css
+-   three.js
 -   DynamoDB data modelling (not fe, but interesting to me and my role)
 
 They are also in no order!
