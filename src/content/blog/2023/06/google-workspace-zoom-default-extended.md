@@ -1,0 +1,56 @@
+---
+title: "Google Workspace Zoom Default - Extended"
+description: 'A "new" extension with custom zoom levels...'
+tags:
+    [
+        "chrome extension",
+        "plasmo",
+        "google docs",
+        "google sheets",
+        "google workspace",
+        "react",
+    ]
+pubDate: "2023-06-08"
+---
+
+Following my blog post where I explore [_"Simulating" JS Events_](../04/simulating-js-events.mdx), I finally did
+the work to implement custom zoom levels in my Chrome Extension, [_Google Workspace Zoom Default_][webstore].
+
+But, I actually didn't implement the functionality it in my existing extension. Why? You may ask.
+
+Well, in order to use the [`chrome.debugger` API](https://developer.chrome.com/docs/extensions/reference/debugger/), I
+have to request elevated permissions from the person using my extension. If I were to do this in my existing extension,
+all users would have to explicitly accept the new permissions I've requested.
+
+This gives users the following options:
+
+1. Open the extension and re-enable it, accepting new permissions
+2. Open the extension and actively choose _not_ to re-enable it due to new permissions
+3. Not notice the extension has stopped working and it stays disabled
+
+In my opinion, #2 and #3 are the most likely situation. Obviously, these are the worst possible outcomes for the people using
+my extension, and I want to enable as many people as possible to use the functionality I provide.
+
+Based on this, I introduce the [_Google Workspace Zoom Default - Extended_][webstore-extended] extension. This extension
+includes all the functionality of the regular extension **AND** allows for custom zoom values.
+
+I've updated my YouTube video to demostrate the new functionality.
+
+<div class="youtubeWrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WYmmMaQXE7Y?start=17.5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+Hope this helps someone!
+
+## Past Context
+
+I've written about building these Chrome Extensions previously! Feel free to have a look to get some context if you want!
+
+1. [My First Chrome Extension](../02/my-first-chrome-extension.md)
+2. [Introducing Google Workspace Zoom Default](../03/introducing-google-workspace-zoom-default.md)
+
+As always, you can see all the code on [Github][github] for the sake of transparency.
+
+[webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo
+[webstore-extended]: https://chrome.google.com/webstore/detail/google-workspace-zoom-def/mdgikencgfhineaememjagpkiclbdkka
+[github]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom
