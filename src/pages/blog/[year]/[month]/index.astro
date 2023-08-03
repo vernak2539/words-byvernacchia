@@ -13,7 +13,7 @@ export async function getStaticPaths() {
         const yearDir = path.resolve(
             process.cwd(),
             "./src/content/blog/",
-            yearDiretory
+            yearDiretory,
         );
         const monthsInYearDir = getDirsInDir(yearDir);
 

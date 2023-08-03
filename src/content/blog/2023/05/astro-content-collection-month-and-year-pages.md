@@ -165,7 +165,7 @@ export async function getStaticPaths() {
         const yearDir = path.resolve(
             process.cwd(),
             "./src/content/blog/",
-            yearDiretory
+            yearDiretory,
         );
 
         // Create an array containing all the top-level directories in the directory (i.e. months)
