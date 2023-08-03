@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier ./src/** ./bin/** -w",
+    "prettier": "prettier \"./src/**\" \"./bin/**\" -w",
     "bundlesize": "bundlesize"
   },
   "dependencies": {
