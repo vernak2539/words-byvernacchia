@@ -16,7 +16,7 @@ pubDate: "2023-08-08"
 One of the long-standing pieces of functionality I've wanted to implement in the "Google Workspace Zoom Default" extension
 ([web store][webstore], [web store Extended][webstore-extended]) is the ability to use it in view-only documents.
 
-Finally, I've submitted a new version to the web store (`0.6.0`), which should be rolling out quite soon (pending an approval)!
+Finally, I've submitted a new version to the web store (`0.6.1`), which should be rolling out quite soon (pending an approval)!
 
 ## The Problems
 
