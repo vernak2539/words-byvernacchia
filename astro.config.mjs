@@ -2,9 +2,10 @@ import { defineConfig } from "astro/config";
 import { SITE_URL } from "./src/constants";
 import rehypeSlug from "rehype-slug";
 import astroRehypeRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
+import remarkMermaid from "remark-mermaidjs";
 
 const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks];
-const remarkPlugins = [];
+const remarkPlugins = [remarkMermaid];
 
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
