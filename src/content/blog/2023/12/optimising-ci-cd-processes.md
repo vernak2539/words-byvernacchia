@@ -249,7 +249,50 @@ Pretty cool right?!!?
 
 ### Test Parallelization
 
+Running tests is one of the things that takes a fair amount of time. It really depends on how many tests you have, where
+and how they are executed, and what they are executed by.
+
+So, when you can't update to things like [vitest](https://vitest.dev/) (which is fast, but won't solve all your problems)
+we can try to execute tests in parallel.
+
 #### Jest
+
+[Jest](https://jestjs.io/) is used quite a lot, and it's rare that you find anything else in established companies (maybe
+Mocha if you're lucky 😉).
+
+Jest, by default (correct me if I'm wrong), runs tests in parallel in single run mode:
+
+> In single run mode, this defaults to the number of the cores available on your machine minus one for the main thread.
+
+When watching for changes, it's slightly different:
+
+> ...this defaults to half of the available cores on your machine to ensure Jest is unobtrusive and does not grind your
+> machine to a halt.
+
+And they even recommend to use a value of 50% when setting the max worker threads in environments where CPU cores vary
+(i.e. CI/CD platforms)
+
+> For environments with variable CPUs available, you can use percentage based configuration: --maxWorkers=50%
+
+Cool, that's out the of way... But, this can only get you so far.
+
+Jest also provides you the ability to shard your tests across different build agents using the [`--shard` flag](https://jestjs.io/docs/cli#--shard).
+
+CircleCI allows for easy integration, only having to add a `parallelism: XXX` configuration option to your job. You can
+then update your testing step to be something along the lines of:
+
+```sh
+# npm test="jest"
+npm run test -- --shard=$(expr $CIRCLE_NODE_INDEX + 1)/$CIRCLE_NODE_TOTAL
+```
+
+This will divide the tests into the amount of sections you've defined in the `parallelism:` option and execute them
+across the agents.
+
+To make the extremely clear, let's use the following example. I've set up my CircleCI job with a `parallelism: 3`. I have
+a test suite with 900 tests. CircleCI will then run 300 tests across each build agent in parallel.
+
+You can see how this could cut execution time down!
 
 #### Cypress
 
