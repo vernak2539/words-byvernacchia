@@ -40,11 +40,12 @@ Lastly, let's define some terms, so we're all on the same page:
 
 ## Identifying Common Steps
 
-Ask yourself, "are there any steps that are common across multiple jobs?"
+Ask yourself, _"are there any steps that are common across multiple jobs?"_ or _"is does my build pipeline have multiple
+jobs that have similar steps?"_.
 
-If you answered, "Yes," we can have a go at extracting them into a single job, which can then be used by other jobs.
+If you answered, _"Yes,"_ you can have a go at extracting them into a single job, which can then be used by other jobs.
 
-To drive this home, let's use a concrete example.
+Let's look at a concrete example.
 
 We have two jobs, **test** and **build**. Both of these jobs require the same dependencies to be installed, thus they
 both have an "Install Dependencies" step.
@@ -59,10 +60,12 @@ flowchart LR
     id1([Install Dependencies]) --> id2(["Build App"])
 ```
 
-The "Install Dependencies" step is common to both, so it can be extracted to its own job. In the newly extracted job, we
-can install the dependencies and save them as an artifact. This allows jobs further down the Build Pipeline to use them!
+The "Install Dependencies" step is common to both. It's a prime candidate to be extracted to its own job!
 
-Once we've done this, our Build Pipeline would look something like this:
+In the newly extracted job, we can install the dependencies and save them as an artifact, allowing for other jobs in the
+Build Pipeline to use them! I'll talk more about this in the [caching post](./optimising-ci-cd-caching.md).
+
+Once we've extracted the job our Build Pipeline would look something like this:
 
 ```mermaid
 flowchart LR
@@ -78,6 +81,6 @@ Second, it introduces consistency. While we should be installing the exact same 
 lockfile), sometimes this may not be the case.
 
 By installing dependencies in one place and reusing them, we can ensure the dependencies are used for building, testing,
-linting, etc. our application.
+linting, and running our application.
 
 Be sure to have a look at the other posts (links at the top) in this series about optimising CI/CD processes!
