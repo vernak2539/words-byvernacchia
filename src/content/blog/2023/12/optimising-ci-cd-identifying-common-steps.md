@@ -40,11 +40,14 @@ Lastly, let's define some terms, so we're all on the same page:
 
 ## Identifying Common Steps
 
-Are there any steps that are common across multiple jobs? If so, we can extract them into a single job, which can then
-be used by other jobs.
+Ask yourself, "are there any steps that are common across multiple jobs?"
 
-Let's use an example. We have two jobs, test and build. Both of these jobs require the same dependencies to be installed.
-It's likely that these jobs both have an "install dependencies" step (illustrated below).
+If you answered, "Yes," we can have a go at extracting them into a single job, which can then be used by other jobs.
+
+To drive this home, let's use a concrete example.
+
+We have two jobs, **test** and **build**. Both of these jobs require the same dependencies to be installed, thus they
+both have an "Install Dependencies" step.
 
 ```mermaid
 flowchart LR
@@ -56,14 +59,25 @@ flowchart LR
     id1([Install Dependencies]) --> id2(["Build App"])
 ```
 
-This can be extracted to its own job, where dependencies are installed, saved as an artifact, and then used by the other
-jobs. Jobs can benefit from this even if the output from the job isn't needed right away.
+The "Install Dependencies" step is common to both, so it can be extracted to its own job. In the newly extracted job, we
+can install the dependencies and save them as an artifact. This allows jobs further down the Build Pipeline to use them!
+
+Once we've done this, our Build Pipeline would look something like this:
 
 ```mermaid
 flowchart LR
     id1([Install Dependencies]) --> id2(["Run Tests"]) & id3(["Build App"])
 ```
 
-This helps us not waste time, and likely money, doing the exact same thing twice.
+This helps in many ways.
 
-Be sure to have a look at the other posts in this series about optimising CI/CD processes!
+First, we will cut down on wasted time, and likely money, by not doing the exact same thing twice in two different
+places.
+
+Second, it introduces consistency. While we should be installing the exact same dependencies everywhere (based on our
+lockfile), sometimes this may not be the case.
+
+By installing dependencies in one place and reusing them, we can ensure the dependencies are used for building, testing,
+linting, etc. our application.
+
+Be sure to have a look at the other posts (links at the top) in this series about optimising CI/CD processes!
