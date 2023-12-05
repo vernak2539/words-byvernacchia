@@ -38,7 +38,7 @@ Lastly, let's define some terms, so we're all on the same page:
     -   For example, running tests, linting code, building a Docker image, etc.
 -   **Build Pipeline**: A collection of _jobs_ that represents all work
 
-## Identifying Common Steps
+## Identifying common steps
 
 Ask yourself, _"are there any steps that are common across multiple jobs?"_ or _"is does my build pipeline have multiple
 jobs that have similar steps?"_.

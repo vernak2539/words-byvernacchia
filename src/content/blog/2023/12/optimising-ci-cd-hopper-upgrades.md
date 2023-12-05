@@ -21,7 +21,7 @@ pubDate: "2023-12-03"
 4. [Test Parallelization](./optimising-ci-cd-test-parallelization.md)
 5. Hopper Configuration Upgrade (Deliveroo-specific)
 
-## Hopper Configuration Upgrade
+## Hopper configuration upgrade
 
 Hopper is the deployment software we use at Deliveroo. It deploys our services and Lambdas to AWS. It's really cool, tbh,
 but, I'm slightly biased 😉.
