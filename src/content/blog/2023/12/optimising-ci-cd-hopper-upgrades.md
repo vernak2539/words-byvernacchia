@@ -12,7 +12,7 @@ tags:
 pubDate: "2023-12-03"
 ---
 
-**_This is a multipart series exploring CI/CD optimisations_**
+ℹ️ **_This is a multipart series exploring CI/CD optimisations_** ℹ️
 
 1. [Intro!](./optimising-ci-cd-processes.md)
 2. [Identifying Common Steps](./optimising-ci-cd-identifying-common-steps.md)

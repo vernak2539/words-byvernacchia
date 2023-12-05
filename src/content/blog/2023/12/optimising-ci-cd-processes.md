@@ -12,7 +12,7 @@ tags:
 pubDate: "2023-12-04"
 ---
 
-**_This is a multipart series exploring CI/CD optimisations_**
+ℹ️ **_This is a multipart series exploring CI/CD optimisations_** ℹ️
 
 1. Intro!
 2. [Identifying Common Steps](./optimising-ci-cd-identifying-common-steps.md)
@@ -25,30 +25,30 @@ _I'll be talking about some Deliveroo-specific things in this series. When I do,
 I recently moved to a new team at Deliveroo. I started contributing as much as possible to one of primary codebases used
 in the area to get up to speed more quickly. Getting down and dirty is the best form of learning, right?
 
-Right off the bat, I noticed that there were extremely long feedback loops when implementing changes. In order to release
-a change to production, we have to do the following:
+From the beginning, I noticed there were extremely long feedback loops when implementing changes. In order to release
+a change to production, we have to:
 
 1. Develop and test change locally
-2. Run the CI/CD process (most of it) against the feature branch _(~17 minutes)_
+2. Run a subset of the CI/CD process (no deployments) against the feature branch **_(~17 minutes)_**
 3. Deployed to the staging environment
-    - CI/CD _(~23 minutes)_
-    - Deployment _(~6 minutes)_
+    - CI/CD **_(~23 minutes)_**
+    - Deployment **_(~6 minutes)_**
 4. Test in staging
 5. Deployed to the production environment
-    - CI/CD _(~23 minutes)_
-    - Deployment _(~6 minutes)_
+    - CI/CD **_(~23 minutes)_**
+    - Deployment **_(~6 minutes)_**
 6. Test in production
 
-I've put the durations of each step (p95) above. Excluding initial development and testing, if everything went perfectly
-(does it ever?!), the whole process would take a minimum of ~75 minutes.
+I've put the durations of each step (p95) above. Excluding development and manual testing, if everything went perfectly
+(does it ever?!), the whole process would take a **minimum of ~75 minutes**.
 
 DAMNNNNN, that's a long time, huh?!?!
 
 But, this begs the question, is the CI/CD time the right thing to be measuring?
 
 I would say no. IMO (which is opinionated), we should be measuring the time it takes a team to deliver value to customers.
-Or, to put it in a more simple way, how long does it take to get a change to production, from the moment work begins to
-the moment customer start using it? This encompasses much more than just CI/CD time.
+To put it more simply, how long does it take to get a change to production, from the moment work begins to
+the moment customer start using it?
 
 For those of you following along, you may know where I'm going next.
 
@@ -56,14 +56,20 @@ For those of you following along, you may know where I'm going next.
 a [DORA](https://dora.dev/) metric, is a great metric to track, and the one I'm going to focus on in this post. Disagree
 with me in the comments (or don't, up to you).
 
-At Deliveroo, our deployment system, Hopper, tracks this automagically for us, which is amazing.
+Lead Time for Changes encompasses much more than just CI/CD (again IMO). For example, how long it takes for a commit to
+get into production also depends on our interactions with Product Manager/Owners, Designers, other engineers (via
+reviews), etc.
 
-Before I started the work I describe in this post, we had quite a large Daily Median Lead Time to Change (can't really
-say the actual number...). After these optimisations were implemented, we saw around a 50% reduction. More can be done to
-reduce this number outside the CI/CD process.
+At Deliveroo our deployment system, Hopper, tracks this automagically for us, which is amazing.
 
-Now, I'm not saying that all of that reduction is attributed to these optimisations, but after gathering qualitative
-feedback from myself (so unbiased) and the teams I work with, I can say they were definitely helpful in some form!
+Before I started the work I describe in this post, we had quite a high Lead Time to Change (can't really say the actual
+number...).
+
+After these optimisations were implemented, we saw around a 50% reduction. More can be done to reduce this number outside
+the CI/CD process.
+
+Please note, I'm not saying that all the reduction is attributed to these optimisations, but after gathering qualitative
+feedback from myself (so unbiased) and the teams I work with, I can say they were definitely helpful!
 
 ## Let's get on the same page!
 
