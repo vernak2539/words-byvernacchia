@@ -33,13 +33,13 @@ It's all good clicking the "View" tab in the menu bar as it has an ID on the HTM
 to get a bit more wonky.
 
 After clicking the tab, a dropdown appears. There is no indication of what dropdown applies to what tab, like there is
-elsewhere (it's essentially what allowed me to create the main functionality). 
+elsewhere (it's essentially what allowed me to create the main functionality).
 
 The same situation that happens when you hover or click the zoom option. It shows another dropdown with no indication
 to what it relates.
 
-To address this lacking linkage, I have to locate the dropdowns in the least optimal way: by identifying text in an ARIA 
-attribute. There are so many problems with this approach, I don't even know where to begin. But, here we are, playing 
+To address this lacking linkage, I have to locate the dropdowns in the least optimal way: by identifying text in an ARIA
+attribute. There are so many problems with this approach, I don't even know where to begin. But, here we are, playing
 with the hand we were dealt by the Google team.
 
 ## It's Experimental
@@ -47,7 +47,7 @@ with the hand we were dealt by the Google team.
 Given the problems outlined above, I didn't feel confident enough to release this as a default feature. Instead, I've put
 it behind an experimental flag. This means that it's disabled by default, and users have to enable it in the options page.
 
-This approach gives me a bit more freedom to experiment with the implementation in the future while allowing users to 
+This approach gives me a bit more freedom to experiment with the implementation in the future while allowing users to
 disable it if it doesn't work for them.
 
 ## Extras
