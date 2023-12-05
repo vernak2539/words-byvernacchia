@@ -8,6 +8,9 @@ tags:
         "circleci",
         "deliveroo",
         "optimisation",
+        "testing",
+        "javascript",
+        "typescript",
     ]
 pubDate: "2023-12-03"
 ---

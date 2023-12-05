@@ -8,6 +8,7 @@ tags:
         "circleci",
         "deliveroo",
         "optimisation",
+        "hopper",
     ]
 pubDate: "2023-12-03"
 ---
