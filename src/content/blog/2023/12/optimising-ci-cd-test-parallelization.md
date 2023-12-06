@@ -65,8 +65,8 @@ Cool, that's out the of way... But, this can only get you so far.
 
 Jest also provides you the ability to shard your tests across different build agents using the [`--shard` flag](https://jestjs.io/docs/cli#--shard).
 
-CircleCI allows for multiple build agents by adding a `parallelism: XXX` configuration option to your job. You can
-then update your testing step to be something along the lines of:
+CircleCI allows for multiple build agents by adding a [`parallelism: XXX` configuration option][circle-parallel]
+to your job. You can then update your testing step to be something along the lines of:
 
 ```sh
 # npm test="jest"
@@ -84,10 +84,41 @@ You can see how this could cut execution time down!
 
 ### Cypress
 
-TODOOOOOOO
+We use [Cypress](https://www.cypress.io/) for our end-to-end tests. It's a great tool, but it can be slow to run tests
+(even using the latest version of Cypress on Node.js v20).
 
-Be sure to have a look at the other posts (links at the top) in this series about optimising CI/CD processes!
+Thus, I went searching for ways to run Cypress tests in parallel, just like our Jest unit tests.
+
+The first thing I found is their paid product, [Cypress Cloud](https://www.cypress.io/cloud). It offers exactly what I
+want, parallelization (and optimisation of said parallelization).
+
+But, I'm not in a position to onboard a new third party for my company, so I had to look elsewhere.
+
+After a bunch of digging, I found a simple way to do it! Let's discuss.
+
+First, we have to [enable `parallelism: XXX` in our CircleCI job][circle-parallel] (like our Jest unit tests).
+
+Next, we have to find a way to divide our tests into groups. CircleCI makes this super simple using their command line
+tool (it took me a while to find this actually).
+
+```shell
+TESTS=$(circleci tests glob "cypress/e2e/**/*.cy.ts" | circleci tests split | paste -sd ',')
+
+# npm e2e="cypress run"
+npm run e2e -- --spec "$TESTS"
+```
+
+comes to running Cypress tests in parallel, you'll
 
 ## Local Testing
 
+All things related to testing, linting, building images, and any other steps in your Build Pipeline should be first class
+citizen in your local development environment.
+
+To put it more bluntly, doing all these things in your local environment is essential. CI/CD should not be used as
+substitute for local testing, which I've seen many times before.
+
+Be sure to have a look at the other posts (links at the top) in this series about optimising CI/CD processes!
+
 [jest]: https://jestjs.io/
+[circle-parallel]: https://circleci.com/docs/parallelism-faster-jobs/
