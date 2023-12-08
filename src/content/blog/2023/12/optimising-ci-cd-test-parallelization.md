@@ -12,7 +12,7 @@ tags:
         "javascript",
         "typescript",
     ]
-pubDate: "2023-12-03"
+pubDate: "2023-12-07"
 ---
 
 ℹ️ **_This is a multipart series exploring CI/CD optimisations_** ℹ️
