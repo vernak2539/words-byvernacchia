@@ -108,7 +108,93 @@ TESTS=$(circleci tests glob "cypress/e2e/**/*.cy.ts" | circleci tests split | pa
 npm run e2e -- --spec "$TESTS"
 ```
 
-comes to running Cypress tests in parallel, you'll
+Let's break it down.
+
+First, we run
+
+```shell
+circleci tests glob "cypress/e2e/**/*.cy.ts"
+```
+
+This generates a full list of our tests based on the glob, like below:
+
+```
+cypress/e2e/analytics/Home.cy.ts
+cypress/e2e/analytics/ViewMetrics.cy.ts
+cypress/e2e/deliveryAreas/FleetSwitching.cy.ts
+cypress/e2e/deliveryAreas/ViewAreasAndFees.cy.ts
+cypress/e2e/liveOrders/FleetSwitching.cy.ts
+cypress/e2e/liveOrders/OrderNotification.cy.ts
+cypress/e2e/marketer/CancelOffer.cy.ts
+cypress/e2e/marketer/CreateOfferBasket.cy.ts
+cypress/e2e/marketer/CreateOfferFlashDeal.cy.ts
+cypress/e2e/marketer/CreateOfferItem.cy.ts
+cypress/e2e/marketer/CreateOneOffCampaign.cy.ts
+cypress/e2e/marketer/CreateOverlappingOffer.cy.ts
+cypress/e2e/marketer/CreateWeeklyCampaign.cy.ts
+cypress/e2e/marketer/Home.cy.ts
+cypress/e2e/marketer/ViewOffer.cy.ts
+cypress/e2e/reportingPlatform/CreateReport.cy.ts
+cypress/e2e/reportingPlatform/CreateScheduledReport.cy.ts
+cypress/e2e/sales/Refunds.cy.ts
+```
+
+Then, we pipe that response into the `circleci tests split` command, which will split the tests into groups based on the
+number of build agents we've defined.
+
+```
+cypress/e2e/analytics/Home.cy.ts
+cypress/e2e/deliveryAreas/ViewAreasAndFees.cy.ts
+cypress/e2e/marketer/CancelOffer.cy.ts
+cypress/e2e/marketer/CreateOfferItem.cy.ts
+cypress/e2e/marketer/CreateWeeklyCampaign.cy.ts
+cypress/e2e/reportingPlatform/CreateReport.cy.ts
+```
+
+Finally, the response is piped to the `paste -sd ','` command, which will join the tests together with a comma.
+
+```
+cypress/e2e/analytics/Home.cy.ts,cypress/e2e/deliveryAreas/ViewAreasAndFees.cy.ts,cypress/e2e/marketer/CancelOffer.cy.ts,cypress/e2e/marketer/CreateOfferItem.cy.ts,cypress/e2e/marketer/CreateWeeklyCampaign.cy.ts,cypress/e2e/reportingPlatform/CreateReport.cy.ts
+```
+
+This is then used by our Cypress command to run only a subset of tests.
+
+#### A cheeky optimization
+
+CircleCI has a bit of a cheeky optimisation that can be used here, which will help us shave off some time by optimising
+how the tests are split. We'd need to update our command like below:
+
+```diff
+- circleci tests glob "cypress/e2e/**/*.cy.ts" | circleci tests split | paste -sd ','
++ circleci tests glob "cypress/e2e/**/*.cy.ts" | circleci tests split --split-by=timings | paste -sd ','
+```
+
+Here, I use the [`--split-by`](https://circleci.com/docs/parallelism-faster-jobs/#the-tests-run-command) argument
+with a value of `timings`.
+
+**Note:** You need to have the [JUnit reporter](https://docs.cypress.io/guides/tooling/reporters) enabled for this to
+work, as that is what provides the necessary timing information.
+
+This is actually really cool! Since CircleCI consumes your testing framework's JUnit report, it knows how long it takes
+to run individual tests. This means that when it splits them into groups for parallellization, it can do so in a way
+that optimizes for the fastest execution time.
+
+For example, we have two build agents and four tests to run across them.
+
+```
+Test 1: 30 sec
+Test 2: 35 sec
+Test 3: 1 min
+Test 4: 55 sec
+```
+
+**Without** the `--split-by=timings` argument, the tests could be split in any fashion. This means we could end up with one
+build agent taking `1m55s` to complete, while the other takes `55s`.
+
+**With** the `--split-by=timings` argument, the tests will be split into groups that take the same approximate time. In
+this case, we'd usually get tests split so both build agents would run tests for `1m30s`.
+
+I absolutely love this, and I definitely wouldn't have thought about this myself!
 
 ## Local Testing
 
