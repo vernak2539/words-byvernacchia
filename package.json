@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "prettier": "prettier \"./src/**\" \"./bin/**\" -w",
-    "bundlesize": "bundlesize"
+    "bundlesize": "bundlesize",
+    "postinstall": "yarn playwright install"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.12.2",
