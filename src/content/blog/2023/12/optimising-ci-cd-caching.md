@@ -69,17 +69,16 @@ CircleCI provides an easy way to configure cacahing for your build pipeline ([do
 IMO the most important part in the configuration above is the value for the `key` option. CircleCI uses this to determine if it can
 reuse a previously generated cache or not.
 
-As you can see, I'm using dynamic values, such as:
+You can see from the configuration above that I'm using dynamic values:
 
 1. `{{ checksum "package-lock.json" }}` - Don't use the cache if dependencies have changed
 2. `{{ checksum ".nvmrc" }}` - Don't use the cache if the version of Node.js has changed
 3. `{{ .Environment.NEXTJS_CACHE_VERSION }}` - Don't use the cache if the CircleCI environment variable has been updated
     - This is really helpful if you want to cache bust without releasing code.
 
-If the `key` is the same between build pipelines, then the cache will be loaded and reused, speeding up builds.
+TL;DR - If the `key` is the same between build pipelines, then the cache will be loaded and reused, speeding up builds.
 
-We do this for node modules using the [`circleci/node` orb](https://circleci.com/developer/orbs/orb/circleci/node), with
-a configuration along the lines of:
+We use the [`circleci/node` orb](https://circleci.com/developer/orbs/orb/circleci/node) to cache our `node_modules` directory. The configuration looks like:
 
 ```yaml
 install_deps: &install_deps
@@ -96,11 +95,12 @@ install_deps: &install_deps
                   - node_modules
 ```
 
-This reduced the installation time of node modules from ~4-5 minute to ~2 minutes consistently. When the cache needs to
-be regenerated (i.e. new dependencies are installed, Node.js version updated, etc.), it will take more time. But, after
-the first time this is done, we go back to ~2 minutes.
+This reduced the installation time of node modules from ~4-5 minute to ~2 minutes consistently.
 
-Jobs that depend on this cache can then attach the workspace. Then, they don't need to install dependencies themselves!
+When the cache needs to be regenerated (i.e. new dependencies are installed, Node.js version updated, etc.), the build
+pipeline will take more time. But, after the first time this is done, we go back to ~2 minutes.
+
+Jobs that depend on this cache can then attach the workspace, not needing to install dependencies themselves!
 
 ## Docker (and layer caching)
 
@@ -109,13 +109,17 @@ CircleCI provides a paid feature called [Docker Layer Caching](https://circleci.
 Essentially, if you're using their [remote Docker environment](https://circleci.com/docs/building-docker-images/) to
 build your Docker images, you can have benefits local layer caching in a remote environment.
 
-For example, when building an image locally for the first time all the necessary steps are executed (i.e. fresh "install").
-When you build it the second time, Docker is smart enough to understand things that have and haven't changed between builds.
-It will then only execute the necessary steps and used cached outputs from previous builds.
+I'm going to quickly break it down here.
+
+When building a Docker image locally for the first time, all necessary steps are executed (i.e. fresh "build").
+
+When you build the image a second time, Docker is smart enough to understand what has and hasn't changed between builds.
+
+It will only execute the necessary "fresh" steps, using the cached outputs from previous builds when it can.
 
 This is what you get in CircleCI.
 
-It's also important to understand how Docker layer caching works (at a fundamental level). Let's use the two configurations
+For this reason, it's important to understand how Docker layer caching works at a fundamental level. Let's use the two configurations
 below as examples.
 
 **Config 1**
@@ -157,29 +161,30 @@ CMD npm start
 2. Installs the necessary dependencies
 3. Creates the start command
 
-**Config 2** uses a base Node.js image, and:
+**Config 2** uses a base Node.js image and:
 
 1. Copies the `package.json` (and lockfile)
 2. Installs the necessary dependencies
 3. Copies the application code
 4. Creates the start command
 
-How does the slight differences in these configurations affect the outcome??
+You're probably looking at these and asking, how do the slight differences in these configurations affect the outcome??
+Or, you're a smart cookie and already know!
 
 Thought about it?!?
 
 Assuming you build a Docker image whenever application code changes, **Config 1** will never use layer caching when
-installing dependencies. **Config 2** will use layer caching (if you've not added any new dependencies).
+installing dependencies, but **Config 2** will (if you've not added any new dependencies)!
 
 Why?!?!
 
-Since **Config 1** copies the application code before dependencies are installed, this means the only way the layer
-executing `npm ci` could be cached is if nothing in the application code changed. Since you build a Docker image when
+**Config 1** copies the application code before dependencies are installed. Because of this, the only way the layer
+executing "`npm ci`" would be cached is if nothing in the application code changed. Since a Docker image is built when
 application code changes, this will never happen.
 
-Since **Config 2** installs dependencies prior to copying the application code, Docker will be able to cache this layer.
-If new dependencies are installed, it will not use a cache layer, but rather run the command and output a cache for
-the next build.
+**Config 2** installs dependencies prior to copying the application code, allowing Docker to use its cool caching!
+If new dependencies are installed no caching will be used, rather Docker will run the command and output a cached layer
+for the next build.
 
 Pretty cool right?!!?
 

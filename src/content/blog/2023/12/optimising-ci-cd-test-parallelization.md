@@ -94,7 +94,7 @@ want, parallelization (and optimisation of said parallelization).
 
 But, I'm not in a position to onboard a new third party for my company, so I had to look elsewhere.
 
-After a bunch of digging, I found a simple way to do it! Let's discuss.
+After a bunch of digging, I found a simple way to do it!
 
 First, we have to [enable `parallelism: XXX` in our CircleCI job][circle-parallel] (like our Jest unit tests).
 
@@ -110,7 +110,7 @@ npm run e2e -- --spec "$TESTS"
 
 Let's break it down.
 
-First, we run
+First, we run:
 
 ```shell
 circleci tests glob "cypress/e2e/**/*.cy.ts"
@@ -173,10 +173,12 @@ Here, I use the [`--split-by`](https://circleci.com/docs/parallelism-faster-jobs
 with a value of `timings`.
 
 **Note:** You need to have the [JUnit reporter](https://docs.cypress.io/guides/tooling/reporters) enabled for this to
-work, as that is what provides the necessary timing information.
+work, as that is what provides the necessary timing information to CircleCI.
 
 This is actually really cool! Since CircleCI consumes your testing framework's JUnit report, it knows how long it takes
-to run individual tests. This means that when it splits them into groups for parallellization, it can do so in a way
+to run individual tests.
+
+This means that when it splits them into groups for parallellization, it can do so in a way
 that optimizes for the fastest execution time.
 
 For example, we have two build agents and four tests to run across them.
