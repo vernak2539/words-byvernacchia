@@ -20,13 +20,15 @@ pubDate: "2023-12-08"
 4. [Test Parallelization](./optimising-ci-cd-test-parallelization.md)
 5. [Hopper Configuration Upgrade (Deliveroo-specific)](./optimising-ci-cd-hopper-upgrades.md)
 
-_I'll be talking about some Deliveroo-specific things in this series. When I do, I'll be sure to provide as much context as possible._
+_I'll be talking about some Deliveroo-specific things in this series. When I do, I'll be sure to provide as much context
+as possible._
 
-I recently moved to a new team at Deliveroo. I started contributing as much as possible to one of primary codebases used
-in the area to get up to speed more quickly. Getting down and dirty is the best form of learning, right?
+I recently moved to a new team at [Deliveroo](https://deliveroo.co.uk). I started contributing as much as possible to
+one of primary codebases used in the area to get up to speed more quickly. Getting down and dirty is the best form of
+learning, right?
 
-From the beginning, I noticed there were extremely long feedback loops when implementing changes. In order to release
-a change to production, we have to:
+From the beginning, I noticed extremely long feedback loops when implementing changes. The process of releasing changes
+to production are:
 
 1. Develop and test change locally
 2. Run a subset of the CI/CD process (no deployments) against the feature branch **_(~17 minutes)_**
@@ -48,7 +50,7 @@ But, this begs the question, is the CI/CD time the right thing to be measuring?
 
 I would say no. IMO (which is opinionated), we should be measuring the time it takes a team to deliver value to customers.
 To put it more simply, how long does it take to get a change to production, from the moment work begins to
-the moment customer start using it?
+the moment a customer starts using it?
 
 For those of you following along, you may know where I'm going next.
 
@@ -60,7 +62,7 @@ Lead Time for Changes encompasses much more than just CI/CD (again IMO). For exa
 get into production also depends on our interactions with Product Manager/Owners, Designers, other engineers (via
 reviews), etc.
 
-At Deliveroo our deployment system, Hopper, tracks this automagically for us, which is amazing.
+At Deliveroo, our deployment system, Hopper, tracks this metric automagically for us, which is amazing.
 
 Before I started the work I describe in this post, we had quite a high Lead Time to Change (can't really say the actual
 number...).
@@ -68,7 +70,7 @@ number...).
 After these optimisations were implemented, we saw around a 50% reduction. More can be done to reduce this number outside
 the CI/CD process.
 
-Please note, I'm not saying that all the reduction is attributed to these optimisations, but after gathering qualitative
+🚨 I'm not saying that all the reduction is attributed to these optimisations, but after gathering qualitative
 feedback from myself (so unbiased) and the teams I work with, I can say they were definitely helpful!
 
 ## Let's get on the same page!
@@ -81,7 +83,7 @@ processes.
 Second, I'm going to use [CircleCI](https://circleci.com/) as the CI/CD platform when talking through examples. These
 concepts can likely apply to other CI/CD platforms.
 
-Lastly, let's define some terms, so we're all on the same page:
+Lastly, some definitions so we're all on the same page:
 
 -   **Step**: A step is a single unit of work in a CI/CD process
     -   For example, installing dependencies, setting up environment variables, initiating commands, etc.

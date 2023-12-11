@@ -32,7 +32,7 @@ processes.
 Second, I'm going to use [CircleCI](https://circleci.com/) as the CI/CD platform when talking through examples. These
 concepts can likely apply to other CI/CD platforms.
 
-Lastly, let's define some terms, so we're all on the same page:
+Lastly, some definitions so we’re all on the same page:
 
 -   **Step**: A step is a single unit of work in a CI/CD process
     -   For example, installing dependencies, setting up environment variables, initiating commands, etc.
@@ -42,14 +42,15 @@ Lastly, let's define some terms, so we're all on the same page:
 
 ## Caching
 
-There may be certain things that will be done every time the build pipeline is executed (i.e. when code changes are pushed).
+Our build pipeline is identical between code changes (unless explicitly changed).
 
-We should try our best to reuse output from previous build pipelines to speed up our build. In other words, we should
-cache parts of our build pipeline for later!
+This means we can, and should, try our best to reuse outputs from previous builds to speed up the next build.
+
+You know where I'm going! I'm saying we should cache outputs of our build pipeline for later!
 
 Some common examples in the frontend world include node modules and Next.js' build output (likely loads more).
 
-In CircleCI, you can use a configuration, like below, to save and restore cached assets ([docs](https://circleci.com/docs/caching/#basic-example-of-dependency-caching)).
+CircleCI provides an easy way to configure cacahing for your build pipeline ([docs](https://circleci.com/docs/caching/#basic-example-of-dependency-caching)). The gist is:
 
 ```yaml
 - restore_cache:
@@ -65,13 +66,13 @@ In CircleCI, you can use a configuration, like below, to save and restore cached
           - ./.next/cache
 ```
 
-Now, the most important part in the configuration above is the `key` value. This will help CircleCI determine if it can
-reuse the cache or not.
+IMO the most important part in the configuration above is the value for the `key` option. CircleCI uses this to determine if it can
+reuse a previously generated cache or not.
 
-As you can see, I use dynamic values, such as:
+As you can see, I'm using dynamic values, such as:
 
 1. `{{ checksum "package-lock.json" }}` - Don't use the cache if dependencies have changed
-2. `{{ checksum ".nvmrc" }}` - Don't use the cache if the Node.js version has changed
+2. `{{ checksum ".nvmrc" }}` - Don't use the cache if the version of Node.js has changed
 3. `{{ .Environment.NEXTJS_CACHE_VERSION }}` - Don't use the cache if the CircleCI environment variable has been updated
     - This is really helpful if you want to cache bust without releasing code.
 
