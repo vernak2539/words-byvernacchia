@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/Scaffolding/BaseHead.astro";
 import Breadcrumbs from "../components/Scaffolding/Breadcrumbs.astro";
@@ -75,7 +75,7 @@ const {
                         <div class="metadata-container">
                             <div class="metadata-entry">
                                 <div class="metadata-entry-icon">
-                                    <Icon pack="mdi" name="calendar-today" />
+                                    <Icon name="mdi:calendar-today" size="18" />
                                 </div>
                                 <time>{formatDate(pubDate)}</time>
                             </div>
@@ -83,8 +83,8 @@ const {
                             <div class="metadata-entry">
                                 <div class="metadata-entry-icon">
                                     <Icon
-                                        pack="mdi"
-                                        name="clock-time-nine-outline"
+                                        name="mdi:clock-time-nine-outline"
+                                        size="18"
                                     />
                                 </div>
                                 <time>{getReadingTime(postContent)}</time>
