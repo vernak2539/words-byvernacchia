@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -47,6 +48,5 @@
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0",
     "remove-markdown": "^0.5.0"
-  },
-  "packageManager": "yarn@4.0.2"
+  }
 }
