@@ -4,15 +4,15 @@ import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../constants";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 
-export async function get() {
+export async function GET(context) {
     const blogEntries = await getCollection("blog");
 
     return rss({
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
-        site: SITE_URL,
+        site: context.site,
         items: blogEntries.map((post) => ({
             title: post.data.title,
             link: `/blog/${post.slug}/`,
