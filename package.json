@@ -10,7 +10,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "prettier": "prettier \"./src/**\" \"./bin/**\" -w",
-    "bundlesize": "bundlesize",
     "postinstall": "yarn playwright install"
   },
   "dependencies": {
@@ -42,7 +41,6 @@
     "sanitize-html": "^2.11.0"
   },
   "devDependencies": {
-    "bundlesize2": "^0.0.31",
     "dotenv": "^16.4.1",
     "gray-matter": "^4.0.3",
     "playwright": "^1.40.1",
