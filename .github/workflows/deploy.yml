@@ -30,7 +30,7 @@ jobs:
               uses: withastro/action@v1
               with:
                 node-version: 20
-                package-manager: yarn
+                package-manager: 'yarn'
 
     deploy:
         needs: build
