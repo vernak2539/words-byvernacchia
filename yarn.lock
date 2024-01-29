@@ -1059,45 +1059,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@example/basics@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@example/basics@workspace:."
-  dependencies:
-    "@algolia/autocomplete-js": "npm:^1.15.0"
-    "@algolia/autocomplete-theme-classic": "npm:^1.15.0"
-    "@algolia/client-search": "npm:^4.22.1"
-    "@astrojs/mdx": "npm:^2.0.0"
-    "@astrojs/react": "npm:^3.0.7"
-    "@astrojs/rss": "npm:^4.0.0"
-    "@astrojs/sitemap": "npm:^3.0.3"
-    "@codesandbox/sandpack-react": "npm:^2.11.3"
-    "@types/react": "npm:^18.2.48"
-    "@types/react-dom": "npm:^18.2.18"
-    algoliasearch: "npm:^4.20.0"
-    astro: "npm:^4.0.1"
-    astro-breadcrumbs: "npm:^1.8.0"
-    astro-icon: "npm:^0.8.2"
-    astro-rehype-relative-markdown-links: "npm:^0.5.1"
-    astro-robots-txt: "npm:^1.0.0"
-    bundlesize2: "npm:^0.0.31"
-    dotenv: "npm:^16.1.4"
-    glob: "npm:^10.3.10"
-    gray-matter: "npm:^4.0.3"
-    markdown-it: "npm:^14.0.0"
-    mermaid: "npm:^10.6.1"
-    playwright: "npm:^1.40.1"
-    prettier: "npm:^3.2.4"
-    prettier-plugin-astro: "npm:^0.13.0"
-    puppeteer: "npm:^21.5.2"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    rehype-slug: "npm:^6.0.0"
-    remark-mermaidjs: "npm:^6.0.0"
-    remove-markdown: "npm:^0.5.0"
-    sanitize-html: "npm:^2.11.0"
-  languageName: unknown
-  linkType: soft
-
 "@fortawesome/fontawesome-free@npm:^6.0.0":
   version: 6.5.1
   resolution: "@fortawesome/fontawesome-free@npm:6.5.1"
@@ -8742,6 +8703,45 @@ __metadata:
   checksum: 7da9525ba45eaf3e4ed1a20f3dcb9b85bd9443962450694dae950f4bdd752839747bbc14713522b0b93080007de8e8af677a61a8c2114aa553ad52bde72d0f9c
   languageName: node
   linkType: hard
+
+"words-by-vernacchia@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "words-by-vernacchia@workspace:."
+  dependencies:
+    "@algolia/autocomplete-js": "npm:^1.15.0"
+    "@algolia/autocomplete-theme-classic": "npm:^1.15.0"
+    "@algolia/client-search": "npm:^4.22.1"
+    "@astrojs/mdx": "npm:^2.0.0"
+    "@astrojs/react": "npm:^3.0.7"
+    "@astrojs/rss": "npm:^4.0.0"
+    "@astrojs/sitemap": "npm:^3.0.3"
+    "@codesandbox/sandpack-react": "npm:^2.11.3"
+    "@types/react": "npm:^18.2.48"
+    "@types/react-dom": "npm:^18.2.18"
+    algoliasearch: "npm:^4.20.0"
+    astro: "npm:^4.0.1"
+    astro-breadcrumbs: "npm:^1.8.0"
+    astro-icon: "npm:^0.8.2"
+    astro-rehype-relative-markdown-links: "npm:^0.5.1"
+    astro-robots-txt: "npm:^1.0.0"
+    bundlesize2: "npm:^0.0.31"
+    dotenv: "npm:^16.1.4"
+    glob: "npm:^10.3.10"
+    gray-matter: "npm:^4.0.3"
+    markdown-it: "npm:^14.0.0"
+    mermaid: "npm:^10.6.1"
+    playwright: "npm:^1.40.1"
+    prettier: "npm:^3.2.4"
+    prettier-plugin-astro: "npm:^0.13.0"
+    puppeteer: "npm:^21.5.2"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    rehype-slug: "npm:^6.0.0"
+    remark-mermaidjs: "npm:^6.0.0"
+    remove-markdown: "npm:^0.5.0"
+    sanitize-html: "npm:^2.11.0"
+  languageName: unknown
+  linkType: soft
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0, wrap-ansi@npm:^7.0.0":
   version: 7.0.0
