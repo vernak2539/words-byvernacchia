@@ -14,8 +14,8 @@
     "postinstall": "yarn playwright install"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.15.1",
-    "@algolia/autocomplete-theme-classic": "^1.15.1",
+    "@algolia/autocomplete-js": "^1.17.0",
+    "@algolia/autocomplete-theme-classic": "^1.17.0",
     "@algolia/client-search": "^4.22.1",
     "@astrojs/mdx": "2.2.0",
     "@astrojs/react": "3.1.0",
@@ -24,7 +24,7 @@
     "@codesandbox/sandpack-react": "^2.13.5",
     "@iconify-json/mdi": "^1.1.64",
     "@types/react": "^18.2.65",
-    "@types/react-dom": "^18.2.21",
+    "@types/react-dom": "^18.2.22",
     "algoliasearch": "^4.22.1",
     "astro": "4.5.2",
     "astro-breadcrumbs": "^2.2.0",

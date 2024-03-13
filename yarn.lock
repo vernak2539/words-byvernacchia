@@ -5,69 +5,69 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@algolia/autocomplete-core@npm:1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-core@npm:1.15.1"
+"@algolia/autocomplete-core@npm:1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-core@npm:1.17.0"
   dependencies:
-    "@algolia/autocomplete-plugin-algolia-insights": "npm:1.15.1"
-    "@algolia/autocomplete-shared": "npm:1.15.1"
-  checksum: 10c0/3d19b709f50f1b34defa3e7d4a1db3865b492b826c277bbecbac7a85d2e68b033df03892731854d5ab9abace11a2e464f7bba2ea7f7c1d6cb7050e7b21f9fe4c
+    "@algolia/autocomplete-plugin-algolia-insights": "npm:1.17.0"
+    "@algolia/autocomplete-shared": "npm:1.17.0"
+  checksum: 10c0/0759f26839609ca3f319c1601c3743f5c9e26efccacf246e8cda6dfe2d8b9190a6d764c74a6f2b3768ff44dcd121627f5f0b8df2d77abfb350a003724084b3c3
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-js@npm:^1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-js@npm:1.15.1"
+"@algolia/autocomplete-js@npm:^1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-js@npm:1.17.0"
   dependencies:
-    "@algolia/autocomplete-core": "npm:1.15.1"
-    "@algolia/autocomplete-preset-algolia": "npm:1.15.1"
-    "@algolia/autocomplete-shared": "npm:1.15.1"
+    "@algolia/autocomplete-core": "npm:1.17.0"
+    "@algolia/autocomplete-preset-algolia": "npm:1.17.0"
+    "@algolia/autocomplete-shared": "npm:1.17.0"
     htm: "npm:^3.1.1"
     preact: "npm:^10.13.2"
   peerDependencies:
     "@algolia/client-search": ">= 4.5.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10c0/f53e94b2c68f5584fcaf540750bca172b996201a003ed205085d4317991caa6b80789ad10eb780f1873e6f0c68f5fa574ed6080e8540c0e4e014637961e556eb
+  checksum: 10c0/993a8c6cc75417899b7b6521ca226dd941fdb021ef2f68239c115ca545d8cbbf4c1638027a8cb17ea3929091d8a82fa8a40c9568a2ccac526f30def8ae6b81ba
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-plugin-algolia-insights@npm:1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-plugin-algolia-insights@npm:1.15.1"
+"@algolia/autocomplete-plugin-algolia-insights@npm:1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-plugin-algolia-insights@npm:1.17.0"
   dependencies:
-    "@algolia/autocomplete-shared": "npm:1.15.1"
+    "@algolia/autocomplete-shared": "npm:1.17.0"
   peerDependencies:
     search-insights: ">= 1 < 3"
-  checksum: 10c0/379d5f874aee33e1e3fc91efb72b33d087b4c1e28db607608b1bec133d0d84dbdd690245d6eb9b5701b375dd22c4d609c6cadb0dfd945e4ea80a6a520cebfbd4
+  checksum: 10c0/0e568e999a7973dab34d4784cd780ce6b96cf016bc1a20ef849bed7e0519ae9d8b4b4e0a4e5cd4da6c4af2acc122a1f65e0e329bff29fbe7446d6164d6e14732
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-preset-algolia@npm:1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-preset-algolia@npm:1.15.1"
+"@algolia/autocomplete-preset-algolia@npm:1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-preset-algolia@npm:1.17.0"
   dependencies:
-    "@algolia/autocomplete-shared": "npm:1.15.1"
+    "@algolia/autocomplete-shared": "npm:1.17.0"
   peerDependencies:
     "@algolia/client-search": ">= 4.9.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10c0/3032b841fd1e05221fe8193e14357ce72b6f163de557616540d4bd7a10efa5d7aa9254c6d7990c772312bc5fe617f22c7681223f3f16d6d6ef2fb5e85fe3190c
+  checksum: 10c0/cd4970d7b7a60da41349b6713a5b7b07e5744e9fe910f866cc973546db5c1a8156a6f188f6a37ac1b37132f73b6e1c0b32adfc750b6520ac387e6ca34d4efb52
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-shared@npm:1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-shared@npm:1.15.1"
+"@algolia/autocomplete-shared@npm:1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-shared@npm:1.17.0"
   peerDependencies:
     "@algolia/client-search": ">= 4.9.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10c0/a62043299d493c8de1e924ed9c4396954269e1462ce9e8ca1ef3f426a37cfa09e47d8c2ad654a3b6d83e90f2fd88c137b338dd9ddb0f4781fb41da5e61888ce2
+  checksum: 10c0/9a4b97d7232cd6a931e70f60f00c1d1bd36cace37c3f42ac6d58dd3fc4038185d4ef38a3e34aa409d8e9c81df34535d14a0d7353fbfd036f090905ff7083996f
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-theme-classic@npm:^1.15.1":
-  version: 1.15.1
-  resolution: "@algolia/autocomplete-theme-classic@npm:1.15.1"
-  checksum: 10c0/040062b2be527ae0c01b52c732b24702b852b2cbf63d85783a6b32ba3a92b881edc648a4d70483a7291d2c2778bc698c5a162cd71c5d4c602f8b2712d9e19f2e
+"@algolia/autocomplete-theme-classic@npm:^1.17.0":
+  version: 1.17.0
+  resolution: "@algolia/autocomplete-theme-classic@npm:1.17.0"
+  checksum: 10c0/ed156d8c85748c75b06d165785704b7c5aa5bb01da64418682793072212a9356422e501a9d91af9cd8fd06252940833cade3fdc9d1ba4af8f886486095101349
   languageName: node
   linkType: hard
 
@@ -1620,12 +1620,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.21":
-  version: 18.2.21
-  resolution: "@types/react-dom@npm:18.2.21"
+"@types/react-dom@npm:^18.2.22":
+  version: 18.2.22
+  resolution: "@types/react-dom@npm:18.2.22"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/a887b4b647071df48173f054854713b68fdacfceeba7fa14f64ba26688d7d43574d7dc88a2a346e28f2e667eeab1b9bdbcad8a54353869835e52638607f61ff5
+  checksum: 10c0/cd85b5f402126e44b8c7b573e74737389816abcc931b2b14d8f946ba81cce8637ea490419488fcae842efb1e2f69853bc30522e43fd8359e1007d4d14b8d8146
   languageName: node
   linkType: hard
 
@@ -8624,8 +8624,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "words-by-vernacchia@workspace:."
   dependencies:
-    "@algolia/autocomplete-js": "npm:^1.15.1"
-    "@algolia/autocomplete-theme-classic": "npm:^1.15.1"
+    "@algolia/autocomplete-js": "npm:^1.17.0"
+    "@algolia/autocomplete-theme-classic": "npm:^1.17.0"
     "@algolia/client-search": "npm:^4.22.1"
     "@astrojs/mdx": "npm:2.2.0"
     "@astrojs/react": "npm:3.1.0"
@@ -8634,7 +8634,7 @@ __metadata:
     "@codesandbox/sandpack-react": "npm:^2.13.5"
     "@iconify-json/mdi": "npm:^1.1.64"
     "@types/react": "npm:^18.2.65"
-    "@types/react-dom": "npm:^18.2.21"
+    "@types/react-dom": "npm:^18.2.22"
     algoliasearch: "npm:^4.22.1"
     astro: "npm:4.5.2"
     astro-breadcrumbs: "npm:^2.2.0"
