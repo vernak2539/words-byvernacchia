@@ -26,7 +26,7 @@ test React components back then.
 
 It was great, but it definitely was a [footgun](https://en.wiktionary.org/wiki/footgun) if left unchecked.
 
-Recently, I worked to remove Enzyme from multiple, highly used codebases at my work (replacing it with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). I've seen it all, it's mostly bad.
+Recently, I worked to remove Enzyme from multiple, highly used codebases at my work (replacing it with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)). I've seen it all, it's mostly bad.
 
 I'll write a bit more about all the other bad things in another post, but this post will focus on the bane of my existance, [Snapshot Testing](https://jestjs.io/docs/snapshot-testing), which, IMO, Enzyme proliferated.
 
@@ -39,8 +39,6 @@ When I say "Snapshot Testing", I'm referring to the practice of taking a snapsho
 I'm **not** talking about testing image snapshots (i.e. visual regression testing), which is what I've heard iOS/Android engineers refer to as Snapshot Testing.
 
 ## Why Snapshot Testing sucks
-
-Let's dive into why I think Snapshot Testing sucks.
 
 ### The implicit nature of the tests
 
