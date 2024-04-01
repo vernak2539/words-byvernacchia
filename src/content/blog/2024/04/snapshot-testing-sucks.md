@@ -42,9 +42,9 @@ I'm **NOT** talking about visual regression testing, which is what I've heard iO
 
 Snapshot Testing is implicit. If you're not the original author, it's extremely difficult to know what they were thinking when writing the test. Like, what were they actually testing? What's important? What does "render correctly" (the title of a lot of tests) mean?
 
-IMO, extremely explicit test are soooo much better. You should be testing that the correct content is rendered and the interactions are what you'd expect with interacting with it.
+IMO, extremely explicit test are soooo much better. You should be testing that the correct content is rendered and the interactions are what you'd expect.
 
-When you're explicit, it lets others who come across yoru code in the future know what's important. Essentially, it's a form of documentation.
+When you're explicit, it lets others who come across your code in the future know what's important. Essentially, it's a form of documentation.
 
 I know snapshot do have the "content" when rendered, but it's really lazy... Again, it's about what content is important.
 
@@ -58,7 +58,7 @@ Is that a good test? I don't think so.
 
 ### Nobody looks at the changes...
 
-In my experience, nobody actually looks at the changes in the snapshots when they update their tests. There's either too many changes or we "know" our new changes are "what it should be."
+In my experience, nobody actually looks at the snapshot diffs before they update their tests. There's either too many changes or we "know" our new changes are "what it should be."
 
 It's like the snapshot/test was written for the first, and only the first, iteration of the component.
 
@@ -88,4 +88,6 @@ When a common component is updated all the snapshots across the codebase need to
 
 Snapshot Testing was cool at the start, especially when working on small projects. But, as the project grows, it becomes a burden and, IMO, encourages bad practices.
 
-Please don't use Snapshot Testing, and I remove it from your codebase if you can. You'll be better off (insert plug for [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)).
+So, I beg you, please don't use Snapshot Testing and remove it from your codebase if you can. You'll be better off (insert plug for [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)).
+
+But, hey, what do I know? I'm just some random guy on the interwebs...
