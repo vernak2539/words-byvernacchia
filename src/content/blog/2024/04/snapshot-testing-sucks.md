@@ -80,9 +80,11 @@ Let's take a moment to imagine something.
 
 First, you have nine teams (30+ people) working on a single codebase. They each own their individual areas of the codebase. The way CODEOWNERS has been set up requires approvals by each team when their files are changed.
 
-Second, common components (think something like a design system) are used across the codebase.
+Second, common components/depenenceis are used across the entire codebase. These could be something like a design system, or a framework, like React.
 
-When a common component is updated all the snapshots across the codebase need to be updated. Now you need to get sign-off from the all teams. In my experience, it takes a long time and can result in a lot of merge conflicts if not done quickly.
+When these are updated, all snapshots in the codebase need to be updated. This happened when React changed how Fragments are rendered (or Enzyme did, or whatever, you get the point).
+
+Now you need to get sign-off from the all teams. In my experience, it takes a long time and can result in a lot of merge conflicts if not done quickly.
 
 ## /endrant
 
