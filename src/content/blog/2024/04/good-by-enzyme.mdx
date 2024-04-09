@@ -1,0 +1,61 @@
+---
+title: "Goodbye Enzyme"
+description: "You won't be missed..."
+pubDate: "2024-04-08"
+tags:
+    [
+        "frontend",
+        "javascript",
+        "typescript",
+        "react",
+        "enzyme",
+        "react testing library",
+    ]
+---
+
+<style>
+    {`.twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
+`}
+</style>
+
+import { Tweet } from "@astro-community/astro-embed-twitter";
+
+I've showed my age in the [previous post](./snapshot-testing-sucks.md), so I won't do it again. But, for the
+purposes of this post, I will say that I've been a professional in the industry prior to [Enzyme](https://enzymejs.github.io/enzyme/),
+during its height, and after it (i.e. now).
+
+This leads me to say, using my _expert_ opinion, "Goodbye Enzyme, and good riddance. You will not be missed."
+
+That may seem harsh, but I firmly believe it. I've recently removed Enzyme from multiple, highly used codebases at my work
+and have see the horrors caused by Enzyme. I'll cover some of these in this article, comparing it to [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+
+## Enzyme? React Testing Library (RTL)? What are they?
+
+They are both testing frameworks aiming to make it easier to test React components. They both have their own philosophies
+and ways of doing things.
+
+### Enzyme
+
+> Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
+> You can also manipulate, traverse, and in some ways simulate runtime given the output.
+
+## RTL
+
+> You want to write maintainable tests that give you high confidence that your components are working for your users.
+> As a part of this goal, you want your tests to avoid including implementation details so refactors of your components
+> (changes to implementation but not functionality) don't break your tests and slow you and your team down.
+
+<Tweet id="https://twitter.com/kentcdodds/status/977018512689455106" />
+
+These differing philosophies are the main reason why I prefer RTL over Enzyme. Enzyme is more focused on the "output" of
+a component. Additionally, they talk about traversing, manipulating, and simulating the output, which does not align
+with hoe actual users would be interacting with it.
+
+On the other hand, RTL is more focused on the "functionality" of a component. It is more concerned with how a user would
+interact with the component, and how the component would respond to that interaction. ❤️
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
+
+-   async sucks... promise.resolve
