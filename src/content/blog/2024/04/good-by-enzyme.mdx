@@ -51,11 +51,35 @@ and ways of doing things.
 
 These differing philosophies are the main reason why I prefer RTL over Enzyme. Enzyme is more focused on the "output" of
 a component. Additionally, they talk about traversing, manipulating, and simulating the output, which does not align
-with hoe actual users would be interacting with it.
+with how actual users would be interacting with it.
 
 On the other hand, RTL is more focused on the "functionality" of a component. It is more concerned with how a user would
 interact with the component, and how the component would respond to that interaction. ❤️
 
-<script async src="https://platform.twitter.com/widgets.js"></script>
+ℹ️ _I'm going to use personal anecdotes._
 
--   async sucks... promise.resolve
+## Problems with Enzyme
+
+### Testing async scenarios is difficult
+
+One of the biggest issues I've had with Enzyme is testing async scenarios. Unless you're purely working on a presentational component, most components will have some form of async natur. Something like data loading, form input and validation, etc.
+
+You'll need to perform an action, wait for the async action to complete, then move on with your test.
+
+This is a nightmare to do in Enzyme. Code using `setTimeout`, `setInterval`, `setImmediate`, `await Promise.resolve()` or similiar is likely trying to account for these async actions. It's HACKY... and I never liked doing it, even though there was no other way.
+
+RTL handles this much better in two ways, maybe more.
+
+First, RTL provides a `waitFor` utility. It allows you to wait for a condition to be true before moving on with the test. This can be used in a sync or async manner. Using it in an async manner will ensure that the async action has completed before moving on.
+
+Second, the [`@testing-library/user-event` package](https://testing-library.com/docs/user-event/intro/) provides utility methods to help deal with user interactions. When a user interaction triggers an async action via a command like `click`, `type`, `clear`, etc., the command can be awaited to ensure the async action has completed.
+
+This functionality is only in the newer versions of `user-event`, but they've proved amazingly helpful.
+
+### Simulating interactions
+
+### Setting props programmatically
+
+### Having access to props
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
