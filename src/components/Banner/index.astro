@@ -1,0 +1,72 @@
+---
+// export type BannerType = "info" | "warning" | "error" | "success";
+import { Icon } from "astro-icon/components";
+
+export type BannerType = "info";
+
+type IconMap = {
+    [key in BannerType]: string;
+};
+
+interface Props {
+    type: BannerType;
+}
+
+const { type } = Astro.props;
+
+const iconMap: IconMap = {
+    info: "mdi:information",
+};
+---
+
+<style>
+    .banner-container {
+        background: rgb(233, 242, 255);
+        border: 1px solid rgb(135, 184, 255);
+        padding: 5px 15px;
+        border-radius: 3px;
+        display: flex;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        margin: 10px 0 0;
+    }
+
+    .banner-content {
+        > p {
+            margin: 0;
+        }
+
+        > p:first-child {
+            margin-top: 1px;
+        }
+
+        > p:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        > p:last-child {
+            margin-bottom: 3px;
+        }
+    }
+
+    .icon {
+        margin-right: 5px;
+        padding: 3px 0;
+        flex: 0 0 18px;
+    }
+
+    .icon-info {
+        color: rgb(48, 132, 255);
+    }
+</style>
+
+<div class="banner-container">
+    <Icon
+        name={iconMap[type]}
+        size="18"
+        class:list={["icon", `icon-${type}`]}
+    />
+    <div class="banner-content">
+        <slot />
+    </div>
+</div>
