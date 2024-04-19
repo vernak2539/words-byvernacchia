@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "prettier": "prettier \"./src/**\" \"./bin/**\" -w",
-    "postinstall": "yarn playwright install"
+    "prebuild": "yarn playwright install"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.17.0",
