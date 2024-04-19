@@ -21,6 +21,7 @@ tags:
 </style>
 
 import { Tweet } from "@astro-community/astro-embed-twitter";
+import Banner from "../../../../components/Banner/index.astro";
 
 I've showed my age in the [previous post](./snapshot-testing-sucks.md), so I won't do it again. But, for the
 purposes of this post, I will say that I've been a professional in the industry prior to [Enzyme](https://enzymejs.github.io/enzyme/),
@@ -29,7 +30,7 @@ during its height, and after it (i.e. now).
 This leads me to say, using my _expert_ opinion, "Goodbye Enzyme, and good riddance. You will not be missed."
 
 That may seem harsh, but I firmly believe it. I've recently removed Enzyme from multiple, highly used codebases at my work
-and have see the horrors caused by Enzyme. I'll cover some of these in this article, comparing it to [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+and have see the horrors caused by Enzyme. I'll cover some of these in this article, comparing it to [React Testing Library][rtl].
 
 ## Enzyme? React Testing Library (RTL)? What are they?
 
@@ -41,7 +42,7 @@ and ways of doing things.
 > Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
 > You can also manipulate, traverse, and in some ways simulate runtime given the output.
 
-## RTL
+### RTL
 
 > You want to write maintainable tests that give you high confidence that your components are working for your users.
 > As a part of this goal, you want your tests to avoid including implementation details so refactors of your components
@@ -56,7 +57,9 @@ with how actual users would be interacting with it.
 On the other hand, RTL is more focused on the "functionality" of a component. It is more concerned with how a user would
 interact with the component, and how the component would respond to that interaction. ❤️
 
-ℹ️ _I'm going to use personal anecdotes._
+<Banner type="info">
+    I'm going to use personal anecdote. These may not match your experience.
+</Banner>
 
 ## Problems with Enzyme
 
@@ -78,8 +81,89 @@ This functionality is only in the newer versions of `user-event`, but they've pr
 
 ### Simulating interactions
 
-### Setting props programmatically
+When testing user interactions, Enzyme simulates events in a programmatic way by dispatching DOM events.
+
+IMO, this doesn't mimic real user interaction as there may be multiple events that can fire in a single interaction.
+
+For example, how many events fire when clicking a button? Well, there's quite a few:
+
+1. `mouseover`
+2. `mousedown`
+3. `mouseup`
+4. `click` (interesting that this is after `mouseup`... hmmm haha)
+5. `mouseout`
+
+If you're only simulating a "click" you're missing out on a lot of the interactions that a user would have. This leads
+to less confidence in your tests (IMO).
+
+<Banner type="info">
+    Checkout my in-depth post about [Simulating
+    Events](../../2023/04/simulating-js-events.mdx) for more context!
+</Banner>
+
+Or, if we take an example directly from their [website](https://testing-library.com/docs/user-event/intro/):
+
+> For example, when a user types into a text box, the element has to be focused, and then keyboard and input events are fired and the selection and value on the element are manipulated as they type.
+
+RTL, on the other hand, uses the `@testing-library/user-event` package to simulate user interactions (you can still use the
+`fireEvent` method though if you really want to). This takes into account the multitidue events that could happen when a user
+interacts with a component.
 
 ### Having access to props
 
+This is a killer... and I hate it. I've seen it abused so many times.
+
+You can see a basic form below.
+
+```js
+const Component = ({ onSubmit }) => {
+    return (
+        <form onSubmit={onSubmit}>
+            <input type="text" name="input1" />
+            <input type="text" name="input2" />
+            <button type="submit" onSubmit={onSubmit}>
+                Submit
+            </button>
+        </form>
+    );
+};
+```
+
+It's likely there's some form of validation on the inputs and once the form is submitted some action has to take place.
+
+In Enzyme, you can access the props of a component and call the `onSubmit` function directly, allowing something like:
+
+```js
+it("should submit form", () => {
+    const someAsyncAction = jest.fn();
+    const onSubmit = () => {
+        someAsyncAction();
+    };
+    const wrapper = shallow(<Component onSubmit={onSubmit} />);
+
+    wrapper.find("form").props("onSubmit")();
+
+    expect(someAsyncAction).toHaveBeenCalled();
+});
+```
+
+This is hard to look at. There's no user interaction and no validity checks. We're just calling a function directly (yes,
+I have seen this in code).
+
+While this is a simple example, you can see how it would open the door for lazy testing (and it does).
+
+## /endrant
+
+While Enzyme was an absolute _killer_ when it first came out, enabling the testing of UI components like we'd not seen before, it's
+not fit for purpose anymore.
+
+It actively encourages bad practices, can't be used past v16 of React (with an official adapter),
+isn't maintained, and has a philosophy that doesn't align with how users interact with components.
+
+Please, please consider using [RTL][rtl] for your testing needs. It's a much better framework that encourages better testing.
+
+Goodbye Enzyme, you will not be missed.
+
 <script async src="https://platform.twitter.com/widgets.js"></script>
+
+[rtl]: (https://testing-library.com/docs/react-testing-library/intro/).
