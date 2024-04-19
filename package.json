@@ -7,11 +7,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "yarn playwright install && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier \"./src/**\" \"./bin/**\" -w",
-    "prebuild": "yarn playwright install"
+    "prettier": "prettier \"./src/**\" \"./bin/**\" -w"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.17.0",
