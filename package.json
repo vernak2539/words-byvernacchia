@@ -17,10 +17,10 @@
     "@algolia/autocomplete-theme-classic": "^1.17.0",
     "@algolia/client-search": "^4.22.1",
     "@astro-community/astro-embed-twitter": "^0.5.4",
-    "@astrojs/mdx": "2.2.0",
-    "@astrojs/react": "3.1.0",
+    "@astrojs/mdx": "2.3.1",
+    "@astrojs/react": "3.3.0",
     "@astrojs/rss": "4.0.5",
-    "@astrojs/sitemap": "3.1.1",
+    "@astrojs/sitemap": "3.1.4",
     "@codesandbox/sandpack-react": "^2.13.8",
     "@iconify-json/mdi": "^1.1.66",
     "@types/react": "^18.2.67",
@@ -44,7 +44,6 @@
   "devDependencies": {
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
-    "playwright": "^1.43.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "remove-markdown": "^0.5.0"
