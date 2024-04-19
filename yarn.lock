@@ -2147,9 +2147,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-rehype-relative-markdown-links@npm:^0.12.2":
-  version: 0.12.2
-  resolution: "astro-rehype-relative-markdown-links@npm:0.12.2"
+"astro-rehype-relative-markdown-links@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "astro-rehype-relative-markdown-links@npm:0.13.0"
   dependencies:
     catch-unknown: "npm:^2.0.0"
     debug: "npm:^4.3.4"
@@ -2160,7 +2160,7 @@ __metadata:
     zod: "npm:^3.22.4"
   peerDependencies:
     astro: ">=2.x <5"
-  checksum: 10c0/fefd8697e0c8f36321936511cf686f8f8d24d02591eaa60754a0746d335692f539d8c8000c8fc1ae8aa8e05e1e66fd13636cf21895b77643a22e75e60675f4c8
+  checksum: 10c0/df880555d55e3f97bcd86e384755186df6fae4f1dbfb3b29b0ccf5a1bd5ce90d666d3837fc0fab2355848f46bfac498e0cc02d200a5e9d870baf626d525cdf6a
   languageName: node
   linkType: hard
 
@@ -8929,7 +8929,7 @@ __metadata:
     astro: "npm:4.6.3"
     astro-breadcrumbs: "npm:^2.3.0"
     astro-icon: "npm:^1.1.0"
-    astro-rehype-relative-markdown-links: "npm:^0.12.2"
+    astro-rehype-relative-markdown-links: "npm:^0.13.0"
     astro-robots-txt: "npm:^1.0.0"
     dotenv: "npm:^16.4.5"
     glob: "npm:^10.3.12"
