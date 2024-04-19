@@ -2,7 +2,7 @@
 // export type BannerType = "info" | "warning" | "error" | "success";
 import { Icon } from "astro-icon/components";
 
-export type BannerType = "info";
+export type BannerType = "info" | "warning" | "error";
 
 type IconMap = {
     [key in BannerType]: string;
@@ -16,19 +16,36 @@ const { type } = Astro.props;
 
 const iconMap: IconMap = {
     info: "mdi:information",
+    warning: "mdi:alert",
+    error: "mdi:close-circle",
 };
 ---
 
 <style>
     .banner-container {
-        background: rgb(233, 242, 255);
-        border: 1px solid rgb(135, 184, 255);
         padding: 5px 13px;
         border-radius: 3px;
         display: flex;
         box-sizing: border-box;
         font-size: 0.9rem;
         margin: 10px 0 0;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    .banner-container-info {
+        background: rgb(233, 242, 255);
+        border-color: rgb(135, 184, 255);
+    }
+
+    .banner-container-warning {
+        background: rgb(255, 247, 214);
+        border-color: rgb(255, 225, 101);
+    }
+
+    .banner-container-error {
+        background: rgb(255, 236, 235);
+        border-color: rgb(255, 180, 176);
     }
 
     .banner-content {
@@ -58,9 +75,17 @@ const iconMap: IconMap = {
     .icon-info {
         color: rgb(48, 132, 255);
     }
+
+    .icon-warning {
+        color: rgb(249, 200, 0);
+    }
+
+    .icon-error {
+        color: rgb(255, 73, 63);
+    }
 </style>
 
-<div class="banner-container">
+<div class:list={["banner-container", `banner-container-${type}`]}>
     <Icon
         name={iconMap[type]}
         size="18"
