@@ -10,6 +10,7 @@ tags:
         "react",
         "enzyme",
         "react testing library",
+        "testing",
     ]
 ---
 
@@ -29,7 +30,7 @@ during its height, and after it (i.e. now).
 
 This leads me to say, using my _expert_ opinion, "Goodbye Enzyme, and good riddance. You will not be missed."
 
-That may seem harsh, but I firmly believe it. I've recently removed Enzyme from multiple, highly used codebases at my work
+That may seem harsh, but I stand behind it. I've recently removed Enzyme from multiple, highly used codebases at my work
 and have see the horrors caused by Enzyme. I'll cover some of these in this article, comparing it to [React Testing Library][rtl].
 
 ## Enzyme? React Testing Library (RTL)? What are they?
@@ -69,7 +70,7 @@ One of the biggest issues I've had with Enzyme is testing async scenarios. Unles
 
 You'll need to perform an action, wait for the async action to complete, then move on with your test.
 
-This is a nightmare to do in Enzyme. Code using `setTimeout`, `setInterval`, `setImmediate`, `await Promise.resolve()` or similiar is likely trying to account for these async actions. It's HACKY... and I never liked doing it, even though there was no other way.
+This is a nightmare to do in Enzyme. Code using `setTimeout`, `setInterval`, `setImmediate`, `await Promise.resolve()` or similar is likely trying to account for these async actions. It's HACKY... and I never liked doing it, even though there was no other way.
 
 RTL handles this much better in two ways, maybe more.
 
@@ -77,7 +78,7 @@ First, RTL provides a `waitFor` utility. It allows you to wait for a condition t
 
 Second, the [`@testing-library/user-event` package](https://testing-library.com/docs/user-event/intro/) provides utility methods to help deal with user interactions. When a user interaction triggers an async action via a command like `click`, `type`, `clear`, etc., the command can be awaited to ensure the async action has completed.
 
-This functionality is only in the newer versions of `user-event`, but they've proved amazingly helpful.
+This functionality is only in the newer versions of `user-event`, but it's already proved amazingly helpful.
 
 ### Simulating interactions
 
@@ -93,7 +94,7 @@ For example, how many events fire when clicking a button? Well, there's quite a 
 4. `click` (interesting that this is after `mouseup`... hmmm haha)
 5. `mouseout`
 
-If you're only simulating a "click" you're missing out on a lot of the interactions that a user would have. This leads
+If you're only simulating a "click" you're missing out on a lot of the events that would happen during an interaction. This leads
 to less confidence in your tests (IMO).
 
 <Banner type="info">
@@ -106,7 +107,7 @@ Or, if we take an example directly from their [website](https://testing-library.
 > For example, when a user types into a text box, the element has to be focused, and then keyboard and input events are fired and the selection and value on the element are manipulated as they type.
 
 RTL, on the other hand, uses the `@testing-library/user-event` package to simulate user interactions (you can still use the
-`fireEvent` method though if you really want to). This takes into account the multitidue events that could happen when a user
+`fireEvent` method though if you really want to). This takes into account the multitude events that could happen when a user
 interacts with a component.
 
 ### Having access to props
@@ -148,7 +149,7 @@ it("should submit form", () => {
 ```
 
 This is hard to look at. There's no user interaction and no validity checks. We're just calling a function directly (yes,
-I have seen this in code).
+I have seen this in real life).
 
 While this is a simple example, you can see how it would open the door for lazy testing (and it does).
 
@@ -162,7 +163,7 @@ isn't maintained, and has a philosophy that doesn't align with how users interac
 
 Please, please consider using [RTL][rtl] for your testing needs. It's a much better framework that encourages better testing.
 
-Goodbye Enzyme, you will not be missed.
+Goodbye Enzyme, and good riddance. You will not be missed.
 
 <script async src="https://platform.twitter.com/widgets.js"></script>
 
