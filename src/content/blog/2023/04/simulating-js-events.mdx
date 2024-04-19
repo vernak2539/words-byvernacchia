@@ -7,6 +7,7 @@ socialImage: "simulating-js-events.jpg"
 ---
 
 import SandpackEnv from "../../../../components/Sandpack";
+import Banner from "../../../../components/Banner/index.astro";
 import {
     keyboardEventsDispatchEvents,
     keyboardEventsInputDotValue,
@@ -15,6 +16,12 @@ import {
     mouseEventsDotClick,
     mouseEventsEventsClick,
 } from "./_simulating-js-events-code.js";
+
+<Banner type="info">
+    Due to a [problem with Sandpack](https://github.com/codesandbox/sandpack/issues/1091), you will see an error (`"Service Worker registration failed: "`) in the console.
+
+    The examples **will still work**! You may just have to scroll down to see the output.
+</Banner>
 
 I've been working on my _[Google Workspace Zoom Default][webstore]_ Chrome Extension to implement a
 [requested feature][feature-request] where users can use custom zoom values in addition to the predefined zoom values
