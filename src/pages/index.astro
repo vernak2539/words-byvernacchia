@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Card from "../components/Scaffolding/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { sortByPubdateMostRecentFirst } from "../utils/sort-posts";
+import { formatDate } from "../utils/datetime-fmt";
 
 const latestPost = (await getCollection("blog"))
     .filter((post) => !post.data.redirect)
@@ -17,8 +18,8 @@ const blogPath = "/blog";
         <p>
             But really, I'm making this site for my explorations into FE tech
             things. <a href={`${blogPath}/a-new-blog-why`}>This blog post</a>
-             explains a bit more about why I'm doing this. Should be fun. In the
-            meantime, checkout some silly things below that I do elsewhere.
+            explains a bit more about why I'm doing this. Should be fun. In the meantime,
+            checkout some silly things below that I do elsewhere.
         </p>
 
         <p class="smaller">
@@ -34,7 +35,7 @@ const blogPath = "/blog";
                 title={latestPost.data.title}
                 body={latestPost.data.description}
                 href={`${blogPath}/${latestPost.slug}`}
-                label="Latest"
+                label={`Latest (${formatDate(latestPost.data.pubDate)})`}
             />
             <Card
                 title="All Posts"
