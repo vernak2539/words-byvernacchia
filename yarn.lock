@@ -5728,7 +5728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mermaid@npm:^10.0.0, mermaid@npm:^10.9.1":
+"mermaid@npm:10.9.1, mermaid@npm:^10.0.0":
   version: 10.9.1
   resolution: "mermaid@npm:10.9.1"
   dependencies:
@@ -7427,7 +7427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-mermaidjs@npm:^6.0.0":
+"remark-mermaidjs@npm:6.0.0":
   version: 6.0.0
   resolution: "remark-mermaidjs@npm:6.0.0"
   dependencies:
@@ -8928,14 +8928,14 @@ __metadata:
     glob: "npm:^10.3.15"
     gray-matter: "npm:^4.0.3"
     markdown-it: "npm:^14.1.0"
-    mermaid: "npm:^10.9.1"
+    mermaid: "npm:10.9.1"
     prettier: "npm:^3.2.5"
     prettier-plugin-astro: "npm:^0.13.0"
     puppeteer: "npm:22.9.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     rehype-slug: "npm:^6.0.0"
-    remark-mermaidjs: "npm:^6.0.0"
+    remark-mermaidjs: "npm:6.0.0"
     remove-markdown: "npm:^0.5.0"
     sanitize-html: "npm:^2.13.0"
   languageName: unknown
