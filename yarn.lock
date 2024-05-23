@@ -7264,7 +7264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^22.9.0":
+"puppeteer@npm:22.9.0":
   version: 22.9.0
   resolution: "puppeteer@npm:22.9.0"
   dependencies:
@@ -8931,7 +8931,7 @@ __metadata:
     mermaid: "npm:^10.9.1"
     prettier: "npm:^3.2.5"
     prettier-plugin-astro: "npm:^0.13.0"
-    puppeteer: "npm:^22.9.0"
+    puppeteer: "npm:22.9.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     rehype-slug: "npm:^6.0.0"

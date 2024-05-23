@@ -26,7 +26,7 @@ jobs:
         steps:
             - name: Checkout your repository using git
               uses: actions/checkout@v4
-            - run: yarn dlx playwright@1.43.1 install chromium
+            - run: yarn dlx playwright@1.44.1 install chromium
             - name: Install, build, and upload your site
               uses: withastro/action@v2
               with:
