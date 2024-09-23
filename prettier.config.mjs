@@ -11,5 +11,5 @@ export default {
     },
   ],
   "tabWidth": 4,
-  "useTabs": false
+  "useTabs": false,
 }
