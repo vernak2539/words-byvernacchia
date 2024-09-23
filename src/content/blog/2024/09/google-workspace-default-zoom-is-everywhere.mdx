@@ -1,0 +1,107 @@
+---
+title: "Google Workspace Default Zoom is Everywhere!"
+description: "Watch out, it's taking over..."
+pubDate: "2024-09-26"
+tags:
+  [
+    "chrome extension",
+    "plasmo",
+    "google docs",
+    "google workspace",
+    "react",
+    "frontend",
+    "javascript",
+    "typescript",
+  ]
+---
+
+import Banner from "../../../../components/Banner/index.astro";
+
+<Banner type="info">
+  For more context, feel free to have a look at my [previous
+  posts](/blog/tags/google%20workspace) about building my extensions!
+</Banner>
+
+# Google Workspace Default Zoom is Everywhere!
+
+When I started creating my browser extension, I focused on Google Chrome.
+
+I did this because we use Google Chrome as our default browser at work, and work is the place I primarily use
+the Google Workspace suite. Makes sense, huh?!?
+
+**But**, obviously there are other browsers out there. I want to ensure my extension can be useful to as many
+people as possible. So, I started trying to figure out how to port my extension to other browsers.
+
+I'm glad to announce, I've finally released the extension for both Firefox and Edge! 🎉
+
+## New Browsers!!
+
+### Firefox
+
+I am only able to offer the base extension for Firefox. This means Firefox users can only use predefined zoom values.
+I talk more about why this is in the [technical details section](#the-technical-deets-details).
+
+If you use Firefox, you can install the extension via the [Firefox 🦊 Add-ons website](https://addons.mozilla.org/firefox/addon/google-workspace-zoom-default/).
+
+Now those of you who don't want to ditch uBlock Origin can have this functionality! 😜
+
+### Edge
+
+Edge uses Chromium under the hood, so all the features offered in both extension versions worked out of the box!
+
+If you use Edge, you can install the extension from the Microsoft Edge Add-ons website:
+
+1. [Google Workspace Default Zoom]()
+2. [Google Workspace Default Zoom - Extended]()
+   - In exchange for allowing elevated permissions, this extension provides ability to set custom zoom levels (as opposed to only predefined values)
+
+## The Technical Deets (Details)
+
+I know a lot of you come here for the technical details of things, so I won't disappoint and get started!
+
+As I've pointed out before, I use [Plasmo](https://www.plasmo.com/) to build my extension. From their website:
+
+> Plasmo helps you build, test, and deploy powerful, cutting-edge products on top of the web browser.
+
+And oh boy, it not disppoint! I was able to get the extension ported to Firefox and Edge relatively quickly. I think the
+thing that took me the longest time was figuring out how to sign up to become a Microsoft Edge Add-on developer. 😅 It
+also took me quite a while to configure the Edge store listings, even though I'd already documented them!
+
+## Firefox
+
+Okay, so Firefox was an interesting one. I almost gave up a few times, but I figured it out in the end!
+
+### Impossible to debug in dev mode
+
+Using Plasmo in dev mode was impossible. Firefox seemed to block the WebSocket connection (I think), which forced the
+extension to reload itself continuously. This made debugging impossible as the extension was never able to be used (it
+disappeared and reappeared too quickly). The only way to stop it was to disable the extension via the debugging page.
+
+I ended up just running `plasmo build` after every change and reloading the extension. It was a bit of a pain, but it
+worked. First hurdle done!
+
+### No Extended version 😞
+
+After I got it working, I tried to use custom zoom values. It didn't work.
+
+After more and more digging, I found an [MDN page](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
+confirming the `debugger` permission is unavailable in Firefox. It says it's available in Manifest V2 and V3, but when
+you actually go the[ Browser Compatibility](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#browser_compatibility)
+section, you can see it's not available in Firefox. 😭
+
+So, I unfortunately can't ship the Extended version of the extension to Firefox. I'm sorry Firefox users! 😞 I'll keep
+an eye out for any changes in the future! Promise!
+
+### Manifest V2 vs V3
+
+Amazing, Firefox is transitionin gto Manifest V3, which is the same version used by Chrome (and shit because uBlock Origin
+will be disabled due to this). Easy, right?!? Please...I struggled from the start.
+
+I tried to use Manifest V3 from the start. All the docs said you had to define your Add-on's ID in the manifest. So, I went
+looking for my Add-on's ID. But, don't you have to publish it first before you get an ID? That's how the Chrome Webstore
+works...
+
+After banging my head all over the place, it turns out you **don't have to publish the Add-on to get an Add-on ID.** You
+just, wait for it, create it yourself. Their docs don't explain this in a straightforward way.
+
+So, I generated a UUID and added it to my manifest in the right form (`{UUID}`). Cool, Storage API is working
