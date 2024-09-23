@@ -2,7 +2,7 @@
 // export type BannerType = "info" | "warning" | "error" | "success";
 import { Icon } from "astro-icon/components";
 
-export type BannerType = "info" | "warning" | "error";
+export type BannerType = "info" | "warn" | "error";
 
 type IconMap = {
     [key in BannerType]: string;
@@ -16,7 +16,7 @@ const { type } = Astro.props;
 
 const iconMap: IconMap = {
     info: "mdi:information",
-    warning: "mdi:alert",
+    warn: "mdi:alert",
     error: "mdi:close-circle",
 };
 ---
@@ -38,7 +38,7 @@ const iconMap: IconMap = {
         border-color: rgb(135, 184, 255);
     }
 
-    .banner-container-warning {
+    .banner-container-warn {
         background: rgb(255, 247, 214);
         border-color: rgb(255, 225, 101);
     }
@@ -76,7 +76,7 @@ const iconMap: IconMap = {
         color: rgb(48, 132, 255);
     }
 
-    .icon-warning {
+    .icon-warn {
         color: rgb(249, 200, 0);
     }
 
