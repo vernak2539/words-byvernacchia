@@ -24,10 +24,8 @@ import Banner from "../../../../components/Banner/index.astro";
 
 # Google Workspace Default Zoom is Everywhere!
 
-When I started creating my browser extension, I focused on Google Chrome.
-
-I did this because we use Google Chrome as our default browser at work, and work is the place I primarily use
-the Google Workspace suite. Makes sense, huh?!?
+When I started creating my browser extension, I focused on Google Chrome because we use Chrome as our default browser at work.
+Work is the place I primarily use the Google Workspace suite. Makes sense, huh?!?
 
 **But**, obviously there are other browsers out there. I want to ensure my extension can be useful to as many
 people as possible. So, I started trying to figure out how to port my extension to other browsers.
@@ -57,24 +55,24 @@ If you use Edge, you can install the extension from the Microsoft Edge Add-ons w
 
 ## The Technical Deets (Details)
 
-I know a lot of you come here for the technical details of things, so I won't disappoint and get started!
+I know a lot of you come here for the technical details of things, so I won't disappoint and will get started!
 
 As I've pointed out before, I use [Plasmo](https://www.plasmo.com/) to build my extension. From their website:
 
 > Plasmo helps you build, test, and deploy powerful, cutting-edge products on top of the web browser.
 
-And oh boy, it not disppoint! I was able to get the extension ported to Firefox and Edge relatively quickly.
+And, oh boy, it not disppoint! I was able to get the extension ported to Firefox and Edge _relatively_ quickly.
 
-I think the thing that took me the longest time was figuring out how to sign up to become a Microsoft Edge Add-on developer. 😅 It
+I think the thing that took me the longest amount of time was figuring out how to become a Microsoft Edge Add-on developer. 😅 It
 also took me quite a while to configure the Edge store listings, even though I'd already documented them!
 
 And... Edge store reviews take sooooooooooooo long. Dang.
 
 ### Firefox
 
-Okay, so Firefox was an interesting one. I almost gave up a few times, but I figured it out in the end!
+Okay, so making the extension available in Firefox was interesting, and I almost gave up a few times. But, I figured it out! Let's discuss.
 
-#### Impossible to debug in dev mode
+#### Problems with Local Development
 
 Using Plasmo in dev mode was impossible.
 
@@ -88,7 +86,7 @@ worked.
 
 First hurdle done!
 
-#### No Extended version 😞
+#### No Extended Version of the Extension 😞
 
 Since I could now finally "develop" the extension in Firefox, I tried to use custom zoom values. But, it didn't work.
 
@@ -106,9 +104,9 @@ I'll keep an eye out for any changes in the future! Promise!
 #### Manifest V2 vs V3
 
 When looking through Manifest differences between Firefox and Chrome, I thought, "Amazing, Firefox is transitioning to Manifest V3.
-This is the same version used by Chrome. I won't have to do much to make this work!" Easy, right?!? Sure...
+This is the same version used by Chrome. I won't have to do much to make this work!" I was wrong...
 
-I started using Manifest V3. All the docs said to define your Add-on's ID in the manifest. So, I went
+I used Manifest V3 initially. All the docs say to define your Add-on's ID in the manifest. So, I went
 looking for my Add-on's ID. But, don't you have to publish it first before you get an ID? That's how the Chrome Webstore
 works...
 
@@ -124,7 +122,7 @@ I get a message saying something along the lines of:
 > We suggest only using Manifest V3 for extensions that are distributed via the "On your own" option. To keep a wide range of support
 > we suggest using Manifest V2 if distributing using the "On this site" option.
 
-Cool, so I move back to Manifest V2 using the format "extension-id@example.com". Now, this can be anything as well, just make it up.
+Cool, so I move back to Manifest V2 using the format `extension-id@example.com`. Now, this can be anything as well, just make it up.
 Their docs do stress it shouldn't be a real email address as you'll get spammed, but it can be anything unique.
 
 And after packaging it again, the submission is successful (and later approved)!
@@ -137,18 +135,18 @@ Hopefully this makes it clearer to future users.
 I've automated the publishing process using [`PlasmoHQ/bpp`](https://github.com/PlasmoHQ/bpp). It publishes both extensions across the stores
 for Chrome, Edge, and Firefox.
 
-It was relatively easy to extend for Firefox and Edge, just requiring the additional builds and packaging of the extension for these new targets.
+It was relatively easy to extend for Firefox and Edge, just requiring the additional builds and packaging of the extension for these new targets (and modification of the ENV variables).
 You can checkout the workflows that handle this for both the [default](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit.yml)
 and [extended](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit-extended.yml) versions
 if you want to see more detail.
 
-This makes publishing a breeze. All I do is publish a new version using Git tags and the GitHub Actions takes care of the rest.
+This makes publishing a breeze. All I do is publish a new version using a Git tag and the GitHub Actions takes care of the rest.
 
 ### Sentry
 
 Now that the extension is working and published across Chrome, Firefox, and Edge, I needed to fix Sentry. Well, doesn't Sentry just work?? No, it doesn't just work.
 
-I originally set Sentry up to work just with Chrome. Specifically, I only uploaded source maps for the Chrome version of the extension. But, since
+I originally set Sentry up to work with Chrome. Specifically, I only uploaded source maps for the Chrome version of the extension. But, since
 I now build the extension for each store, this doesn't work.
 
 Let me break it down a bit more. I'll use the default version of the extension as an example.
@@ -158,10 +156,10 @@ even though the functionality and source code is the same!
 
 So, since the errors can happen in any of the three outputs, I need to upload the source maps for all of them to the same release in Sentry.
 
-Thankfully, this is possible using Sentry's GitHub action! One of my concerns was that the release would be created by during the first upload, then
-in subsequent uploads it would fail due to trying to create a release that already exists. I had to test it and cross my fingers it worked.
+One of my concerns was that the release would be created by during the first upload, then
+in subsequent uploads it would fail due to trying to create a release that already exists. I had to test it and cross my fingers that it would worked.
 
-It ended up working! So now all the source maps for each build are associated to single Sentry release. [My GitHub action](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit.yml#L40-L66)
+Thankfully, it ended up working as [Sentry's GitHub action](https://github.com/getsentry/action-release) is smart enough! So now all the source maps for each build are associated to single Sentry release. [My GitHub action](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit.yml#L40-L66)
 has more detail if you want it!
 
 ## Fin
