@@ -1,7 +1,7 @@
 ---
 title: "Google Workspace Default Zoom is Everywhere!"
 description: "Watch out, it's taking over..."
-pubDate: "2024-09-26"
+pubDate: "2024-09-27"
 tags:
   [
     "chrome extension",
@@ -47,7 +47,7 @@ Now those of you who don't want to ditch uBlock Origin can have this functionali
 
 ### Edge
 
-Edge uses Chromium under the hood, so all the features offered in both extension versions worked out of the box!
+Edge uses Chromium under the hood, so all the features offered in **both** extension versions worked out of the box!
 
 If you use Edge, you can install the extension from the Microsoft Edge Add-ons website:
 
@@ -63,45 +63,107 @@ As I've pointed out before, I use [Plasmo](https://www.plasmo.com/) to build my 
 
 > Plasmo helps you build, test, and deploy powerful, cutting-edge products on top of the web browser.
 
-And oh boy, it not disppoint! I was able to get the extension ported to Firefox and Edge relatively quickly. I think the
-thing that took me the longest time was figuring out how to sign up to become a Microsoft Edge Add-on developer. 😅 It
+And oh boy, it not disppoint! I was able to get the extension ported to Firefox and Edge relatively quickly.
+
+I think the thing that took me the longest time was figuring out how to sign up to become a Microsoft Edge Add-on developer. 😅 It
 also took me quite a while to configure the Edge store listings, even though I'd already documented them!
 
-## Firefox
+And... Edge store reviews take sooooooooooooo long. Dang.
+
+### Firefox
 
 Okay, so Firefox was an interesting one. I almost gave up a few times, but I figured it out in the end!
 
-### Impossible to debug in dev mode
+#### Impossible to debug in dev mode
 
-Using Plasmo in dev mode was impossible. Firefox seemed to block the WebSocket connection (I think), which forced the
+Using Plasmo in dev mode was impossible.
+
+Firefox seemed to block the WebSocket connection (I think), which forced the
 extension to reload itself continuously. This made debugging impossible as the extension was never able to be used (it
-disappeared and reappeared too quickly). The only way to stop it was to disable the extension via the debugging page.
+disappeared and reappeared too quickly). The only way to stop it was to disable the extension via the debugging page and/or
+stop the Plasmo dev server.
 
 I ended up just running `plasmo build` after every change and reloading the extension. It was a bit of a pain, but it
-worked. First hurdle done!
+worked.
 
-### No Extended version 😞
+First hurdle done!
 
-After I got it working, I tried to use custom zoom values. It didn't work.
+#### No Extended version 😞
 
-After more and more digging, I found an [MDN page](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
-confirming the `debugger` permission is unavailable in Firefox. It says it's available in Manifest V2 and V3, but when
-you actually go the[ Browser Compatibility](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#browser_compatibility)
-section, you can see it's not available in Firefox. 😭
+Since I could now finally "develop" the extension in Firefox, I tried to use custom zoom values. But, it didn't work.
 
-So, I unfortunately can't ship the Extended version of the extension to Firefox. I'm sorry Firefox users! 😞 I'll keep
-an eye out for any changes in the future! Promise!
+After some digging, I found an [MDN page](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
+confirming the `debugger` permission is unavailable in Firefox.
 
-### Manifest V2 vs V3
+While it's available in Manifest V2 and V3, when
+you actually go the [Browser Compatibility](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#browser_compatibility)
+section, you can see it's not supported in Firefox. 😭
 
-Amazing, Firefox is transitionin gto Manifest V3, which is the same version used by Chrome (and shit because uBlock Origin
-will be disabled due to this). Easy, right?!? Please...I struggled from the start.
+This means I unfortunately cannot ship the Extended version of the extension to Firefox. I'm sorry Firefox users! 😞
 
-I tried to use Manifest V3 from the start. All the docs said you had to define your Add-on's ID in the manifest. So, I went
+I'll keep an eye out for any changes in the future! Promise!
+
+#### Manifest V2 vs V3
+
+When looking through Manifest differences between Firefox and Chrome, I thought, "Amazing, Firefox is transitioning to Manifest V3.
+This is the same version used by Chrome. I won't have to do much to make this work!" Easy, right?!? Sure...
+
+I started using Manifest V3. All the docs said to define your Add-on's ID in the manifest. So, I went
 looking for my Add-on's ID. But, don't you have to publish it first before you get an ID? That's how the Chrome Webstore
 works...
 
 After banging my head all over the place, it turns out you **don't have to publish the Add-on to get an Add-on ID.** You
-just, wait for it, create it yourself. Their docs don't explain this in a straightforward way.
+just create it yourself. Their docs don't explain this in a straightforward way.
 
-So, I generated a UUID and added it to my manifest in the right form (`{UUID}`). Cool, Storage API is working
+So, I generated a UUID and added it to my manifest in the right form (`{UUID}`). Cool, Storage API is working. I test all the
+functionality and it works (minus the extended version part, but whatever). Let's submit it!
+
+I package the extension locally and start going through the submission process. I get to the point of uploading the ZIP, but the
+I get a message saying something along the lines of:
+
+> We suggest only using Manifest V3 for extensions that are distributed via the "On your own" option. To keep a wide range of support
+> we suggest using Manifest V2 if distributing using the "On this site" option.
+
+Cool, so I move back to Manifest V2 using the format "extension-id@example.com". Now, this can be anything as well, just make it up.
+Their docs do stress it shouldn't be a real email address as you'll get spammed, but it can be anything unique.
+
+And after packaging it again, the submission is successful (and later approved)!
+
+I've submitted [a PR](https://github.com/PlasmoHQ/docs/pull/128) to update Plasmo's docs relative to Manifest V2/V3 requirements in Firefox.
+Hopefully this makes it clearer to future users.
+
+### Publishing
+
+I've automated the publishing process using [`PlasmoHQ/bpp`](https://github.com/PlasmoHQ/bpp). It publishes both extensions across the stores
+for Chrome, Edge, and Firefox.
+
+It was relatively easy to extend for Firefox and Edge, just requiring the additional builds and packaging of the extension for these new targets.
+You can checkout the workflows that handle this for both the [default](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit.yml)
+and [extended](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit-extended.yml) versions
+if you want to see more detail.
+
+This makes publishing a breeze. All I do is publish a new version using Git tags and the GitHub Actions takes care of the rest.
+
+### Sentry
+
+Now that the extension is working and published across Chrome, Firefox, and Edge, I needed to fix Sentry. Well, doesn't Sentry just work?? No, it doesn't just work.
+
+I originally set Sentry up to work just with Chrome. Specifically, I only uploaded source maps for the Chrome version of the extension. But, since
+I now build the extension for each store, this doesn't work.
+
+Let me break it down a bit more. I'll use the default version of the extension as an example.
+
+I build the extension three times. Each build targets a different store/browser. This results in three, completely different outputs
+even though the functionality and source code is the same!
+
+So, since the errors can happen in any of the three outputs, I need to upload the source maps for all of them to the same release in Sentry.
+
+Thankfully, this is possible using Sentry's GitHub action! One of my concerns was that the release would be created by during the first upload, then
+in subsequent uploads it would fail due to trying to create a release that already exists. I had to test it and cross my fingers it worked.
+
+It ended up working! So now all the source maps for each build are associated to single Sentry release. [My GitHub action](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/blob/main/.github/workflows/submit.yml#L40-L66)
+has more detail if you want it!
+
+## Fin
+
+Well, that's it. I hope this provides some level of value to you (or you find it interesting)!
