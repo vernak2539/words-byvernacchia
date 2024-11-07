@@ -13,25 +13,25 @@
     "prettier": "prettier \"./src/**\" \"./bin/**\" -w"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.17.1",
-    "@algolia/autocomplete-theme-classic": "^1.17.1",
-    "@algolia/client-search": "^4.23.3",
-    "@astro-community/astro-embed-twitter": "^0.5.4",
+    "@algolia/autocomplete-js": "^1.17.7",
+    "@algolia/autocomplete-theme-classic": "^1.17.7",
+    "@algolia/client-search": "^4.24.0",
+    "@astro-community/astro-embed-twitter": "^0.5.8",
     "@astrojs/mdx": "3.1.7",
     "@astrojs/react": "3.6.2",
-    "@astrojs/rss": "4.0.7",
-    "@astrojs/sitemap": "3.1.6",
-    "@codesandbox/sandpack-react": "^2.18.3",
-    "@iconify-json/mdi": "^1.1.68",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "algoliasearch": "^4.23.3",
-    "astro": "4.15.8",
-    "astro-breadcrumbs": "^3.0.1",
-    "astro-icon": "^1.1.1",
+    "@astrojs/rss": "4.0.9",
+    "@astrojs/sitemap": "3.2.1",
+    "@codesandbox/sandpack-react": "^2.19.9",
+    "@iconify-json/mdi": "^1.2.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "algoliasearch": "^4.24.0",
+    "astro": "4.16.10",
+    "astro-breadcrumbs": "^3.2.0",
+    "astro-icon": "^1.1.2",
     "astro-rehype-relative-markdown-links": "^0.15.0",
     "astro-robots-txt": "^1.0.0",
-    "glob": "^10.3.15",
+    "glob": "^10.4.5",
     "markdown-it": "^14.1.0",
     "mermaid": "10.9.1",
     "puppeteer": "22.9.0",
@@ -39,14 +39,14 @@
     "react-dom": "^18.3.1",
     "rehype-slug": "^6.0.0",
     "remark-mermaidjs": "6.0.0",
-    "sanitize-html": "^2.13.0"
+    "sanitize-html": "^2.13.1"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "remove-markdown": "^0.5.2",
-    "typescript": "^5.5.4"
+    "remove-markdown": "^0.5.5",
+    "typescript": "^5.6.3"
   }
 }
