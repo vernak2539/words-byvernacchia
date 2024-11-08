@@ -23,7 +23,7 @@ The extensions' new names are:
 1. Default zoom for Google Workspace
 2. Default zoom for Google Workspace (Extended)
 
-They are still available for Chrome, Edge, and Firefox! I've copied the README on my GitHub repository below for more information!
+They are still available for Chrome, Edge, and Firefox! They should automatically update, so don't worry if you had them installed already (you don't have to do anything).
 
 ## Where to find
 
