@@ -5,6 +5,10 @@ tags: ["chrome extension", "plasmo", "google docs", "google workspace", "react"]
 pubDate: "2023-02-03"
 ---
 
+import NewExtensionNameBanner from "../../../../components/NewExtensionNameBanner/index.astro";
+
+<NewExtensionNameBanner />
+
 \*\***Update:** See [Introducing Google Workspace Zoom Default](../03/introducing-google-workspace-zoom-default.md) for an update!\*\*
 
 As much as I don't want to admit it, I'm getting old.
@@ -34,7 +38,19 @@ Even more fun is that the Google Docs use dynamic element IDs, so I had to figur
 
 Okay, that's all a bit painful, but relatively easy. Now the difficult part, how does one create a Chrome Extension these days? I took to Twitter (is it still alive??) to find out...
 
-<blockquote class="twitter-tweet"><p lang="qam" dir="ltr"><a href="https://twitter.com/plasmohq?ref_src=twsrc%5Etfw">@plasmohq</a></p>&mdash; Mitch Friedman (@mitchfriedman5) <a href="https://twitter.com/mitchfriedman5/status/1617959819595644930?ref_src=twsrc%5Etfw">January 24, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet">
+  <p lang="qam" dir="ltr">
+    <a href="https://twitter.com/plasmohq?ref_src=twsrc%5Etfw">@plasmohq</a>
+  </p>
+  &mdash; Mitch Friedman (@mitchfriedman5){" "}
+  <a href="https://twitter.com/mitchfriedman5/status/1617959819595644930?ref_src=twsrc%5Etfw">
+    January 24, 2023
+  </a>
+</blockquote> <script
+  async
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
+></script>
 
 And a buddy who I used to work with came through in clutch. Enter [Plasmo](https://www.plasmo.com/).
 
@@ -52,11 +68,11 @@ There are some bugs I'd like to fix and features I'd like to add. See below!
 
 ## Next steps
 
--   ✅ Allow for usage in Sheets, Slides, and other Google Workspace applications that have zoom features ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/3))
-    -   Support for Docs + Sheets as of v0.2.0. Implementation for other applications is also easier now.
--   ✅ Get it to work for larger documents ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/1))
--   Add an active state to the pop up ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/2))
--   ✅ Make it prettier 💅
+- ✅ Allow for usage in Sheets, Slides, and other Google Workspace applications that have zoom features ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/3))
+  - Support for Docs + Sheets as of v0.2.0. Implementation for other applications is also easier now.
+- ✅ Get it to work for larger documents ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/1))
+- Add an active state to the pop up ([issue](https://github.com/vernak2539/chrome-extension-google-doc-default-zoom/issues/2))
+- ✅ Make it prettier 💅
 
 [webstore]: https://chrome.google.com/webstore/detail/google-docs-zoom-default/nflkcdlimipkgbacnfnhfecjgmojhklo
 [github]: https://github.com/vernak2539/chrome-extension-google-doc-default-zoom
