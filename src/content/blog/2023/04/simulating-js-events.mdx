@@ -9,20 +9,17 @@ socialImage: "simulating-js-events.jpg"
 import SandpackEnv from "../../../../components/Sandpack";
 import Banner from "../../../../components/Banner/index.astro";
 import {
-    keyboardEventsDispatchEvents,
-    keyboardEventsInputDotValue,
-    keyboardEventsInputOnly,
-    mouseEventsButtonOnly,
-    mouseEventsDotClick,
-    mouseEventsEventsClick,
+  keyboardEventsDispatchEvents,
+  keyboardEventsInputDotValue,
+  keyboardEventsInputOnly,
+  mouseEventsButtonOnly,
+  mouseEventsDotClick,
+  mouseEventsEventsClick,
 } from "./_simulating-js-events-code.js";
 
-<Banner type="warn">
-    Due to a [problem with Sandpack](https://github.com/codesandbox/sandpack/issues/1091), you **may** will see an error (`"Service Worker registration failed: "`) in the console.
+import NewExtensionNameBanner from "../../../../components/NewExtensionNameBanner/index.astro";
 
-    The examples **will still work**! You may just have to scroll down to see the output.
-
-</Banner>
+<NewExtensionNameBanner />
 
 I've been working on my _[Google Workspace Zoom Default][webstore]_ Chrome Extension to implement a
 [requested feature][feature-request] where users can use custom zoom values in addition to the predefined zoom values
@@ -47,9 +44,9 @@ As you can see, there are three events that trigger when you click once (we'll o
 
 These are (and executed in the following order):
 
--   `mousedown`
--   `mouseup`
--   `click`
+- `mousedown`
+- `mouseup`
+- `click`
 
 Well well, there's three events that trigger. Fair enough.
 
@@ -83,12 +80,12 @@ Something like below would dispatch a click event on the button.
 ```javascript
 const button = document.querySelector("button");
 const event = new MouseEvent("click", {
-    view: window,
-    bubbles: true,
-    cancelable: true,
-    clientX: 0,
-    clientY: 0,
-    button: 0,
+  view: window,
+  bubbles: true,
+  cancelable: true,
+  clientX: 0,
+  clientY: 0,
+  button: 0,
 });
 button.dispatchEvent(event);
 ```
@@ -193,23 +190,23 @@ const target = { tabId: req.tabId };
 chrome.debugger.attach(target, "1.0");
 
 chrome.debugger.sendCommand(target, "Input.insertText", {
-    text: req.body.zoomValue, // this value is sent from the content script
+  text: req.body.zoomValue, // this value is sent from the content script
 });
 
 // The two events below have to be used together. I don't know why... but they do...
 chrome.debugger.sendCommand(target, "Input.dispatchKeyEvent", {
-    type: "rawKeyDown",
-    code: "Enter",
-    key: "Enter",
-    macCharCode: 13,
-    nativeVirtualKeyCode: 13,
-    text: "\r",
-    unmodifiedText: "\r",
-    windowsVirtualKeyCode: 13,
+  type: "rawKeyDown",
+  code: "Enter",
+  key: "Enter",
+  macCharCode: 13,
+  nativeVirtualKeyCode: 13,
+  text: "\r",
+  unmodifiedText: "\r",
+  windowsVirtualKeyCode: 13,
 });
 chrome.debugger.sendCommand(target, "Input.dispatchKeyEvent", {
-    type: "char",
-    text: "\r",
+  type: "char",
+  text: "\r",
 });
 
 chrome.debugger.detach(target);
