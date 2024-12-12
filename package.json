@@ -10,7 +10,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier --config prettierrc.mjs \"./src/**\" \"./bin/**\" -w"
+    "prettier": "prettier --config prettierrc.mjs \"./src/**\" \"./bin/**\" -w",
+    "postinstall": "husky",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.17.7",
@@ -44,6 +47,8 @@
   "devDependencies": {
     "dotenv": "^16.4.7",
     "gray-matter": "^4.0.3",
+    "husky": "^9.1.7",
+    "pinst": "^3.0.0",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "remove-markdown": "^0.5.5",
