@@ -3,16 +3,16 @@ title: "Google Workspace Default Zoom has a new name"
 description: "Damn Edge Store..."
 pubDate: "2024-11-08"
 tags:
-  [
-    "chrome extension",
-    "plasmo",
-    "google docs",
-    "google workspace",
-    "react",
-    "frontend",
-    "javascript",
-    "typescript",
-  ]
+    [
+        "chrome extension",
+        "plasmo",
+        "google docs",
+        "google workspace",
+        "react",
+        "frontend",
+        "javascript",
+        "typescript",
+    ]
 ---
 
 Due to the Microsoft Edge Add-ons [Policy 1.1.2](https://learn.microsoft.com/en-us/legal/microsoft-edge/extensions/developer-policies#113-functionality),
@@ -33,13 +33,13 @@ They are still available for Chrome, Edge, and Firefox! They should automaticall
 
 - [Default zoom for Google Workspace][chrome-webstore-default]
 - [Default zoom for Google Workspace (Extended)][chrome-webstore-extended]
-  - In exchange for allowing elevated permissions, this extension provides ability to set custom zoom levels (as opposed to only predefined values)
+    - In exchange for allowing elevated permissions, this extension provides ability to set custom zoom levels (as opposed to only predefined values)
 
 ### Find it on Microsoft Edge Add-ons
 
 - [Default zoom for Google Workspace][edge-addons-default]
 - [Default zoom for Google Workspace (Extended)][edge-addons-extended]
-  - In exchange for allowing elevated permissions, this extension provides ability to set custom zoom levels (as opposed to only predefined values)
+    - In exchange for allowing elevated permissions, this extension provides ability to set custom zoom levels (as opposed to only predefined values)
 
 ### Find it on Firefox Add-ons
 

@@ -36,8 +36,8 @@ I plan to delve into:
 In addition, I'm also planning to explore "higher-level frameworks" that supplement these, such as:
 
 1.  React
-    -   [Next.js](https://nextjs.org/)
-    -   [Remix](https://remix.run/)
+    - [Next.js](https://nextjs.org/)
+    - [Remix](https://remix.run/)
 2.  [SvelteKit](https://kit.svelte.dev/)
 3.  [SolidStart](https://start.solidjs.com/) _(May wait until this one is out of beta, or may not 🤷)_
 4.  [Nuxt](https://nuxtjs.org/)
@@ -47,19 +47,19 @@ In addition, I'm also planning to explore "higher-level frameworks" that supplem
 Instead of building a Pokédex, I'll be building a _Github Issue Viewer_ (and creator). This will allow
 for:
 
--   Login (via Github)
--   Playing around with APIs
--   Handling form submissions (basic issue creation)
--   Page transitions
--   Filtering
--   etc.
+- Login (via Github)
+- Playing around with APIs
+- Handling form submissions (basic issue creation)
+- Page transitions
+- Filtering
+- etc.
 
 I'm going to be exploring some technologies to make life easier and develop more quickly. They include things like:
 
--   RadixUI
--   shadcn components
--   React Aria Components
--   etc...
+- RadixUI
+- shadcn components
+- React Aria Components
+- etc...
 
 I'll update you as I go!
 
@@ -69,7 +69,7 @@ Alright, so I'm not about to dive into this without a game plan. I've got a proj
 bit more fun. Let's build a Pokédex, using the [PokéAPI](https://pokeapi.co/)! You'll be able to check out different
 Pokémon and even whip up your own. This will allow me to:
 
--   Play around with APIs
--   Handle form submissions
--   Understand pages transitions
--   And, who knows, maybe throw in a few more bells and whistles along the way!
+- Play around with APIs
+- Handle form submissions
+- Understand pages transitions
+- And, who knows, maybe throw in a few more bells and whistles along the way!

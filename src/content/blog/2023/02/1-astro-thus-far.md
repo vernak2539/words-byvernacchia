@@ -47,13 +47,13 @@ sitemap, `robots.txt`, RSS feed, and social open graph (FB + Twitter stuff, but 
 Turns out, for most of these things there are already prebuilt integrations that someone much smarter than me has taken
 the time to open source.
 
--   Sitemap via [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
--   RSS Feed via [@astrojs/rss](https://docs.astro.build/en/guides/rss/) (not sure why it's not on the [integrations](https://astro.build/integrations/) page)
--   Open Graph via [Custom Head Component](https://github.com/vernak2539/words-byvernacchia/blob/main/src/components/BaseHead.astro)
-    -   Probably copied this from somewhere (thank you!)
-    -   Easily added my own ability to designate images used for OG data via frontmatter (pretty nice, super easy)
--   Analytics via [Custom Tracking Component](https://github.com/vernak2539/words-byvernacchia/blob/main/src/components/Tracking.astro)
-    -   Via [Simple Analytics](https://simpleanalytics.com) (because I care about you not being the product)
+- Sitemap via [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- RSS Feed via [@astrojs/rss](https://docs.astro.build/en/guides/rss/) (not sure why it's not on the [integrations](https://astro.build/integrations/) page)
+- Open Graph via [Custom Head Component](https://github.com/vernak2539/words-byvernacchia/blob/main/src/components/BaseHead.astro)
+    - Probably copied this from somewhere (thank you!)
+    - Easily added my own ability to designate images used for OG data via frontmatter (pretty nice, super easy)
+- Analytics via [Custom Tracking Component](https://github.com/vernak2539/words-byvernacchia/blob/main/src/components/Tracking.astro)
+    - Via [Simple Analytics](https://simpleanalytics.com) (because I care about you not being the product)
 
 I also added things like [comments](./adding-comments-to-this-thing.md), and I used [astro-icon](https://github.com/natemoo-re/astro-icon#readme)
 to add some "flare" to the blog entry metadata section (you're welcome).
@@ -71,9 +71,9 @@ some) but really like this more. I'm not sure how to explain it...
 I didn't realise the links that I put in my Markdown files to other Markdown files via `[]()` were not being translated
 to generated paths. Turns out that is not supported yet, which I found out on a couple of issues
 
--   [Issue #5682](https://github.com/withastro/astro/issues/5682)
--   [Issue #5680](https://github.com/withastro/astro/issues/5680)
--   [RFC #424](https://github.com/withastro/roadmap/discussions/424)
+- [Issue #5682](https://github.com/withastro/astro/issues/5682)
+- [Issue #5680](https://github.com/withastro/astro/issues/5680)
+- [RFC #424](https://github.com/withastro/roadmap/discussions/424)
 
 Hopefully there will be a fix issued soon, but in the meantime I'll likely just put the paths there instead of using
 Markdown links (not looking to get into rehype or remark at the moment of writing this).

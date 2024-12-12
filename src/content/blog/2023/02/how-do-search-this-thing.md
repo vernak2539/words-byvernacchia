@@ -117,5 +117,5 @@ to Autocomplete.
 
 If you want to check out my code, here it is:
 
--   [Node.js Script to Build + Publish Search Indexes](https://github.com/vernak2539/words-byvernacchia/blob/main/bin/build-search.js)
--   [Search Components (UI)](https://github.com/vernak2539/words-byvernacchia/tree/main/src/components/Search)
+- [Node.js Script to Build + Publish Search Indexes](https://github.com/vernak2539/words-byvernacchia/blob/main/bin/build-search.js)
+- [Search Components (UI)](https://github.com/vernak2539/words-byvernacchia/tree/main/src/components/Search)

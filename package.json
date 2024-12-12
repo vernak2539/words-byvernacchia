@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier \"./src/**\" \"./bin/**\" -w"
+    "prettier": "prettier --config prettierrc.mjs \"./src/**\" \"./bin/**\" -w"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.17.7",

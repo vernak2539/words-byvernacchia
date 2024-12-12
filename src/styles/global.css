@@ -1,27 +1,27 @@
 :root {
-  --accent: 124, 58, 237;
-  --accent-gradient: linear-gradient(
-    45deg,
-    rgb(var(--accent)),
-    #4a76d4 30%,
-    white 60%
-  );
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        #4a76d4 30%,
+        white 60%
+    );
 }
 html {
-  font-family: system-ui, sans-serif;
-  background-color: #f6f6f6;
+    font-family: system-ui, sans-serif;
+    background-color: #f6f6f6;
 }
 code {
-  font-family:
-    Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
-  font-size: 0.85rem;
+    font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+    font-size: 0.85rem;
 }
 
 h1 code,
@@ -29,73 +29,73 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 h2 code {
-  font-size: 1.3rem;
+    font-size: 1.3rem;
 }
 
 blockquote {
-  border-left: 3px solid #ccc;
-  margin: 0;
-  padding: 0 0 0 1rem;
-  color: #666;
+    border-left: 3px solid #ccc;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    color: #666;
 }
 
 a {
-  color: #773feb;
-  text-decoration: none;
+    color: #773feb;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .container {
-  margin: auto;
-  padding: 1.5rem;
-  max-width: 60ch;
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
 }
 
 .site-tagline {
-  font-style: italic;
+    font-style: italic;
 }
 
 /*Header Container (i.e. Title + Search)*/
 .header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .youtubeWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
 }
 .youtubeWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .astro-code {
-  border-radius: 5px;
-  padding: 15px 18px;
+    border-radius: 5px;
+    padding: 15px 18px;
 }
 
 table,
 th,
 td {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 10px;
-  text-align: left;
+    padding: 10px;
+    text-align: left;
 }

@@ -32,11 +32,11 @@ concepts can likely apply to other CI/CD platforms.
 
 Lastly, some definitions so we're all on the same page:
 
--   **Step**: A step is a single unit of work in a CI/CD process
-    -   For example, installing dependencies, setting up environment variables, initiating commands, etc.
--   **Job**: A collection of steps
-    -   For example, running tests, linting code, building a Docker image, etc.
--   **Build Pipeline**: A collection of _jobs_ that represents all work
+- **Step**: A step is a single unit of work in a CI/CD process
+    - For example, installing dependencies, setting up environment variables, initiating commands, etc.
+- **Job**: A collection of steps
+    - For example, running tests, linting code, building a Docker image, etc.
+- **Build Pipeline**: A collection of _jobs_ that represents all work
 
 ## Identifying common steps
 

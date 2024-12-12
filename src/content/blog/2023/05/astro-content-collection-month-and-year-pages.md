@@ -237,7 +237,7 @@ Maybe I do have the hang of Astro!
 
 You can use my blog as an example for the full integration. Or, post a comment below, and we can have a discusion!
 
--   [Posts by year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/index.astro)
--   [Posts by month of the year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/%5Bmonth%5D/index.astro)
+- [Posts by year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/index.astro)
+- [Posts by month of the year](https://github.com/vernak2539/words-byvernacchia/blob/main/src/pages/blog/%5Byear%5D/%5Bmonth%5D/index.astro)
 
 **Note:** If you're developing with Windows, you'll have to join your paths differently in some of the functions above (i.e. with `path.sep`).
