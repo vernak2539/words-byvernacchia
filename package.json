@@ -31,7 +31,7 @@
     "astro-icon": "^1.1.4",
     "astro-rehype-relative-markdown-links": "^0.17.3",
     "astro-robots-txt": "^1.0.0",
-    "glob": "^10.4.5",
+    "glob": "^11.0.0",
     "markdown-it": "^14.1.0",
     "mermaid": "10.9.1",
     "puppeteer": "22.9.0",
@@ -42,9 +42,9 @@
     "sanitize-html": "^2.13.1"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "gray-matter": "^4.0.3",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "remove-markdown": "^0.5.5",
     "typescript": "^5.7.2"
