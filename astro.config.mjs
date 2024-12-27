@@ -23,19 +23,19 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-    site: SITE_URL,
-    markdown: {
-        rehypePlugins,
-        remarkPlugins,
-    },
-    integrations: [
-        icon(),
-        sitemap(),
-        robotsTxt(),
-        react(),
-        mdx({
-            rehypePlugins,
-            remarkPlugins,
-        }),
-    ],
+  site: SITE_URL,
+  markdown: {
+    rehypePlugins,
+    remarkPlugins,
+  },
+  integrations: [
+    icon(),
+    sitemap(),
+    robotsTxt(),
+    react(),
+    mdx({
+      rehypePlugins,
+      remarkPlugins,
+    }),
+  ],
 });
