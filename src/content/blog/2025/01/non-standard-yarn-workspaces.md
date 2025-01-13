@@ -47,7 +47,34 @@ In the end it all worked out, and we're in a much better place! 🎉
 
 ### Flexibility
 
-doesn't have to conform
+When you got to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces), you them give an example with a directory structure such as:
+
+```json
+{
+  "workspaces": ["packages/*"]
+}
+```
+
+I've been on this page a lot of times prior to this implementation and always thought to myself, "hmmm, I guess everything
+needs to be in a 'packages' folder." Additionally, our other repositories at work that use Yarn Workspaces conform to
+this structure.
+
+Since we have a non-standard setup it took me a moment to remove my previous assumptions and realise that workspaces
+didn't have to live in a singular folder. With code being colocated by functionality rather than platform, we ended up
+with a structure like:
+
+```json
+{
+  "workspaces": [
+    "docs",
+    "lang/typescript/figma-plugin",
+    "lang/typescript/codegen",
+    "renderers/web"
+  ]
+}
+```
+
+Remember to exercise your mind and think different. I swear someone said that somewhere 🤔
 
 ### The Transition
 
