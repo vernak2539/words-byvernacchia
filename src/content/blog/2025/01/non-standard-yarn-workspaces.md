@@ -2,7 +2,7 @@
 title: "Non-standard Yarn Workspaces"
 description: "My learnings using Yarn Workspaces with a non-standard setup..."
 pubDate: "2025-01-15"
-tags: ["yarn", "package managers", "frontend"]
+tags: ["yarn", "yarn workspaces", "package managers", "frontend"]
 ---
 
 [Deliveroo](https://deliveroo.co.uk) ships customer functionality across Web, Android, and iOS. While this may sound simple
@@ -45,6 +45,10 @@ In the end it all worked out, and we're in a much better place! 🎉
 
 ## The Good
 
+### Dependency Management
+
+Makes dependency management across packages easy... enough said.
+
 ### Flexibility
 
 When you go to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces) docs, they give an example with a directory structure such as:
@@ -76,10 +80,23 @@ with a structure like:
 
 Remember to exercise your mind and think different. I swear someone said that somewhere 🤔
 
-### TODO
+### Useful command/functionality
 
-focus on workspace
-docker fun...
+Yarn Workspaces comes with really useful commands. I really liked the ones that didn't require me to move into each
+package's directory. These included:
+
+1. `yarn workspaces focus <package>` ([docs](https://yarnpkg.com/cli/workspaces/focus))
+   - This allows you to install dependencies for a specific package, as if others didn't exist, while still taking into account top-level dependencies 🙌
+   - **Learning**: This was super helpful when only needing to execute certain tasks for certain packages during CI/CD processes
+2. `yarn workspaces foreach <commandName>` ([docs](https://yarnpkg.com/cli/workspaces/foreach))
+   - This allows you to run a command in each workspace (usually in parallel)
+   - There's a lot of options/flags to add to this, which help with running tasks in the right order when packages depend on each other
+   - **Learning**: This is super helpful when you want to simply and easily execute tasks across all or some packages (duhh)
+   - **Note**: `yarn workspace <workspaceName> <commandName> ...` ([docs](https://yarnpkg.com/cli/workspace)) is the singular version of this command for an individual workspace!
+3. `yarn workspaces list` ([docs](https://yarnpkg.com/cli/workspaces/list))
+   - Naming is hard, and when using commands in #1 and #2 it's easy to forget the names of your packages, especially if they don't adhere to the directory name (sometimes there's nothing you can do 🤷)
+
+Now that I look at what I've written, I seem that I found all the workspaces commands useful haha.
 
 ## The Bad
 
