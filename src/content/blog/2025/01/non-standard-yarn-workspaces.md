@@ -43,7 +43,7 @@ good move, but I hesitated and ran into challenges in the process. Let's discuss
 
 In the end it all worked out, and we're in a much better place! 🎉
 
-## My Learnings
+## The Good
 
 ### Flexibility
 
@@ -76,11 +76,16 @@ with a structure like:
 
 Remember to exercise your mind and think different. I swear someone said that somewhere 🤔
 
-### Learnings (the bad)
+### TODO
+
+focus on workspace
+docker fun...
+
+## The Bad
 
 We took some learnings from the implementation, which I think are worth sharing.
 
-#### `yarn.lock` files in packages
+### `yarn.lock` files in packages
 
 The packages that already have a `yarn.lock` file in them caused some issues. It took me a while to figure out what was
 going on, as sometimes it would work, then after a revert/clean, it wouldn't.
@@ -91,7 +96,7 @@ so having another lockfile in the directory caused it to go haywire.
 
 **Learning**: Remove `yarn.lock` files from individual package directories.
 
-#### Using top-level dependencies
+### Using top-level dependencies
 
 Our initial use case was to use the same version of TypeScript across all packages. Additionally, we wanted to use the
 `tsc` cli tool provided by TypeScript.
@@ -111,7 +116,7 @@ Subtle, but different.
 
 **Learning**: If hoisting a dependency to the top-level, if it's needed inside a package, use the `run -T` command and flag.
 
-#### Incremental Delivery (partial usage of hoisted dependencies)
+### Incremental Delivery (partial usage of hoisted dependencies)
 
 We wanted to implement Yarn Workspaces incrementally, specifically the hoisting of dependencies to the top-leve. We
 planned to start with TypeScript, then move to things like ESLint and Jest.
@@ -126,7 +131,6 @@ To fix this, we ended up migrating ESLint to a top-level dependency and migratin
 
 **Learning**: Sometimes incremental delivery isn't possible (try not to waste too much time if the situation doesn't warrant it).
 
-### Learnings (cool things)
+## The Ugly
 
-focus on workspace
-docker fun...
+There was nothing ugly... I just wanted to use the title 😅
