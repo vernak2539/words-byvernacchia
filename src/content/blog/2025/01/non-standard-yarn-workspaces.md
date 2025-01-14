@@ -80,7 +80,7 @@ Remember to exercise your mind and think different. I swear someone said that so
 
 We took some learnings from the implementation, which I think are worth sharing.
 
-#### yarn.lock files in packages
+#### `yarn.lock` files in packages
 
 The packages that already have a `yarn.lock` file in them caused some issues. It took me a while to figure out what was
 going on, as sometimes it would work, then after a revert/clean, it wouldn't.
@@ -91,7 +91,7 @@ so having another lockfile in the directory caused it to go haywire.
 
 **Learning**: Remove `yarn.lock` files from individual package directories.
 
-#### Running top-level dependencies
+#### Using top-level dependencies
 
 Our initial use case was to use the same version of TypeScript across all packages. Additionally, we wanted to use the
 `tsc` cli tool provided by TypeScript.
@@ -111,7 +111,7 @@ Subtle, but different.
 
 **Learning**: If hoisting a dependency to the top-level, if it's needed inside a package, use the `run -T` command and flag.
 
-#### Partial hoisting
+#### Incremental Delivery (partial usage of hoisted dependencies)
 
 We wanted to implement Yarn Workspaces incrementally, specifically the hoisting of dependencies to the top-leve. We
 planned to start with TypeScript, then move to things like ESLint and Jest.
