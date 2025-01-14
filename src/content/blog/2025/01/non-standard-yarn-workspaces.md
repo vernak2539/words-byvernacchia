@@ -25,13 +25,13 @@ This post won't focus on the approach we're taking, but rather the single reposi
 
 ## The Repository (more context)
 
-This repository includes languages like TypeScript, Go, Kotlin, and Swift. It also includes packages that integrate into Figma (
-yes, we've thought about our designers too). This means we have a lot of different types of code in one repository.
+This repository includes languages like TypeScript, Go, Kotlin, and Swift. It also includes packages that integrate into Figma
+(yes, we've thought about our designers too). This means we have a lot of different types of code in one repository.
 
 Additionally, code is colocated by functionality rather than by platform. This means Go struct generation is in one
 place, renderers in another, and so on. I really have no problem with this, and I agree with the decision (for the most part 😉).
 
-So I decided to dive in and get involved. How hard could it be to update the TypeScript version. Turns out... it was so
+So I decided to dive in and get involved. How hard could it be to update the TypeScript version? Turns out... it was so
 much fun 😅
 
 As a good steward, I not only wanted to update the TS version of the thing I was working on, but also the version
@@ -47,7 +47,7 @@ In the end it all worked out, and we're in a much better place! 🎉
 
 ### Flexibility
 
-When you got to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces), you them give an example with a directory structure such as:
+When you go to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces) docs, they give an example with a directory structure such as:
 
 ```json
 {
@@ -76,13 +76,57 @@ with a structure like:
 
 Remember to exercise your mind and think different. I swear someone said that somewhere 🤔
 
-### The Transition
+### Learnings (the bad)
 
-yarn.lock file in package messes everything up
-run -T...
-partial hoisting...
+We took some learnings from the implementation, which I think are worth sharing.
 
-### Cool Things
+#### yarn.lock files in packages
+
+The packages that already have a `yarn.lock` file in them caused some issues. It took me a while to figure out what was
+going on, as sometimes it would work, then after a revert/clean, it wouldn't.
+
+I finally tracked it down to a `yarn.lock` file being present in the package directory. Yarn Workspaces seems to use a singular
+top-level `yarn.lock` file to manage dependencies ([github.com/yarnpkg/yarn#5428](https://github.com/yarnpkg/yarn/issues/5428)),
+so having another lockfile in the directory caused it to go haywire.
+
+**Learning**: Remove `yarn.lock` files from individual package directories.
+
+#### Running top-level dependencies
+
+Our initial use case was to use the same version of TypeScript across all packages. Additionally, we wanted to use the
+`tsc` cli tool provided by TypeScript.
+
+After migrating to Yarn Workspaces and moving TypeScript to the top-level, we ran the current build command (`tsc`). And....
+it didn't work.
+
+After some racking my brain and checking what I did elsewhere years ago, I finally found it. To run a script/binary using
+a top-level dependency, one has to use the `-T` flag. See the small differences in the command below:
+
+```diff
+- "build": "tsc",
++ "build": "run -T tsc",
+```
+
+Subtle, but different.
+
+**Learning**: If hoisting a dependency to the top-level, if it's needed inside a package, use the `run -T` command and flag.
+
+#### Partial hoisting
+
+We wanted to implement Yarn Workspaces incrementally, specifically the hoisting of dependencies to the top-leve. We
+planned to start with TypeScript, then move to things like ESLint and Jest.
+
+In theory, this was good. In practice, this caused us more headaches than it was worth. These headaches were specifically
+related to ESLint and how ESLint's plugin system works.
+
+Long story short, because of how plugins are loaded by ESLint, without hoisting the all ESLint configuration and dependencies,
+we ran into problems/errors.
+
+To fix this, we ended up migrating ESLint to a top-level dependency and migrating all packages to use the same config and ESLint version.
+
+**Learning**: Sometimes incremental delivery isn't possible (try not to waste too much time if the situation doesn't warrant it).
+
+### Learnings (cool things)
 
 focus on workspace
 docker fun...
