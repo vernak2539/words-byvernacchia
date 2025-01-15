@@ -25,29 +25,33 @@ This post won't focus on the approach we're taking, but rather the single reposi
 
 ## The Repository (more context)
 
-This repository includes languages like TypeScript, Go, Kotlin, and Swift. It also includes packages that integrate into Figma
-(yes, we've thought about our designers too). This means we have a lot of different types of code in one repository.
+This repository includes many different languages like TypeScript, Go, Kotlin, and Swift. It also includes packages
+that integrate into Figma (yes, we've thought about our designers too).
 
 Additionally, code is colocated by functionality rather than by platform. This means Go struct generation is in one
 place, renderers in another, and so on. I really have no problem with this, and I agree with the decision (for the most part 😉).
 
-So I decided to dive in and get involved. How hard could it be to update the TypeScript version? Turns out... it was so
-much fun 😅
+## Trying to Contribute
+
+So I decided to dive in and get involved. How hard could it be to update the TypeScript version? Turns out... _difficult/fun_ 😅
 
 As a good steward, I not only wanted to update the TS version of the thing I was working on, but also the version
-used by other packages. I quickly found out the repository had five different places TS was used, with usages of npm and yarn
-for package management in different packages (2 yarn vs 3 npm). Ugggghhh. And so the fun began.
+used by other packages. I quickly found out the repository had five different places where TS was used and usages of **both**
+npm and yarn for package management (2 yarn vs 3 npm). And so the fun began.
 
 I ended standardising on Yarn across all the packages, utilising Yarn Workspaces to manage the dependencies. This was a
-good move, but I hesitated and ran into challenges in the process. Let's discuss!
+good move, but I hesitated at first and ran into challenges in the process.
 
 In the end it all worked out, and we're in a much better place! 🎉
 
-## The Good
+Let's discuss!
+
+## The Good (about Yarn Workspaces)
 
 ### Dependency Management
 
-Makes dependency management across packages easy... enough said.
+Yarn Workspaces makes dependency management across packages easy, allowing for top-level dependencies and package
+specific dependencies... enough said.
 
 ### Flexibility
 
@@ -60,12 +64,12 @@ When you go to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces) do
 ```
 
 I've been on this page a lot of times prior to this implementation and always thought to myself, "hmmm, I guess everything
-needs to be in a 'packages' folder." Additionally, our other repositories at work that use Yarn Workspaces conform to
-this structure.
+needs to be in a 'packages' folder." Other repositories at work also use this Yarn Workspaces convention/structure.
 
-Since we have a non-standard setup it took me a moment to remove my previous assumptions and realise that workspaces
-didn't have to live in a singular folder. With code being colocated by functionality rather than platform, we ended up
-with a structure like:
+Since we have a non-standard setup it took me a moment to remove my previous assumptions and realise that workspaces/packages
+don't have to live in a singular folder.
+
+In the end, with code being colocated by functionality rather than platform, our configuration looked like this:
 
 ```json
 {
@@ -82,8 +86,8 @@ Remember to exercise your mind and think different. I swear someone said that so
 
 ### Useful command/functionality
 
-Yarn Workspaces comes with really useful commands. I really liked the ones that didn't require me to move into each
-package's directory. These included:
+Yarn Workspaces comes with super useful commands. I liked the ones that helped me initiate commands without having to
+traverse into an individual workspace/package. These included:
 
 1. `yarn workspaces focus <package>` ([docs](https://yarnpkg.com/cli/workspaces/focus))
    - This allows you to install dependencies for a specific package, as if others didn't exist, while still taking into account top-level dependencies 🙌
@@ -96,7 +100,7 @@ package's directory. These included:
 3. `yarn workspaces list` ([docs](https://yarnpkg.com/cli/workspaces/list))
    - Naming is hard, and when using commands in #1 and #2 it's easy to forget the names of your packages, especially if they don't adhere to the directory name (sometimes there's nothing you can do 🤷)
 
-Now that I look at what I've written, I seem that I found all the workspaces commands useful haha.
+Now that I look at what I've written, I seem to have listed all the workspaces commands haha.
 
 ## The Bad
 
@@ -104,12 +108,11 @@ We took some learnings from the implementation, which I think are worth sharing.
 
 ### `yarn.lock` files in packages
 
-The packages that already have a `yarn.lock` file in them caused some issues. It took me a while to figure out what was
+The packages that already have a `yarn.lock` file present caused issues. It took me a while to figure out what was
 going on, as sometimes it would work, then after a revert/clean, it wouldn't.
 
-I finally tracked it down to a `yarn.lock` file being present in the package directory. Yarn Workspaces seems to use a singular
-top-level `yarn.lock` file to manage dependencies ([github.com/yarnpkg/yarn#5428](https://github.com/yarnpkg/yarn/issues/5428)),
-so having another lockfile in the directory caused it to go haywire.
+Yarn Workspaces seems to use a singular, top-level `yarn.lock` file to manage dependencies ([github.com/yarnpkg/yarn#5428](https://github.com/yarnpkg/yarn/issues/5428)),
+so having a lockfile in the workspace/package caused it to go haywire.
 
 **Learning**: Remove `yarn.lock` files from individual package directories.
 
@@ -118,7 +121,7 @@ so having another lockfile in the directory caused it to go haywire.
 Our initial use case was to use the same version of TypeScript across all packages. Additionally, we wanted to use the
 `tsc` cli tool provided by TypeScript.
 
-After migrating to Yarn Workspaces and moving TypeScript to the top-level, we ran the current build command (`tsc`). And....
+After migrating to Yarn Workspaces and moving TypeScript to be a top-level dependency, we ran the current build command (`tsc`). And....
 it didn't work.
 
 After some racking my brain and checking what I did elsewhere years ago, I finally found it. To run a script/binary using
@@ -135,16 +138,15 @@ Subtle, but different.
 
 ### Incremental Delivery (partial usage of hoisted dependencies)
 
-We wanted to implement Yarn Workspaces incrementally, specifically the hoisting of dependencies to the top-leve. We
-planned to start with TypeScript, then move to things like ESLint and Jest.
+We wanted to adopt top-level dependencies incrementally, starting with TypeScript and then move to things like ESLint and Jest.
 
-In theory, this was good. In practice, this caused us more headaches than it was worth. These headaches were specifically
-related to ESLint and how ESLint's plugin system works.
+In theory, this is good practice (in the wider world as well). In practice, it caused us more headaches than it was worth.
 
-Long story short, because of how plugins are loaded by ESLint, without hoisting the all ESLint configuration and dependencies,
-we ran into problems/errors.
+These headaches were specifically related to ESLint and how ESLint's plugin system works. Long story short, because of
+how plugins are loaded by ESLint, without hoisting the all ESLint configuration and dependencies at once, we ran into
+problems/errors.
 
-To fix this, we ended up migrating ESLint to a top-level dependency and migrating all packages to use the same config and ESLint version.
+In the end we migrated ESLint to be a top-level dependency and had all packages use it and the same configuration.
 
 **Learning**: Sometimes incremental delivery isn't possible (try not to waste too much time if the situation doesn't warrant it).
 
