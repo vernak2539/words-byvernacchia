@@ -59,7 +59,7 @@ When you go to the [Yarn Workspaces](https://yarnpkg.com/features/workspaces) do
 
 ```json
 {
-  "workspaces": ["packages/*"]
+    "workspaces": ["packages/*"]
 }
 ```
 
@@ -73,12 +73,12 @@ In the end, with code being colocated by functionality rather than platform, our
 
 ```json
 {
-  "workspaces": [
-    "docs",
-    "lang/typescript/figma-plugin",
-    "lang/typescript/codegen",
-    "renderers/web"
-  ]
+    "workspaces": [
+        "docs",
+        "lang/typescript/figma-plugin",
+        "lang/typescript/codegen",
+        "renderers/web"
+    ]
 }
 ```
 
@@ -90,15 +90,15 @@ Yarn Workspaces comes with super useful commands. I liked the ones that helped m
 traverse into an individual workspace/package. These included:
 
 1. `yarn workspaces focus <package>` ([docs](https://yarnpkg.com/cli/workspaces/focus))
-   - This allows you to install dependencies for a specific package, as if others didn't exist, while still taking into account top-level dependencies 🙌
-   - **Learning**: This was super helpful when only needing to execute certain tasks for certain packages during CI/CD processes
+    - This allows you to install dependencies for a specific package, as if others didn't exist, while still taking into account top-level dependencies 🙌
+    - **Learning**: This was super helpful when only needing to execute certain tasks for certain packages during CI/CD processes
 2. `yarn workspaces foreach <commandName>` ([docs](https://yarnpkg.com/cli/workspaces/foreach))
-   - This allows you to run a command in each workspace (usually in parallel)
-   - There's a lot of options/flags to add to this, which help with running tasks in the right order when packages depend on each other
-   - **Learning**: This is super helpful when you want to simply and easily execute tasks across all or some packages (duhh)
-   - **Note**: `yarn workspace <workspaceName> <commandName> ...` ([docs](https://yarnpkg.com/cli/workspace)) is the singular version of this command for an individual workspace!
+    - This allows you to run a command in each workspace (usually in parallel)
+    - There's a lot of options/flags to add to this, which help with running tasks in the right order when packages depend on each other
+    - **Learning**: This is super helpful when you want to simply and easily execute tasks across all or some packages (duhh)
+    - **Note**: `yarn workspace <workspaceName> <commandName> ...` ([docs](https://yarnpkg.com/cli/workspace)) is the singular version of this command for an individual workspace!
 3. `yarn workspaces list` ([docs](https://yarnpkg.com/cli/workspaces/list))
-   - Naming is hard, and when using commands in #1 and #2 it's easy to forget the names of your packages, especially if they don't adhere to the directory name (sometimes there's nothing you can do 🤷)
+    - Naming is hard, and when using commands in #1 and #2 it's easy to forget the names of your packages, especially if they don't adhere to the directory name (sometimes there's nothing you can do 🤷)
 
 Now that I look at what I've written, I seem to have listed all the workspaces commands haha.
 
