@@ -10,11 +10,6 @@ import "../../styles/algolia-search.css";
 
 const { getAlgoliaResults } = autocompleteJs;
 
-// testing keys
-// const appId = 'latency'
-// const searchKey = '6be0576ff61c053d5f9a3225e2a90f76';
-// const searchIndex = 'instant_search'
-
 const appId = import.meta.env.PUBLIC_ALGOLIA_APP_ID;
 const searchKey = import.meta.env.PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY;
 const searchIndex = import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME;
@@ -41,38 +36,44 @@ const SearchResult = ({ hit, components }: SearchResultProps) => {
     );
 };
 
-const SearchComponent = () => {
+interface SearchComponentProps {
+    variant: "home" | "blog";
+}
+
+const SearchComponent = ({ variant }: SearchComponentProps) => {
     return (
-        // @ts-ignore
-        <Autocomplete
-            openOnFocus={true}
-            getSources={({ query }) => [
-                {
-                    sourceId: "search_results",
-                    getItems() {
-                        return getAlgoliaResults({
-                            searchClient,
-                            queries: [
-                                {
-                                    indexName: searchIndex,
-                                    query,
-                                },
-                            ],
-                        });
-                    },
-                    templates: {
-                        item({ item, components }) {
-                            return (
-                                <SearchResult
-                                    hit={item}
-                                    components={components}
-                                />
-                            );
+        <div className={`variant-${variant}`}>
+            {/* @ts-ignore */}
+            <Autocomplete
+                openOnFocus={true}
+                getSources={({ query }) => [
+                    {
+                        sourceId: "search_results",
+                        getItems() {
+                            return getAlgoliaResults({
+                                searchClient,
+                                queries: [
+                                    {
+                                        indexName: searchIndex,
+                                        query,
+                                    },
+                                ],
+                            });
+                        },
+                        templates: {
+                            item({ item, components }) {
+                                return (
+                                    <SearchResult
+                                        hit={item}
+                                        components={components}
+                                    />
+                                );
+                            },
                         },
                     },
-                },
-            ]}
-        />
+                ]}
+            />
+        </div>
     );
 };
 

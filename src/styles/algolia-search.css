@@ -1,3 +1,17 @@
+.variant-blog .aa-DetachedSearchButton {
+    width: 30px;
+    height: 30px;
+}
+
+.variant-blog .aa-DetachedSearchButtonIcon {
+    flex-shrink: unset;
+}
+
+.variant-blog .aa-SubmitIcon {
+    width: 100%;
+    cursor: pointer;
+}
+
 a.aa-ItemLink {
     background-image: none;
     color: rgb(var(--accent));

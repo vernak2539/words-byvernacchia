@@ -6,6 +6,7 @@ import Breadcrumbs from "../components/Scaffolding/Breadcrumbs.astro";
 import SiteTitle from "../components/Scaffolding/SiteTitle.astro";
 import Tracking from "../components/Scaffolding/Tracking.astro";
 import Comments from "../components/Scaffolding/Comments.astro";
+import Search from "../components/Search";
 import { SITE_TITLE } from "../constants";
 import { formatDate } from "../utils/datetime-fmt";
 import Footer from "../components/Scaffolding/Footer.astro";
@@ -66,7 +67,14 @@ const {
     </head>
     <body>
         <main class="container">
-            <SiteTitle variant="blog" />
+            <div class="header-container">
+                <div>
+                    <SiteTitle variant="blog" />
+                </div>
+                <div>
+                    <Search client:load variant="blog" />
+                </div>
+            </div>
             <article>
                 <h2 style={{ marginBottom: "1rem", fontSize: "2rem" }}>
                     {blogTitle}
