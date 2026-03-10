@@ -10,7 +10,7 @@ const { post } = Astro.props;
 ---
 
 <li class="blogListItem">
-    <a href={`/${post.collection}/${post.slug}/`}>{post.data.title}</a>
+    <a href={`/${post.collection}/${post.id}/`}>{post.data.title}</a>
     <time datetime={post.data.pubDate.toISOString()}>
         ({formatDate(post.data.pubDate)})
     </time>

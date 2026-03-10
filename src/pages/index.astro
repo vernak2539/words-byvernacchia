@@ -34,7 +34,7 @@ const blogPath = "/blog";
             <Card
                 title={latestPost.data.title}
                 body={latestPost.data.description}
-                href={`${blogPath}/${latestPost.slug}`}
+                href={`${blogPath}/${latestPost.id}`}
                 label={`Latest (${formatDate(latestPost.data.pubDate)})`}
             />
             <Card
