@@ -9,9 +9,11 @@ const { variant } = Astro.props;
 ---
 
 <h1 class={variant}>
-    {SITE_TITLE_SPLIT[0]}{" "}<span class="text-gradient link"
-        ><a href="/">{SITE_TITLE_SPLIT[1]}</a></span
-    >
+    <a class="home-link" href="/">
+        {SITE_TITLE_SPLIT[0]}{" "}<span class="text-gradient link-hover"
+            >{SITE_TITLE_SPLIT[1]}</span
+        >
+    </a>
 </h1>
 
 <style>
@@ -27,6 +29,11 @@ const { variant } = Astro.props;
         margin: 0;
     }
 
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     .text-gradient {
         background-image: var(--accent-gradient);
         -webkit-background-clip: text;
@@ -35,15 +42,11 @@ const { variant } = Astro.props;
         background-position: 0%;
     }
 
-    .blog .link {
-        border-bottom: 3px solid #000;
+    .home-link:hover .link-hover {
+        border-bottom: 3px solid #4a76d4;
     }
 
-    .blog .link {
-        border-width: 1px;
-    }
-
-    .blog .link:hover {
-        border-bottom-color: #4a76d4;
+    .blog .home-link:hover .link-hover {
+        border-bottom: 1px solid #4a76d4;
     }
 </style>
