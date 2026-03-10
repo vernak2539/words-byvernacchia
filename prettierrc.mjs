@@ -10,6 +10,8 @@ export default {
             },
         },
     ],
+    htmlWhitespaceSensitivity: "ignore",
     tabWidth: 4,
+    bracketSameLine: false,
     useTabs: false,
 };
