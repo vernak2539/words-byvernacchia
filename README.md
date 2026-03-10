@@ -1,3 +1,3 @@
 # Words by Vernacchia
- 
- exploring FE tech my way
+
+exploring FE tech my way

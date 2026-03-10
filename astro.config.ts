@@ -5,9 +5,9 @@ import astroRehypeRelativeMarkdownLinks from "astro-rehype-relative-markdown-lin
 import rehypeMermaid from "rehype-mermaid";
 
 const rehypePlugins = [
-  rehypeSlug, 
-  astroRehypeRelativeMarkdownLinks, 
-  [rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]
+    rehypeSlug,
+    astroRehypeRelativeMarkdownLinks,
+    [rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }],
 ];
 
 // https://astro.build/config
@@ -26,21 +26,21 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE_URL,
-  markdown: {
-    rehypePlugins,
-    syntaxHighlight: {
-      type: "shiki",
-      excludeLangs: ["mermaid"]
+    site: SITE_URL,
+    markdown: {
+        rehypePlugins,
+        syntaxHighlight: {
+            type: "shiki",
+            excludeLangs: ["mermaid"],
+        },
     },
-  },
-  integrations: [
-    icon(),
-    sitemap(),
-    robotsTxt(),
-    react(),
-    mdx({
-      rehypePlugins,
-    }),
-  ],
+    integrations: [
+        icon(),
+        sitemap(),
+        robotsTxt(),
+        react(),
+        mdx({
+            rehypePlugins,
+        }),
+    ],
 });
