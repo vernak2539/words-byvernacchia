@@ -2,9 +2,28 @@
 import { Breadcrumbs as AstroBreadcrumbs } from "astro-breadcrumbs";
 
 import "../../styles/breadcrumbs.css";
+
+interface Props {
+    title?: string;
+}
+
+const { title } = Astro.props;
+
+const customizeLinks = title
+    ? [
+          {
+              index: "last",
+              text: title,
+          },
+      ]
+    : [];
 ---
 
-<AstroBreadcrumbs indexText={"home"}>
+<AstroBreadcrumbs
+    indexText={"home"}
+    customizeLinks={customizeLinks}
+    truncated={false}
+>
     <span slot="separator" class="c-breadcrumbs__separator">
         <!-- Add icon or text here -->
         <svg
