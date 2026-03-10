@@ -57,6 +57,6 @@
     "typescript": "^5.7.2"
   },
   "lint-staged": {
-    "*.{js,jsx,md,mdx}": "yarn format"
+    "*.{js,jsx,md,mdx,astro}": "yarn format"
   }
 }
