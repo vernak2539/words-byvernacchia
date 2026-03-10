@@ -2,10 +2,13 @@ import { defineConfig } from "astro/config";
 import { SITE_URL } from "./src/constants";
 import rehypeSlug from "rehype-slug";
 import astroRehypeRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
-import remarkMermaid from "remark-mermaidjs";
+import rehypeMermaid from "rehype-mermaid";
 
-const rehypePlugins = [rehypeSlug, astroRehypeRelativeMarkdownLinks];
-const remarkPlugins = [remarkMermaid];
+const rehypePlugins = [
+  rehypeSlug, 
+  astroRehypeRelativeMarkdownLinks, 
+  [rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]
+];
 
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
@@ -26,7 +29,10 @@ export default defineConfig({
   site: SITE_URL,
   markdown: {
     rehypePlugins,
-    remarkPlugins,
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ["mermaid"]
+    },
   },
   integrations: [
     icon(),
@@ -35,7 +41,6 @@ export default defineConfig({
     react(),
     mdx({
       rehypePlugins,
-      remarkPlugins,
     }),
   ],
 });
