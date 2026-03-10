@@ -10,7 +10,7 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier --config prettierrc.mjs \"./src/**\" \"./bin/**\" -w",
+        "format": "prettier \"./src/**\" \"./bin/**\" -w",
         "postinstall": "husky",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
