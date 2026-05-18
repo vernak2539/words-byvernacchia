@@ -31,7 +31,7 @@ const today = new Date(`${year}-01-01`);
 const title = today.toLocaleDateString("en-US", options);
 ---
 
-<Layout>
+<Layout searchable={false}>
     <p><strong>Posts from {title}</strong></p>
     <BlogPostList posts={posts} />
 </Layout>

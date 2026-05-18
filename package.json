@@ -10,15 +10,12 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier \"./src/**\" \"./bin/**\" -w",
+        "format": "prettier \"./src/**\" -w",
         "postinstall": "husky",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
     },
     "dependencies": {
-        "@algolia/autocomplete-js": "^1.17.7",
-        "@algolia/autocomplete-theme-classic": "^1.17.7",
-        "@algolia/client-search": "^4.24.0",
         "@astro-community/astro-embed-twitter": "^0.5.11",
         "@astrojs/mdx": "5.0.6",
         "@astrojs/react": "5.0.5",
@@ -28,10 +25,10 @@
         "@iconify-json/mdi": "^1.2.3",
         "@types/react": "^18.3.28",
         "@types/react-dom": "^18.3.7",
-        "algoliasearch": "^4.24.0",
         "astro": "6.3.3",
         "astro-breadcrumbs": "^3.3.3",
         "astro-icon": "^1.1.5",
+        "astro-pagefind": "^2.0.0",
         "astro-rehype-relative-markdown-links": "^0.18.1",
         "astro-robots-txt": "^1.0.0",
         "glob": "^13.0.6",
@@ -45,14 +42,11 @@
         "sanitize-html": "^2.17.1"
     },
     "devDependencies": {
-        "dotenv": "^17.3.1",
-        "gray-matter": "^4.0.3",
         "husky": "^9.1.7",
         "lint-staged": "^16.3.3",
         "pinst": "^3.0.0",
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "^0.14.1",
-        "remove-markdown": "^0.6.3",
         "typescript": "^5.9.3"
     },
     "lint-staged": {
