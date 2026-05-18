@@ -1,0 +1,94 @@
+---
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
+---
+
+<PagefindConfig />
+
+<div class="search-wrapper">
+    <pagefind-modal-trigger shortcut="mod+k" compact></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+</div>
+
+<style is:global>
+    :root {
+        --pagefind-ui-primary: #773feb;
+        --pagefind-ui-text: #000;
+        --pagefind-ui-background: #fff;
+        --pagefind-ui-border: #ccc;
+        --pagefind-ui-tag: #eee;
+    }
+
+    .search-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    /* Target the Pagefind modal trigger button to match the screenshot */
+    pagefind-modal-trigger button {
+        display: flex !important;
+        align-items: center !important;
+        background: #fff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 4px 10px !important;
+        cursor: pointer !important;
+        color: #64748b !important;
+        font-size: 0.9rem !important;
+        font-family:
+            system-ui,
+            -apple-system,
+            sans-serif !important;
+        width: auto !important;
+        min-width: unset !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        transition: all 0.2s !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    pagefind-modal-trigger button:hover {
+        border-color: #cbd5e1 !important;
+        background-color: #f8fafc !important;
+    }
+
+    /* Style the inner content of the trigger */
+    pagefind-modal-trigger .pagefind-ui__search-icon {
+        width: 16px !important;
+        height: 16px !important;
+        opacity: 0.6 !important;
+        background-color: #64748b !important;
+    }
+
+    /* Style the shortcut hint to look like boxes in the screenshot */
+    pagefind-modal-trigger .pagefind-ui__shortcut {
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    pagefind-modal-trigger kbd,
+    pagefind-modal-trigger .pagefind-ui__shortcut span {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 4px !important;
+        padding: 1px 6px !important;
+        min-width: 20px !important;
+        text-align: center !important;
+        color: #475569 !important;
+        font-family: system-ui, sans-serif !important;
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !important;
+        text-transform: uppercase !important;
+        display: inline-block !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Ensure the modal itself is styled nicely */
+    .pagefind-ui__modal-content {
+        max-width: 600px !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+    }
+</style>
