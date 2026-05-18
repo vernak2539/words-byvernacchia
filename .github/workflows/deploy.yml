@@ -17,12 +17,6 @@ permissions:
 jobs:
     build:
         runs-on: ubuntu-latest
-        environment:
-            name: build-content
-        env:
-            PUBLIC_ALGOLIA_APP_ID: ${{ vars.PUBLIC_ALGOLIA_APP_ID }}
-            PUBLIC_ALGOLIA_INDEX_NAME: ${{ vars.PUBLIC_ALGOLIA_INDEX_NAME }}
-            PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY: ${{ vars.PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY }}
         steps:
             - name: Checkout your repository using git
               uses: actions/checkout@v4
@@ -43,23 +37,3 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
-
-    build-publish-search-index:
-        runs-on: ubuntu-latest
-        environment:
-            name: build-search-data
-        env:
-            ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_WRITE_API_KEY }}
-            ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
-            ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
-        steps:
-            - name: Checkout your repository using git
-              uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 22
-                  cache: "yarn"
-            - name: Install Dependencies
-              run: yarn --immutable
-            - name: Build + publish search data
-              run: node ./bin/build-search.js
