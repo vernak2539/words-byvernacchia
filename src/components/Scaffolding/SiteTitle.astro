@@ -8,22 +8,22 @@ export interface Props {
 const { variant } = Astro.props;
 ---
 
-<h1 class={variant}>
+<div class={`site-title ${variant}`}>
     <a class="home-link" href="/">
         {SITE_TITLE_SPLIT[0]}{" "}<span class="text-gradient link-hover">
             {SITE_TITLE_SPLIT[1]}
         </span>
     </a>
-</h1>
+</div>
 
 <style>
-    h1.home {
+    .site-title.home {
         font-size: 2.75rem;
         font-weight: 800;
         margin: 0;
     }
 
-    h1.blog {
+    .site-title.blog {
         font-size: 1rem;
         font-weight: 800;
         margin: 0;
@@ -46,7 +46,7 @@ const { variant } = Astro.props;
         border-bottom: 3px solid #4a76d4;
     }
 
-    .blog .home-link:hover .link-hover {
+    .site-title.blog .home-link:hover .link-hover {
         border-bottom: 1px solid #4a76d4;
     }
 </style>
