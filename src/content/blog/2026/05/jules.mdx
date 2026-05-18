@@ -5,6 +5,11 @@ pubDate: "2026-05-17"
 tags: ["ai", "gemini-cli", "google", "jules"]
 ---
 
+import { Image } from "astro:assets";
+import imgTooMany from "./img/jules_001-too-many.png";
+import imgSamePrs from "./img/jules_002-same-prs.png";
+import imgMergeConflict from "./img/jules_003-merge-conflicts.png";
+
 As I said in my [last post](../03/gemini-cli.mdx), I don't like [Jules](https://jules.google.com).
 
 Honestly, it just feels like a half-baked product. I think there's a lot of potential, but I'm not into it at the moment.
@@ -24,12 +29,22 @@ issues. So, this sounds like a really cool thing to use to cover yourself.
 But, I've actually found it quite difficult to manage. This is because the schedule, which is definitely in control
 of what I can change. But, life gets in the way and you forget. Then you come back to this...
 
-![](./img/jules_001-too-many.png)
+<Image
+    src={imgTooMany}
+    alt="Jules with too many open PRs"
+    width={610}
+    style="width:100%"
+/>
 
 This is just the dashboard of Jules, but it shows just how much it's working. But, when you then look at the PRs, they're
 basically fixing all the same thing over and over again.
 
-![](./img/jules_002-same-prs.png)
+<Image
+    src={imgSamePrs}
+    alt="Jules with too many open PRs"
+    width={610}
+    style="width:100%"
+/>
 
 It would be really cool if it kept track of the PRs it made and then wouldn't make them again. I say again, it would be
 an **amazing feature** if it took into account past PRs and only raised new ones if the issue wasn't already tackled.
@@ -41,7 +56,12 @@ you have this agent that is running in the background making changes. It's inevi
 
 I thought it would be pretty easy to fix by directing Jules to do it, but I wasn't so lucky.
 
-![](./img/jules_003-merge-conflicts.png)
+<Image
+    src={imgMergeConflict}
+    alt="Jules merge conflict"
+    width={610}
+    style="width:100%"
+/>
 
 The screenshot above shows me trying to do this from the PR itself. I've also tried from the Jules console, but no luck.
 It says something about not having access, but it does have access to my repo. It's kind of weird really.
