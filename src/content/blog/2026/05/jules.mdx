@@ -1,0 +1,60 @@
+---
+title: "Damn it Jules..."
+description: "This thing is crazy... bad"
+pubDate: "2026-05-17"
+tags: ["ai", "gemini-cli", "google", "jules"]
+---
+
+As I said in my [last post](../03/gemini-cli.mdx), I don't like [Jules](https://jules.google.com).
+
+Honestly, it just feels like a half-baked product. I think there's a lot of potential, but I'm not into it at the moment.
+
+Why?? We'll let's get into it.
+
+## Bolt
+
+> You are "Bolt" ⚡ - a performance-obsessed agent who makes the codebase faster...
+
+Bolt is essentially an scheduled job that looks to improve performance in your codebase. You can set it up to run on your
+preferred schedule, and when it does it will look for performance improvements.
+
+Sounds cool, right? When you get into the weeds and make a lot of changes, you can miss small or large performance
+issues. So, this sounds like a really cool thing to use to cover yourself.
+
+But, I've actually found it quite difficult to manage. This is because the schedule, which is definitely in control
+of what I can change. But, life gets in the way and you forget. Then you come back to this...
+
+![](./img/jules_001-too-many.png)
+
+This is just the dashboard of Jules, but it shows just how much it's working. But, when you then look at the PRs, they're
+basically fixing all the same thing over and over again.
+
+![](./img/jules_002-same-prs.png)
+
+It would be really cool if it kept track of the PRs it made and then wouldn't make them again. I say again, it would be
+an **amazing feature** if it took into account past PRs and only raised new ones if the issue wasn't already tackled.
+
+## Merge Conflicts
+
+When you get in a groove, there's a lot of things going on in your repo. You're merging things left and right and then
+you have this agent that is running in the background making changes. It's inevitable, you'll get merge conflicts.
+
+I thought it would be pretty easy to fix by directing Jules to do it, but I wasn't so lucky.
+
+![](./img/jules_003-merge-conflicts.png)
+
+The screenshot above shows me trying to do this from the PR itself. I've also tried from the Jules console, but no luck.
+It says something about not having access, but it does have access to my repo. It's kind of weird really.
+
+This is table stakes Jules. Come on.
+
+## General Usage
+
+I found that when I wanted to move fast, it didn't. I would get it to spin up a plan for some functionality, but I would
+constantly be waiting for either the plan to complete, things to finish working, or something else. Most of the time
+it was just a small change I wanted to make or to nudge it in the right direction.
+
+## The End
+
+I don't think I'll be using Jules much more, and will likely be disabling the scheduling of Bolt. I think it does have
+promise, as I'd really like to run a bunch of agents on a codebase autonomously, but I don't think it's there yet
