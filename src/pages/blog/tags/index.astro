@@ -6,7 +6,7 @@ const posts = await getCollection("blog");
 const tags = [...new Set(posts.map((post) => post.data.tags).flat())].sort();
 ---
 
-<Layout>
+<Layout searchable={false}>
     <h2>All Tags</h2>
     <div class="tags">
         {

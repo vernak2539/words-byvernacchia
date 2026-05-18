@@ -8,6 +8,6 @@ const posts = await getCollection("blog", ({ data }) => {
 });
 ---
 
-<Layout>
+<Layout searchable={false}>
     <BlogPostList posts={posts} />
 </Layout>
